@@ -52,6 +52,10 @@ musical-morphospace/
 │   ├── backends.py              # LLM backends (offline / Claude / Ollama)
 │   ├── expedition.py            # orchestrator — one expedition end-to-end
 │   └── finalize.py              # for offline-mode completion
+├── viewer/
+│   ├── project.py               # classical MDS → projection.json (pure numpy)
+│   ├── projection.json          # 2D coordinates for corpus + expeditions
+│   └── index.html               # canvas-based interactive scatter
 └── coherence.py                 # hard + soft constraint checker
 ```
 
@@ -82,6 +86,9 @@ python3 -m loop.expedition --backend ollama
 
 # Finalize an offline expedition after pasting LLM response into field_notes.md
 python3 -m loop.finalize <expedition_number>
+
+# Regenerate the 2D projection after new expeditions are added
+python3 viewer/project.py
 ```
 
 Requires Python 3 + numpy. Optional: `anthropic` SDK for Claude backend, `requests` for Ollama.
@@ -98,7 +105,7 @@ Requires Python 3 + numpy. Optional: `anthropic` SDK for Claude backend, `reques
 
 ## Status
 
-Built 2026-04-21. Complete end-to-end pipeline: schema, 84-tradition corpus, prompts, coherence checker, expedition loop (sample → coherence-check → LLM call → render → archive), and synthesis engine all in place. Three LLM backends supported (offline, Claude API, Ollama). The morphospace UMAP viewer is the remaining feature.
+Built 2026-04-21. Complete end-to-end pipeline: schema, 84-tradition corpus, prompts, coherence checker, expedition loop (sample → coherence-check → LLM call → render → archive), synthesis engine, and 2D morphospace map all in place. Three LLM backends supported (offline, Claude API, Ollama). Ready to run expeditions.
 
 ## Architecture
 

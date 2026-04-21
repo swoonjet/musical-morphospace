@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morphospace Map · Musical Morphospace</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --bg-2: #121212;
+    --bg-3: #1a1a1a;
+    --border: #2a2a2a;
+    --text: #e8e8e8;
+    --text-dim: #888;
+    --text-faint: #555;
+    --gold: #c9a962;
+    --gold-dim: #8c7440;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Mono', 'SF Mono', Menlo, monospace;
+    font-size: 13px;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  header {
+    padding: 20px 32px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 32px;
+  }
+  header .title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    letter-spacing: -0.015em;
+  }
+  header .title em { color: var(--gold); font-style: italic; font-weight: 500; }
+  header .subtitle {
+    font-size: 11px;
+    color: var(--text-faint);
+    margin-top: 4px;
+    letter-spacing: 0.04em;
+  }
+  header .meta {
+    display: flex;
+    gap: 24px;
+    font-size: 11px;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+  header .meta span b { color: var(--text); font-weight: 400; }
+  header nav a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+  header nav a:hover { color: var(--gold); }
+
+  main {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+  }
+
+  canvas#scatter {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: crosshair;
+  }
+
+  #tooltip {
+    position: absolute;
+    pointer-events: none;
+    background: var(--bg-2);
+    border: 1px solid var(--gold-dim);
+    padding: 8px 12px;
+    font-size: 11px;
+    max-width: 300px;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.5);
+    transform: translate(12px, 12px);
+    display: none;
+    z-index: 10;
+  }
+  #tooltip .tt-name { color: var(--gold); font-weight: 500; margin-bottom: 2px; }
+  #tooltip .tt-region { color: var(--text-dim); font-size: 10px; letter-spacing: 0.03em; }
+
+  #panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 100%;
+    background: var(--bg-2);
+    border-left: 1px solid var(--border);
+    padding: 32px 28px;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.2s ease;
+    z-index: 20;
+  }
+  #panel.open { transform: translateX(0); }
+  #panel .close {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    font-size: 20px;
+    cursor: pointer;
+  }
+  #panel .close:hover { color: var(--gold); }
+  #panel h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 4px;
+    padding-right: 30px;
+    letter-spacing: -0.01em;
+  }
+  #panel .region {
+    color: var(--text-dim);
+    font-size: 11px;
+    margin-bottom: 12px;
+  }
+  #panel .anchor-badge {
+    display: inline-block;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 1px 8px;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  #panel h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-faint);
+    margin: 20px 0 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--border);
+  }
+  #panel .cat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2px 12px;
+    font-size: 11px;
+  }
+  #panel .cat-grid .k { color: var(--text-dim); }
+  #panel .cat-grid .v { color: var(--gold); }
+  #panel .cont-bars { display: flex; flex-direction: column; gap: 4px; font-size: 10px; }
+  #panel .cont-bar {
+    display: grid;
+    grid-template-columns: 140px 1fr 40px;
+    gap: 8px;
+    align-items: center;
+  }
+  #panel .cont-bar .label { color: var(--text-dim); font-size: 10px; }
+  #panel .cont-bar .track {
+    height: 6px;
+    background: var(--bg-3);
+    border: 1px solid var(--border);
+    position: relative;
+  }
+  #panel .cont-bar .fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: var(--gold);
+  }
+  #panel .cont-bar .val { color: var(--text); text-align: right; font-size: 10px; }
+  #panel .notes {
+    font-size: 11px;
+    line-height: 1.6;
+    color: var(--text);
+    padding: 12px;
+    background: var(--bg-3);
+    border-left: 2px solid var(--gold);
+  }
+
+  #legend {
+    position: absolute;
+    bottom: 16px;
+    left: 32px;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    padding: 14px 18px;
+    font-size: 11px;
+    color: var(--text-dim);
+    z-index: 10;
+  }
+  #legend .row { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+  #legend .row:last-child { margin-bottom: 0; }
+  #legend .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  #legend .dot-corpus { background: #888; }
+  #legend .dot-anchor { background: var(--gold); border: 1px solid var(--gold); }
+  #legend .dot-expedition {
+    background: var(--gold);
+    box-shadow: 0 0 10px var(--gold);
+  }
+
+  #note {
+    position: absolute;
+    bottom: 16px;
+    right: 32px;
+    font-size: 10px;
+    color: var(--text-faint);
+    text-align: right;
+    max-width: 260px;
+    line-height: 1.5;
+    letter-spacing: 0.03em;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="title">The Map of <em>What Exists</em></div>
+    <div class="subtitle">Classical MDS projection of 84 musical traditions in 30-dimensional morphospace</div>
+  </div>
+  <div class="meta">
+    <span id="corpus-count">84 <b>traditions</b></span>
+    <span id="anchor-count">20 <b>anchors</b></span>
+    <span id="expedition-count">0 <b>expeditions</b></span>
+  </div>
+  <nav><a href="../">← Musical Morphospace</a></nav>
+</header>
+
+<main>
+  <canvas id="scatter"></canvas>
+  <div id="tooltip"></div>
+  <div id="panel">
+    <button class="close" id="panel-close">×</button>
+    <div id="panel-body"></div>
+  </div>
+  <div id="legend">
+    <div class="row"><span class="dot dot-corpus"></span> corpus tradition</div>
+    <div class="row"><span class="dot dot-anchor"></span> calibrating anchor</div>
+    <div class="row"><span class="dot dot-expedition"></span> expedition specimen</div>
+  </div>
+  <div id="note">
+    Empty space is the field. Dense regions are where the world's cultures clustered. The agent samples far from every dot.
+  </div>
+</main>
+
+<script>
+const CONT_DIMS = [
+  "pitch_density", "microtonality_degree", "octave_equivalence", "interval_hierarchy", "pitch_flexibility",
+  "metric_periodicity", "rhythmic_density", "polyrhythmic_complexity", "cycle_length", "tempo_stability",
+  "piece_duration", "formal_repetition", "development_arc",
+  "voice_count", "voice_independence", "drone_presence",
+  "improvisation_degree", "ornament_density",
+];
+
+let data = null;
+let canvas = document.getElementById('scatter');
+let ctx = canvas.getContext('2d');
+let hover = null;
+let selected = null;
+let dpr = window.devicePixelRatio || 1;
+
+function resize() {
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = rect.width * dpr;
+  canvas.height = rect.height * dpr;
+  ctx.scale(dpr, dpr);
+  draw();
+}
+window.addEventListener('resize', resize);
+
+function worldToScreen(x, y) {
+  const rect = canvas.getBoundingClientRect();
+  const w = rect.width;
+  const h = rect.height;
+  const pad = 80;
+  const sx = pad + ((x + 1) / 2) * (w - 2 * pad);
+  // flip y for screen (y-up in world, y-down in screen)
+  const sy = pad + ((1 - y) / 2) * (h - 2 * pad);
+  return [sx, sy];
+}
+
+function dotRadius(point) {
+  if (point.type === 'expedition') return 7;
+  if (point.is_anchor) return 5;
+  return 3.5;
+}
+
+function dotColor(point, isHover, isSelected) {
+  if (point.type === 'expedition') return isHover ? '#ffd98a' : '#c9a962';
+  if (point.is_anchor) return isHover || isSelected ? '#c9a962' : '#c9a962';
+  return isHover || isSelected ? '#e8e8e8' : '#7a7a7a';
+}
+
+function draw() {
+  if (!data) return;
+  const rect = canvas.getBoundingClientRect();
+  ctx.clearRect(0, 0, rect.width, rect.height);
+
+  // faint axes
+  ctx.strokeStyle = 'rgba(42,42,42,0.6)';
+  ctx.lineWidth = 1;
+  const [cx1, cy1] = worldToScreen(-1, 0);
+  const [cx2, cy2] = worldToScreen(1, 0);
+  ctx.beginPath(); ctx.moveTo(cx1, cy1); ctx.lineTo(cx2, cy2); ctx.stroke();
+  const [dx1, dy1] = worldToScreen(0, -1);
+  const [dx2, dy2] = worldToScreen(0, 1);
+  ctx.beginPath(); ctx.moveTo(dx1, dy1); ctx.lineTo(dx2, dy2); ctx.stroke();
+
+  const allPoints = [
+    ...data.corpus.map(c => ({...c, type: 'corpus'})),
+    ...data.expeditions.map(e => ({...e, type: 'expedition'})),
+  ];
+
+  // Expeditions last so they layer on top. First pass draw corpus.
+  for (const p of allPoints) {
+    const [x, y] = worldToScreen(p.x, p.y);
+    const isHover = hover === p;
+    const isSelected = selected && selected.id === p.id;
+    const r = dotRadius(p);
+
+    if (p.type === 'expedition') {
+      // glow
+      const glow = ctx.createRadialGradient(x, y, 0, x, y, r * 5);
+      glow.addColorStop(0, 'rgba(201,169,98,0.6)');
+      glow.addColorStop(1, 'rgba(201,169,98,0)');
+      ctx.fillStyle = glow;
+      ctx.beginPath(); ctx.arc(x, y, r * 5, 0, Math.PI * 2); ctx.fill();
+    }
+
+    ctx.fillStyle = dotColor(p, isHover, isSelected);
+    ctx.beginPath(); ctx.arc(x, y, r + (isHover ? 2 : 0), 0, Math.PI * 2); ctx.fill();
+
+    if (p.is_anchor && p.type === 'corpus') {
+      ctx.strokeStyle = 'rgba(201,169,98,0.6)';
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.arc(x, y, r + 3, 0, Math.PI * 2); ctx.stroke();
+    }
+  }
+
+  // hover tooltip
+  const tip = document.getElementById('tooltip');
+  if (hover) {
+    const [x, y] = worldToScreen(hover.x, hover.y);
+    tip.style.display = 'block';
+    tip.style.left = x + 'px';
+    tip.style.top = y + 'px';
+    let html = `<div class="tt-name">${hover.name}</div>`;
+    if (hover.region) html += `<div class="tt-region">${hover.region}</div>`;
+    if (hover.curiosity_score != null) html += `<div class="tt-region">curiosity ${hover.curiosity_score.toFixed(2)}</div>`;
+    tip.innerHTML = html;
+  } else {
+    tip.style.display = 'none';
+  }
+}
+
+function hitTest(mx, my) {
+  if (!data) return null;
+  const allPoints = [
+    ...data.corpus.map(c => ({...c, type: 'corpus'})),
+    ...data.expeditions.map(e => ({...e, type: 'expedition'})),
+  ];
+  // topmost first (expeditions on top)
+  for (const p of allPoints.slice().reverse()) {
+    const [x, y] = worldToScreen(p.x, p.y);
+    const r = dotRadius(p) + 4;
+    if ((mx - x) ** 2 + (my - y) ** 2 < r * r) return p;
+  }
+  return null;
+}
+
+canvas.addEventListener('mousemove', (e) => {
+  const rect = canvas.getBoundingClientRect();
+  const mx = e.clientX - rect.left;
+  const my = e.clientY - rect.top;
+  const newHover = hitTest(mx, my);
+  if (newHover !== hover) {
+    hover = newHover;
+    canvas.style.cursor = hover ? 'pointer' : 'crosshair';
+    draw();
+  }
+});
+canvas.addEventListener('click', (e) => {
+  const rect = canvas.getBoundingClientRect();
+  const p = hitTest(e.clientX - rect.left, e.clientY - rect.top);
+  if (p) openPanel(p);
+});
+
+function openPanel(p) {
+  selected = p;
+  const body = document.getElementById('panel-body');
+  let html = `<h2>${p.name}</h2>`;
+  if (p.region) html += `<div class="region">${p.region}</div>`;
+  if (p.is_anchor) html += `<div class="anchor-badge">anchor</div>`;
+  if (p.curiosity_score != null) {
+    html += `<div class="region">Curiosity: <b style="color:var(--gold)">${p.curiosity_score.toFixed(3)}</b></div>`;
+  }
+
+  if (p.continuous) {
+    html += '<h3>Continuous parameters</h3><div class="cont-bars">';
+    for (const d of CONT_DIMS) {
+      const v = p.continuous[d];
+      if (v == null) continue;
+      html += `<div class="cont-bar"><span class="label">${d}</span><div class="track"><div class="fill" style="width:${v*100}%"></div></div><span class="val">${v.toFixed(2)}</span></div>`;
+    }
+    html += '</div>';
+  }
+
+  if (p.categorical) {
+    html += '<h3>Categorical</h3><div class="cat-grid">';
+    for (const [k, v] of Object.entries(p.categorical)) {
+      html += `<div class="k">${k}</div><div class="v">${v}</div>`;
+    }
+    html += '</div>';
+  }
+
+  if (p.notes) {
+    html += '<h3>Notes</h3><div class="notes">' + p.notes + '</div>';
+  }
+
+  body.innerHTML = html;
+  document.getElementById('panel').classList.add('open');
+  draw();
+}
+
+document.getElementById('panel-close').addEventListener('click', () => {
+  selected = null;
+  document.getElementById('panel').classList.remove('open');
+  draw();
+});
+
+async function init() {
+  const res = await fetch('projection.json');
+  data = await res.json();
+  document.getElementById('corpus-count').innerHTML = `${data.corpus_count} <b>traditions</b>`;
+  document.getElementById('anchor-count').innerHTML = `${data.corpus.filter(c => c.is_anchor).length} <b>anchors</b>`;
+  document.getElementById('expedition-count').innerHTML = `${data.expedition_count} <b>expeditions</b>`;
+  resize();
+}
+init();
+</script>
+</body>
+</html>
