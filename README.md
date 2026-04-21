@@ -46,6 +46,12 @@ musical-morphospace/
 │       └── index.html           # expedition detail page
 ├── synthesis/
 │   └── engine.py                # audio_spec.json → WAV (numpy additive synth)
+├── loop/
+│   ├── distance.py              # morphospace distance metric
+│   ├── sampler.py               # rejection sampler biased toward empty regions
+│   ├── backends.py              # LLM backends (offline / Claude / Ollama)
+│   ├── expedition.py            # orchestrator — one expedition end-to-end
+│   └── finalize.py              # for offline-mode completion
 └── coherence.py                 # hard + soft constraint checker
 ```
 
@@ -60,9 +66,25 @@ python3 corpus/build_corpus.py
 
 # Render audio from a spec file (JSON or markdown-embedded)
 python3 synthesis/engine.py <spec_path> <output.wav> [seed]
+
+# Run one expedition (offline — writes prompt to disk for manual LLM)
+python3 -m loop.expedition --backend offline
+
+# Run one expedition (Claude API)
+export ANTHROPIC_API_KEY=sk-ant-...
+pip install --user --break-system-packages anthropic
+python3 -m loop.expedition --backend claude
+
+# Run one expedition (local Ollama)
+ollama serve &
+ollama pull mistral
+python3 -m loop.expedition --backend ollama
+
+# Finalize an offline expedition after pasting LLM response into field_notes.md
+python3 -m loop.finalize <expedition_number>
 ```
 
-Requires Python 3 + numpy. No other dependencies.
+Requires Python 3 + numpy. Optional: `anthropic` SDK for Claude backend, `requests` for Ollama.
 
 ## Synthesis engine capabilities
 
@@ -76,7 +98,7 @@ Requires Python 3 + numpy. No other dependencies.
 
 ## Status
 
-Built 2026-04-21. Schema, corpus, prompts, coherence checker, and synthesis engine in place. The expedition loop itself (sample → coherence-check → prompt LLM → render → archive) and the morphospace UMAP viewer are next.
+Built 2026-04-21. Complete end-to-end pipeline: schema, 84-tradition corpus, prompts, coherence checker, expedition loop (sample → coherence-check → LLM call → render → archive), and synthesis engine all in place. Three LLM backends supported (offline, Claude API, Ollama). The morphospace UMAP viewer is the remaining feature.
 
 ## Architecture
 
