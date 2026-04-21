@@ -1,0 +1,226 @@
+{
+  "schema_version": "0.1.0",
+  "description": "Morphospace coordinates for a musical system. 30 dimensions: 18 continuous + 12 categorical. A point in this space defines a generative grammar, not a sound. Real-world traditions are encoded as points; expeditions sample empty regions of the space under a coherence constraint.",
+
+  "continuous": {
+    "_note": "All continuous dimensions are normalized to [0.0, 1.0]. Distance metric on continuous dimensions is Euclidean after per-dimension weighting. Sampling and UMAP operate primarily on this subspace.",
+
+    "pitch_density": {
+      "range": [0.0, 1.0],
+      "description": "Number of distinct pitches per octave-equivalent cycle, normalized against a 3–60 range. 0.0 = 3-pitch system, 1.0 = 60+ pitch system. Non-octave-repeating systems use pitches-per-primary-cycle.",
+      "real_examples": {"blues_pentatonic": 0.03, "twelve_tet": 0.16, "carnatic_22_shruti": 0.33, "partch_43": 0.70}
+    },
+    "microtonality_degree": {
+      "range": [0.0, 1.0],
+      "description": "Degree of deviation from 12-tone equal temperament. 0.0 = strictly 12-TET, 1.0 = continuous pitch space / freely microtonal with no fixed intervals.",
+      "real_examples": {"western_classical": 0.0, "delta_blues": 0.15, "arabic_maqam": 0.55, "persian_dastgah": 0.6, "free_spectral": 1.0}
+    },
+    "octave_equivalence": {
+      "range": [0.0, 1.0],
+      "description": "Strength of octave equivalence as an organizing principle. 1.0 = strict (scales repeat at 2:1), 0.0 = no octave concept (Bohlen-Pierce-like, spectral, or ratio-based without 2:1).",
+      "real_examples": {"western_tonal": 1.0, "javanese_slendro": 0.95, "bohlen_pierce": 0.0, "spectral_composition": 0.2}
+    },
+    "interval_hierarchy": {
+      "range": [0.0, 1.0],
+      "description": "Degree to which certain pitches dominate the system. 0.0 = all pitches functionally equal (serialism, some gamelan), 1.0 = strong tonic + clear hierarchical ranking (tonal music, raga with vadi/samvadi).",
+      "real_examples": {"strict_serialism": 0.0, "balinese_gamelan": 0.3, "blues": 0.7, "hindustani_raga": 0.95}
+    },
+    "pitch_flexibility": {
+      "range": [0.0, 1.0],
+      "description": "How fixed or inflected pitches are in performance. 0.0 = fixed (piano, fretted instruments), 1.0 = continuously bent/inflected (sitar meends, blues bends, vocal portamento as rule).",
+      "real_examples": {"piano_recital": 0.0, "classical_violin": 0.4, "blues_vocal": 0.75, "hindustani_khayal": 0.95}
+    },
+
+    "metric_periodicity": {
+      "range": [0.0, 1.0],
+      "description": "Strictness of metric pulse. 0.0 = non-metric/free (alap, gagaku floating, ambient), 1.0 = strict isochronous meter maintained throughout.",
+      "real_examples": {"alap_section": 0.05, "japanese_gagaku": 0.2, "classical_rubato": 0.5, "techno": 1.0}
+    },
+    "rhythmic_density": {
+      "range": [0.0, 1.0],
+      "description": "Events per unit time relative to tempo. 0.0 = extremely sparse (one event per several seconds), 1.0 = near-continuous event stream.",
+      "real_examples": {"drone_meditation": 0.05, "slow_movement": 0.3, "bebop_melody": 0.85, "hyperpop": 0.95}
+    },
+    "polyrhythmic_complexity": {
+      "range": [0.0, 1.0],
+      "description": "Number and independence of simultaneous rhythmic layers. 0.0 = single rhythmic stream, 1.0 = 5+ independent rhythmic strata with irrational ratios.",
+      "real_examples": {"pop_song": 0.2, "west_african_drum_ensemble": 0.8, "ligeti_piano_etudes": 0.9}
+    },
+    "cycle_length": {
+      "range": [0.0, 1.0],
+      "description": "Length of the primary rhythmic cycle, normalized logarithmically. 0.0 = 2-beat cycle, 1.0 = 100+ beat cycle. Non-cyclical systems are 0.0.",
+      "real_examples": {"four_on_the_floor": 0.15, "hindustani_teental_16": 0.45, "carnatic_simhanandana_128": 0.95}
+    },
+    "tempo_stability": {
+      "range": [0.0, 1.0],
+      "description": "Degree to which tempo is held constant. 0.0 = fully rubato / tempo is an expressive parameter, 1.0 = click-track-strict.",
+      "real_examples": {"chopin_nocturne": 0.4, "alap_jor_jhala_arc": 0.2, "edm": 1.0}
+    },
+
+    "piece_duration": {
+      "range": [0.0, 1.0],
+      "description": "Target duration of a single performance unit, log-normalized. 0.0 = 30 seconds, 1.0 = 6 hours.",
+      "real_examples": {"pop_song": 0.25, "symphony_movement": 0.5, "hindustani_khayal": 0.75, "aboriginal_song_cycle": 1.0}
+    },
+    "formal_repetition": {
+      "range": [0.0, 1.0],
+      "description": "Degree of cyclical repetition vs. through-composition. 0.0 = strictly through-composed, 1.0 = pure cyclical return with no linear development.",
+      "real_examples": {"sonata_form": 0.4, "blues_12_bar": 0.85, "gamelan_gong_cycle": 0.95, "chinese_qin_narrative": 0.1}
+    },
+    "development_arc": {
+      "range": [0.0, 1.0],
+      "description": "Degree to which the piece exhibits a climactic or developmental arc. 0.0 = static/contemplative (no arc), 1.0 = strong build-climax-release structure.",
+      "real_examples": {"morton_feldman": 0.05, "gamelan_cycle": 0.2, "alap_jor_jhala": 0.85, "mahler_symphony": 0.95}
+    },
+
+    "voice_count": {
+      "range": [0.0, 1.0],
+      "description": "Typical number of simultaneous voices/parts, log-normalized. 0.0 = solo, 1.0 = 40+ independent voices.",
+      "real_examples": {"solo_khayal": 0.05, "string_quartet": 0.2, "javanese_gamelan": 0.7, "tallis_spem_in_alium": 0.85}
+    },
+    "voice_independence": {
+      "range": [0.0, 1.0],
+      "description": "Independence of voices when multiple are present. 0.0 = strict unison/octaves, 1.0 = fully independent polyphony with no shared material.",
+      "real_examples": {"plainchant_unison": 0.0, "heterophonic_folk": 0.25, "bach_fugue": 0.9, "free_jazz_ensemble": 0.95}
+    },
+    "drone_presence": {
+      "range": [0.0, 1.0],
+      "description": "Strength and continuity of drone element. 0.0 = no drone, 1.0 = continuous foundational drone throughout.",
+      "real_examples": {"pop_song": 0.0, "bagpipe_tradition": 0.9, "hindustani_tanpura": 1.0, "tuvan_throat_singing": 0.7}
+    },
+
+    "improvisation_degree": {
+      "range": [0.0, 1.0],
+      "description": "Proportion of musical content generated in performance vs. pre-composed. 0.0 = fully notated/fixed, 1.0 = fully improvised with no pre-existing material.",
+      "real_examples": {"orchestral_score": 0.0, "jazz_standard": 0.6, "hindustani_raga": 0.85, "free_improv": 1.0}
+    },
+    "ornament_density": {
+      "range": [0.0, 1.0],
+      "description": "Proportion of performed material that is ornamental (grace notes, meends, gamaks, trills, microtonal inflections) vs. structural notes. 0.0 = no ornamentation, 1.0 = ornament is the primary content.",
+      "real_examples": {"minimalism": 0.05, "classical_baroque": 0.35, "celtic_sean_nos": 0.7, "carnatic_vocal_gamaka": 0.9}
+    }
+  },
+
+  "categorical": {
+    "_note": "Categorical dimensions use one-hot or embedded-categorical distance. Coherence checks operate primarily on these (certain combinations are internally contradictory — e.g. 'non_octave_repeating' + strict tonal 'interval_hierarchy' near 1.0).",
+
+    "tuning_basis": {
+      "values": ["equal_temperament", "just_intonation", "pythagorean", "overtone_series", "stretched", "irrational_ratio", "inharmonic_spectral", "indeterminate"],
+      "description": "The mathematical foundation generating the pitch set."
+    },
+    "scale_topology": {
+      "values": ["octave_repeating", "non_octave_repeating", "spiral_non_closing", "aperiodic", "single_cycle_no_repeat", "adaptive_contextual"],
+      "description": "How the pitch set repeats (or doesn't) across registers."
+    },
+    "rhythmic_structure": {
+      "values": ["isochronous_metric", "additive_metric", "cyclical_nonmetric", "pulse_free", "breath_based", "ritual_cued", "environmental_synchronized", "indeterminate_proportional"],
+      "description": "The organizing principle for time."
+    },
+    "formal_type": {
+      "values": ["sectional_contrasting", "theme_and_variation", "cyclical_return", "through_composed_narrative", "modular_combinatorial", "static_contemplation", "arc_buildup", "nested_hierarchical"],
+      "description": "How a piece unfolds at the macro level."
+    },
+    "texture_type": {
+      "values": ["monophonic", "heterophonic", "homophonic", "polyphonic_independent", "drone_based", "layered_ostinato", "call_response", "spectral_cloud"],
+      "description": "The relationship between simultaneous voices/streams."
+    },
+    "ornament_grammar": {
+      "values": ["forbidden", "decorative_optional", "obligatory_structural", "improvisatory_expansive", "microtonal_inflection_core", "rhythmic_only"],
+      "description": "The role and status of ornamentation."
+    },
+    "transmission_mode": {
+      "values": ["oral_only", "notated_prescriptive", "notated_skeletal", "gestural_conducted", "recorded_reference", "environmental_imitative", "hybrid"],
+      "description": "How the tradition is taught and preserved."
+    },
+    "ensemble_topology": {
+      "values": ["solo", "soloist_with_accompaniment", "call_response", "unison_ensemble", "interlocking_parts", "heterophonic_group", "spatially_distributed", "antiphonal_choirs"],
+      "description": "The social structure of performance."
+    },
+    "social_function": {
+      "values": ["ritual_religious", "contemplative_personal", "narrative_storytelling", "entertainment_display", "work_coordination", "trance_induction", "didactic_pedagogical", "life_cycle_event", "environmental_dialogue", "cosmological_representation"],
+      "description": "Why the music exists; what it's for."
+    },
+    "listener_role": {
+      "values": ["passive_audience", "participatory_communal", "ritual_participant", "no_listener_intended", "environmental_coexistent", "evaluator_connoisseur"],
+      "description": "The expected role of whoever hears the music."
+    },
+    "silence_treatment": {
+      "values": ["avoided", "decorative_pause", "structural_punctuation", "foundational_ground", "equal_to_sound"],
+      "description": "The grammatical status of silence within the system."
+    },
+    "temporal_framing": {
+      "values": ["clock_time_bounded", "event_duration", "natural_cycle_aligned", "ritual_duration", "indeterminate_open", "geographic_mapped"],
+      "description": "What determines when a piece begins and ends."
+    }
+  },
+
+  "coherence_constraints": {
+    "_note": "Constraints the coherence checker enforces before committing a sampled point. Violating these produces an internally contradictory grammar.",
+
+    "hard_contradictions": [
+      {
+        "rule": "scale_topology=non_octave_repeating INVALIDATES octave_equivalence > 0.3",
+        "reason": "Cannot claim octave equivalence in a non-octave-repeating pitch system."
+      },
+      {
+        "rule": "rhythmic_structure=pulse_free INVALIDATES metric_periodicity > 0.3",
+        "reason": "Pulse-free systems cannot have strong metric periodicity."
+      },
+      {
+        "rule": "rhythmic_structure=pulse_free INVALIDATES tempo_stability > 0.5",
+        "reason": "Tempo stability requires a pulse to be stable against."
+      },
+      {
+        "rule": "texture_type=monophonic INVALIDATES voice_count > 0.1",
+        "reason": "Monophonic texture implies a single voice."
+      },
+      {
+        "rule": "texture_type=monophonic INVALIDATES voice_independence > 0.1",
+        "reason": "Voice independence is undefined for single-voice textures."
+      },
+      {
+        "rule": "texture_type=drone_based REQUIRES drone_presence > 0.6",
+        "reason": "Drone-based textures must have a present drone."
+      },
+      {
+        "rule": "ornament_grammar=forbidden INVALIDATES ornament_density > 0.1",
+        "reason": "Forbidden ornamentation cannot coexist with high ornament density."
+      },
+      {
+        "rule": "formal_type=static_contemplation INVALIDATES development_arc > 0.3",
+        "reason": "Static contemplation excludes climactic development."
+      },
+      {
+        "rule": "improvisation_degree > 0.8 INVALIDATES transmission_mode=notated_prescriptive",
+        "reason": "Fully improvised systems cannot be prescriptively notated."
+      },
+      {
+        "rule": "listener_role=no_listener_intended INVALIDATES social_function=entertainment_display",
+        "reason": "Entertainment requires a listener."
+      }
+    ],
+
+    "soft_warnings": [
+      {
+        "rule": "piece_duration > 0.8 AND metric_periodicity > 0.9",
+        "note": "Very long pieces with strict meter are rare but not impossible (minimalism, some trance traditions)."
+      },
+      {
+        "rule": "voice_count > 0.7 AND improvisation_degree > 0.7",
+        "note": "Large-ensemble improvisation is rare but occurs (New Orleans, some free jazz, some African traditions)."
+      },
+      {
+        "rule": "microtonality_degree > 0.7 AND voice_count > 0.5",
+        "note": "Ensemble microtonal coordination is difficult; real examples exist (Arabic takht, Turkish classical) but are rare in space."
+      }
+    ]
+  },
+
+  "distance_metric": {
+    "continuous_weight": 0.6,
+    "categorical_weight": 0.4,
+    "continuous_method": "weighted_euclidean",
+    "categorical_method": "hamming_with_embeddings",
+    "note": "Per-dimension weights can be tuned. Expeditions prioritize high distance from all known corpus points, subject to coherence_constraints passing."
+  }
+}

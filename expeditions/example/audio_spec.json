@@ -1,0 +1,222 @@
+{
+  "duration_seconds": 75,
+  "pitch_system": {
+    "encoding": "ratio",
+    "reference_hz": 73,
+    "pitches": [
+      1,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "octave_repeats": false,
+    "inflection_rules": [
+      {
+        "pitch_index": 0,
+        "inflection_cents_range": [
+          -8,
+          8
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 4,
+        "inflection_cents_range": [
+          -40,
+          40
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 8,
+        "inflection_cents_range": [
+          -40,
+          40
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 10,
+        "inflection_cents_range": [
+          -40,
+          40
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 1,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 2,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 3,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 5,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      }
+    ]
+  },
+  "rhythm_system": {
+    "type": "breath_based",
+    "breath_count": 32,
+    "breath_duration_range_seconds": [
+      4.0,
+      9.0
+    ],
+    "between_breaths_seconds": [
+      0.4,
+      1.2
+    ]
+  },
+  "voices": [
+    {
+      "name": "v1",
+      "timbre": "vocal_male_low",
+      "pitch_indices": [
+        0
+      ],
+      "rhythm_role": "sustained_drone",
+      "amplitude": 0.6,
+      "spatial_position": [
+        -0.6,
+        0.2
+      ],
+      "active_sections": [
+        "wave_1",
+        "wave_2",
+        "wave_3"
+      ]
+    },
+    {
+      "name": "v2",
+      "timbre": "vocal_male_low",
+      "pitch_indices": [
+        0,
+        3,
+        4,
+        6
+      ],
+      "rhythm_role": "breath_phrase",
+      "amplitude": 0.65,
+      "spatial_position": [
+        -0.2,
+        -0.1
+      ],
+      "active_sections": [
+        "wave_1",
+        "wave_2",
+        "wave_3"
+      ]
+    },
+    {
+      "name": "v3",
+      "timbre": "vocal_male_low",
+      "pitch_indices": [
+        2,
+        4,
+        6,
+        8,
+        10
+      ],
+      "rhythm_role": "breath_phrase",
+      "amplitude": 0.6,
+      "spatial_position": [
+        0.2,
+        0.3
+      ],
+      "active_sections": [
+        "wave_2",
+        "wave_3"
+      ]
+    },
+    {
+      "name": "v4",
+      "timbre": "vocal_male_low",
+      "pitch_indices": [
+        1,
+        3,
+        5,
+        7,
+        9,
+        11
+      ],
+      "rhythm_role": "breath_phrase",
+      "amplitude": 0.55,
+      "spatial_position": [
+        0.6,
+        -0.2
+      ],
+      "active_sections": [
+        "wave_2"
+      ]
+    }
+  ],
+  "form": {
+    "arc_type": "cyclical",
+    "sections": [
+      {
+        "name": "wave_1",
+        "start_seconds": 0,
+        "duration_seconds": 18,
+        "character": "single fundamental, two overtones enter"
+      },
+      {
+        "name": "silence_1",
+        "start_seconds": 18,
+        "duration_seconds": 2,
+        "character": "collective inhalation"
+      },
+      {
+        "name": "wave_2",
+        "start_seconds": 20,
+        "duration_seconds": 28,
+        "character": "full four-voice density, rotating overtones"
+      },
+      {
+        "name": "silence_2",
+        "start_seconds": 48,
+        "duration_seconds": 2,
+        "character": "collective inhalation"
+      },
+      {
+        "name": "wave_3",
+        "start_seconds": 50,
+        "duration_seconds": 25,
+        "character": "two voices remaining, fundamental re-exposed"
+      }
+    ]
+  },
+  "ornamentation": {
+    "density": 0.6,
+    "rule": "Every overtone sustained longer than 1.5 seconds receives breath-pressure inflection within the partial-specific cents range. Transitions between overtones slide through intermediate partials rather than jumping."
+  }
+}
