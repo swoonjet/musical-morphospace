@@ -132,7 +132,7 @@
   "voices": [
     {
       "name": "a1",
-      "timbre": "vocal_male_low",
+      "timbre": "soft_pad",
       "pitch_indices": [
         0
       ],
@@ -151,7 +151,7 @@
     },
     {
       "name": "a2",
-      "timbre": "vocal_male_low",
+      "timbre": "soft_pad",
       "pitch_indices": [
         1
       ],
@@ -170,7 +170,7 @@
     },
     {
       "name": "a3",
-      "timbre": "vocal_male_low",
+      "timbre": "chimes",
       "pitch_indices": [
         2
       ],
@@ -189,7 +189,7 @@
     },
     {
       "name": "a4",
-      "timbre": "vocal_female_high",
+      "timbre": "chimes",
       "pitch_indices": [
         3
       ],
@@ -208,7 +208,7 @@
     },
     {
       "name": "b1",
-      "timbre": "vocal_female_high",
+      "timbre": "soft_pad",
       "pitch_indices": [
         6
       ],
@@ -226,7 +226,7 @@
     },
     {
       "name": "b2",
-      "timbre": "vocal_female_high",
+      "timbre": "soft_pad",
       "pitch_indices": [
         7
       ],
@@ -244,7 +244,7 @@
     },
     {
       "name": "b3",
-      "timbre": "vocal_female_high",
+      "timbre": "chimes",
       "pitch_indices": [
         9
       ],
@@ -262,7 +262,7 @@
     },
     {
       "name": "b4",
-      "timbre": "overtone_whistle",
+      "timbre": "bamboo_flute",
       "pitch_indices": [
         11
       ],

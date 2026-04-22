@@ -38,7 +38,7 @@
   "voices": [
     {
       "name": "choir_A_low",
-      "timbre": "vocal_male_low",
+      "timbre": "soft_pad",
       "pitch_indices": [
         1,
         2,
@@ -58,7 +58,7 @@
     },
     {
       "name": "choir_A_mid",
-      "timbre": "vocal_female_high",
+      "timbre": "soft_pad",
       "pitch_indices": [
         3,
         4,
@@ -78,7 +78,7 @@
     },
     {
       "name": "choir_A_high",
-      "timbre": "vocal_female_high",
+      "timbre": "bamboo_flute",
       "pitch_indices": [
         5,
         6,
@@ -98,7 +98,7 @@
     },
     {
       "name": "choir_B_low",
-      "timbre": "vocal_male_low",
+      "timbre": "soft_pad",
       "pitch_indices": [
         0,
         1,
@@ -118,7 +118,7 @@
     },
     {
       "name": "choir_B_mid",
-      "timbre": "vocal_female_high",
+      "timbre": "soft_pad",
       "pitch_indices": [
         2,
         3,
@@ -138,7 +138,7 @@
     },
     {
       "name": "choir_B_high",
-      "timbre": "vocal_female_high",
+      "timbre": "bamboo_flute",
       "pitch_indices": [
         4,
         5,

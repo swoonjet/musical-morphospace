@@ -1,0 +1,194 @@
+{
+  "duration_seconds": 85,
+  "pitch_system": {
+    "encoding": "ratio",
+    "reference_hz": 220,
+    "pitches": [
+      1.0,
+      1.125,
+      1.266,
+      1.333,
+      1.5,
+      1.688,
+      1.898,
+      2.0,
+      2.25,
+      2.531,
+      2.667,
+      3.0,
+      3.375,
+      3.797
+    ],
+    "octave_repeats": true,
+    "inflection_rules": [
+      {
+        "pitch_index": 0,
+        "inflection_cents_range": [
+          -35,
+          0
+        ],
+        "direction": "up"
+      },
+      {
+        "pitch_index": 2,
+        "inflection_cents_range": [
+          -35,
+          0
+        ],
+        "direction": "up"
+      },
+      {
+        "pitch_index": 4,
+        "inflection_cents_range": [
+          -35,
+          0
+        ],
+        "direction": "up"
+      },
+      {
+        "pitch_index": 7,
+        "inflection_cents_range": [
+          -35,
+          0
+        ],
+        "direction": "up"
+      },
+      {
+        "pitch_index": 9,
+        "inflection_cents_range": [
+          -35,
+          0
+        ],
+        "direction": "up"
+      },
+      {
+        "pitch_index": 11,
+        "inflection_cents_range": [
+          -35,
+          0
+        ],
+        "direction": "up"
+      }
+    ]
+  },
+  "rhythm_system": {
+    "type": "cyclical_nonmetric",
+    "cycle_duration_seconds": 14,
+    "event_density_per_cycle": 12,
+    "cycle_count": 6
+  },
+  "voices": [
+    {
+      "name": "theme_flute",
+      "timbre": "bamboo_flute",
+      "pitch_indices": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "rhythm_role": "melodic_lead",
+      "amplitude": 0.75,
+      "spatial_position": [
+        0.0,
+        0.3
+      ]
+    },
+    {
+      "name": "variation_gut",
+      "timbre": "plucked_gut",
+      "pitch_indices": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "rhythm_role": "ornamental",
+      "amplitude": 0.55,
+      "spatial_position": [
+        -0.4,
+        -0.1
+      ]
+    },
+    {
+      "name": "drone_pad",
+      "timbre": "soft_pad",
+      "pitch_indices": [
+        0
+      ],
+      "rhythm_role": "sustained_drone",
+      "amplitude": 0.38,
+      "spatial_position": [
+        0.0,
+        -0.2
+      ]
+    },
+    {
+      "name": "env_striker",
+      "timbre": "low_wood",
+      "pitch_indices": [
+        0,
+        4
+      ],
+      "rhythm_role": "percussive",
+      "amplitude": 0.45,
+      "spatial_position": [
+        0.5,
+        0.0
+      ]
+    }
+  ],
+  "form": {
+    "arc_type": "arc_buildup",
+    "sections": [
+      {
+        "name": "theme_statement",
+        "start_seconds": 0,
+        "duration_seconds": 14,
+        "character": "plain theme on flute over drone"
+      },
+      {
+        "name": "variation_1_ornamented",
+        "start_seconds": 14,
+        "duration_seconds": 15,
+        "character": "flute ornaments theme; gut begins tracing"
+      },
+      {
+        "name": "variation_2_interleaved",
+        "start_seconds": 29,
+        "duration_seconds": 14,
+        "character": "flute and gut interleave the theme"
+      },
+      {
+        "name": "variation_3_dense",
+        "start_seconds": 43,
+        "duration_seconds": 14,
+        "character": "peak density; env-striker emphasizes coincidences"
+      },
+      {
+        "name": "variation_4_receding",
+        "start_seconds": 57,
+        "duration_seconds": 14,
+        "character": "variation simplifies; gut voice withdraws"
+      },
+      {
+        "name": "theme_return",
+        "start_seconds": 71,
+        "duration_seconds": 14,
+        "character": "plain theme returns, flute alone over drone"
+      }
+    ]
+  },
+  "ornamentation": {
+    "density": 0.75,
+    "rule": "Every sustained note begins 30-50 cents below its target pitch and slides up over 100-200 ms. Flute may add upward grace-notes on tonic and fifth."
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "expedition_number": 6,
+  "iso_date": "2026-04-22T11:35:06",
+  "curiosity_score": 0.472,
+  "continuous": {
+    "pitch_density": 0.22,
+    "microtonality_degree": 0.001,
+    "octave_equivalence": 0.767,
+    "interval_hierarchy": 0.937,
+    "pitch_flexibility": 0.635,
+    "metric_periodicity": 0.49,
+    "rhythmic_density": 0.482,
+    "polyrhythmic_complexity": 0.902,
+    "cycle_length": 0.96,
+    "tempo_stability": 0.441,
+    "piece_duration": 0.992,
+    "formal_repetition": 0.374,
+    "development_arc": 0.805,
+    "voice_count": 0.217,
+    "voice_independence": 0.327,
+    "drone_presence": 0.869,
+    "improvisation_degree": 0.479,
+    "ornament_density": 0.745
+  },
+  "categorical": {
+    "tuning_basis": "pythagorean",
+    "scale_topology": "adaptive_contextual",
+    "rhythmic_structure": "environmental_synchronized",
+    "formal_type": "theme_and_variation",
+    "texture_type": "polyphonic_independent",
+    "ornament_grammar": "microtonal_inflection_core",
+    "transmission_mode": "notated_prescriptive",
+    "ensemble_topology": "unison_ensemble",
+    "social_function": "narrative_storytelling",
+    "listener_role": "ritual_participant",
+    "silence_treatment": "equal_to_sound",
+    "temporal_framing": "clock_time_bounded"
+  },
+  "warnings": [],
+  "neighbors": [
+    {
+      "name": "Wagnerian Opera (Music-Drama)",
+      "id": "wagner_ring_opera",
+      "distance": 0.47196854196253435
+    },
+    {
+      "name": "Western Romantic Symphony (late 19th c.)",
+      "id": "western_romantic_symphony",
+      "distance": 0.5021000117985744
+    },
+    {
+      "name": "Carnatic Ragam Tanam Pallavi (South Indian classical)",
+      "id": "carnatic_kriti_ragam_tanam_pallavi",
+      "distance": 0.5053680004742405
+    }
+  ]
+}

@@ -25,7 +25,7 @@
   "voices": [
     {
       "name": "conductor",
-      "timbre": "vocal_male_low",
+      "timbre": "plucked_gut",
       "pitch_indices": [
         2,
         3,
@@ -42,7 +42,7 @@
     },
     {
       "name": "resp_low",
-      "timbre": "vocal_male_low",
+      "timbre": "plucked_gut",
       "pitch_indices": [
         0,
         1,
@@ -58,7 +58,7 @@
     },
     {
       "name": "resp_mid",
-      "timbre": "vocal_female_high",
+      "timbre": "bamboo_flute",
       "pitch_indices": [
         3,
         4,
@@ -74,7 +74,7 @@
     },
     {
       "name": "resp_high",
-      "timbre": "vocal_female_high",
+      "timbre": "bamboo_flute",
       "pitch_indices": [
         5,
         6,

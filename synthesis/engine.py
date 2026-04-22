@@ -101,7 +101,8 @@ def timbre_sine(freq, duration, inflect=None, seed=0):
 
 
 def timbre_vocal_male_low(freq, duration, inflect=None, seed=0):
-    """Low male vocal: 3-voice detuned unison + formants (~/o/ vowel) + breath noise."""
+    """Low male vocal: 3-voice detuned unison + /o/ formants. Warmer than v1 —
+    4th+5th harmonics reduced to remove harsh upper-mid content."""
     n = int(SR * duration)
     t = np.arange(n) / SR
     rng = np.random.default_rng(seed)
@@ -118,29 +119,30 @@ def timbre_vocal_male_low(freq, duration, inflect=None, seed=0):
             return base + det + np.interp(tt, t, vib) + np.interp(tt, t, drift)
 
         phase = _phase(freq, n, combined)
+        # Reduced upper harmonics to soften the tone
         voice = (1.0 * np.sin(phase)
-                 + 0.55 * np.sin(2 * phase)
-                 + 0.40 * np.sin(3 * phase)
-                 + 0.22 * np.sin(4 * phase)
-                 + 0.13 * np.sin(5 * phase))
+                 + 0.50 * np.sin(2 * phase)
+                 + 0.28 * np.sin(3 * phase)
+                 + 0.10 * np.sin(4 * phase))
         signal = signal + voice
-    signal = signal / (len(detunes) * 2.3)
+    signal = signal / (len(detunes) * 2.0)
 
-    # Subtle breath noise
     breath = rng.normal(0, 1, n)
-    breath = lowpass(breath, 1800)
-    signal = signal + breath * 0.025
+    breath = lowpass(breath, 1600)
+    signal = signal + breath * 0.022
 
-    # Formants: /o/–/ɑ/ blend
+    # Formants: /o/ vowel, slightly wider Q for warmth
     signal = apply_formants(signal,
-                             formants_hz=[520, 880, 2500],
+                             formants_hz=[480, 820, 2400],
                              q_list=[5.5, 4.5, 3.0],
-                             amp_list=[1.0, 0.65, 0.3])
-    return signal * 1.8
+                             amp_list=[1.0, 0.55, 0.22])
+    # Gentle LPF to tame any remaining brightness
+    signal = lowpass(signal, 3500)
+    return signal * 1.9
 
 
 def timbre_vocal_female_high(freq, duration, inflect=None, seed=0):
-    """High vocal: 3-voice detuned unison + formants (~/a/ vowel)."""
+    """High vocal: 3-voice detuned unison + /a/ formants. Less bright than v1."""
     n = int(SR * duration)
     t = np.arange(n) / SR
     rng = np.random.default_rng(seed)
@@ -157,22 +159,160 @@ def timbre_vocal_female_high(freq, duration, inflect=None, seed=0):
 
         phase = _phase(freq, n, combined)
         voice = (1.0 * np.sin(phase)
-                 + 0.42 * np.sin(2 * phase)
-                 + 0.22 * np.sin(3 * phase)
-                 + 0.1 * np.sin(4 * phase))
+                 + 0.38 * np.sin(2 * phase)
+                 + 0.16 * np.sin(3 * phase))
         signal = signal + voice
-    signal = signal / (len(detunes) * 1.7)
+    signal = signal / (len(detunes) * 1.55)
 
     breath = rng.normal(0, 1, n)
-    breath = lowpass(breath, 3200)
-    signal = signal + breath * 0.02
+    breath = lowpass(breath, 2800)
+    signal = signal + breath * 0.018
 
     # Formants: /a/ vowel
     signal = apply_formants(signal,
-                             formants_hz=[720, 1200, 2800],
+                             formants_hz=[680, 1150, 2700],
                              q_list=[5.0, 4.5, 3.0],
-                             amp_list=[1.0, 0.7, 0.35])
-    return signal * 1.6
+                             amp_list=[1.0, 0.6, 0.25])
+    signal = lowpass(signal, 4200)
+    return signal * 1.7
+
+
+def timbre_bamboo_flute(freq, duration, inflect=None, seed=0):
+    """Bamboo/shakuhachi-ish flute: fundamental + octave + breath noise + slight vibrato."""
+    n = int(SR * duration)
+    t = np.arange(n) / SR
+    rng = np.random.default_rng(seed)
+    vib = 0.006 * np.sin(2 * np.pi * rng.uniform(4.5, 5.5) * t + rng.uniform(0, 2 * np.pi))
+
+    def combined(tt):
+        base = inflect(tt) if inflect else 0.0
+        return base + np.interp(tt, t, vib)
+
+    phase = _phase(freq, n, combined)
+    # Flute-like: strong fundamental, weak octave, minimal higher content
+    s = (1.0 * np.sin(phase)
+         + 0.22 * np.sin(2 * phase)
+         + 0.05 * np.sin(3 * phase))
+    # Air noise modulated by fundamental amplitude (breathy)
+    noise = rng.normal(0, 1, n)
+    noise = lowpass(noise, min(freq * 5, 3500))
+    noise = noise - lowpass(noise, 300)
+    s = s + noise * 0.15
+    # Soft LPF
+    s = lowpass(s, max(freq * 3, 2500))
+    return s * 0.9
+
+
+def timbre_plucked_gut(freq, duration, inflect=None, seed=0):
+    """Gut string (oud/lute family): Karplus-Strong with faster decay + mellow body."""
+    n = int(SR * duration)
+    delay = max(2, int(SR / freq))
+    rng = np.random.default_rng(seed)
+    buf = rng.uniform(-1, 1, delay).astype(np.float64)
+    buf[1:] = 0.4 * buf[1:] + 0.6 * buf[:-1]  # softer pluck
+    out = np.zeros(n)
+    idx = 0
+    decay_coef = 0.9945  # faster decay than steel plucked_string
+    for i in range(n):
+        out[i] = buf[idx]
+        prev = buf[(idx - 1) % delay]
+        buf[idx] = decay_coef * 0.5 * (out[i] + prev)
+        idx = (idx + 1) % delay
+    # Body resonance: warmer lower resonances
+    from synthesis.dsp import biquad_peak_coefs
+    import scipy.signal as ss
+    for body_f, body_q, body_gain in [(95, 3.0, 3.5), (180, 3.5, 2), (380, 5.0, 1)]:
+        b, a = biquad_peak_coefs(body_f, body_q, body_gain)
+        out = ss.lfilter(b, a, out)
+    out = lowpass(out, 2800)
+    return out * 0.8
+
+
+def timbre_low_wood(freq, duration, inflect=None, seed=0):
+    """Wooden-block / log drum: damped inharmonic pitched burst with strong body thump."""
+    n = int(SR * duration)
+    t = np.arange(n) / SR
+    rng = np.random.default_rng(seed)
+    # Two partials only, short decay
+    s = (1.0 * np.exp(-t * 18) * np.sin(2 * np.pi * freq * t)
+         + 0.5 * np.exp(-t * 28) * np.sin(2 * np.pi * freq * 2.3 * t + rng.uniform(0, 2 * np.pi)))
+    # Initial thump
+    thump_n = min(int(SR * 0.015), n)
+    thump = rng.normal(0, 1, thump_n) * np.exp(-np.linspace(0, 25, thump_n))
+    s[:thump_n] += thump * 0.5
+    return lowpass(s, 2000) * 0.95
+
+
+def timbre_chimes(freq, duration, inflect=None, seed=0):
+    """Tubular bell / chime: inharmonic partials with long decay. Bright but mellowed."""
+    n = int(SR * duration)
+    t = np.arange(n) / SR
+    rng = np.random.default_rng(seed)
+    # Tubular bell partial ratios (mode frequencies of a pipe)
+    partials = [(0.5, 0.55, 0.9),
+                (1.0, 1.0, 0.8),
+                (2.0, 0.8, 1.0),
+                (3.02, 0.45, 0.9),
+                (4.18, 0.25, 0.95)]
+    s = np.zeros(n)
+    for ratio, amp, rate in partials:
+        decay = np.exp(-t * rate)
+        s += amp * decay * np.sin(2 * np.pi * freq * ratio * t + rng.uniform(0, 2 * np.pi))
+    # Reduced initial burst — softer strike
+    burst_n = min(int(SR * 0.008), n)
+    burst = rng.normal(0, 1, burst_n) * np.exp(-np.linspace(0, 40, burst_n))
+    s[:burst_n] += burst * 0.15
+    # Tame the brightness
+    s = lowpass(s, 4500)
+    return s * 0.55
+
+
+def timbre_soft_pad(freq, duration, inflect=None, seed=0):
+    """Soft synth-pad: slow-moving detuned oscillators with airy filtered noise."""
+    n = int(SR * duration)
+    t = np.arange(n) / SR
+    rng = np.random.default_rng(seed)
+    # 5-voice detune spread for width
+    detunes = [0.0, 0.006, -0.005, 0.009, -0.007]
+    signal = np.zeros(n)
+    for det in detunes:
+        drift = 0.003 * np.sin(2 * np.pi * rng.uniform(0.15, 0.35) * t + rng.uniform(0, 2 * np.pi))
+
+        def combined(tt, det=det, drift=drift):
+            base = inflect(tt) if inflect else 0.0
+            return base + det + np.interp(tt, t, drift)
+
+        phase = _phase(freq, n, combined)
+        voice = (1.0 * np.sin(phase)
+                 + 0.35 * np.sin(2 * phase)
+                 + 0.12 * np.sin(3 * phase))
+        signal = signal + voice
+    signal = signal / len(detunes) * 0.7
+    # Slow-moving air
+    air = rng.normal(0, 1, n)
+    air = lowpass(air, 2200)
+    air = air - lowpass(air, 400)
+    signal = signal + air * 0.04
+    signal = lowpass(signal, 3200)
+    return signal * 0.85
+
+
+def timbre_membrane_drum(freq, duration, inflect=None, seed=0):
+    """Membrane drum (tabla/frame drum): noise burst + damped fundamental + body."""
+    n = int(SR * duration)
+    t = np.arange(n) / SR
+    rng = np.random.default_rng(seed)
+    # Body fundamental with quick decay
+    body = 1.0 * np.exp(-t * 12) * np.sin(2 * np.pi * freq * t)
+    # Second mode slightly detuned
+    body2 = 0.4 * np.exp(-t * 22) * np.sin(2 * np.pi * freq * 1.6 * t + rng.uniform(0, 2 * np.pi))
+    s = body + body2
+    # Strike burst
+    burst_n = min(int(SR * 0.015), n)
+    burst = rng.normal(0, 1, burst_n) * np.exp(-np.linspace(0, 20, burst_n))
+    s[:burst_n] += burst * 0.7
+    s = lowpass(s, 1800)
+    return s * 0.95
 
 
 def timbre_overtone_whistle(freq, duration, inflect=None, seed=0):
@@ -222,29 +362,29 @@ def timbre_bowed_string(freq, duration, inflect=None, seed=0):
 
 
 def timbre_struck_metal(freq, duration, inflect=None, seed=0):
-    """Struck metal: inharmonic partials + initial noise burst + long tail."""
+    """Struck metal (bowl/gong): warmer than v1 — higher partials damped more aggressively."""
     n = int(SR * duration)
     t = np.arange(n) / SR
     rng = np.random.default_rng(seed)
-    # Ideal bar partials (modified) — 1, 2.76, 5.40, 8.93, 13.34
-    partials = [(1.0, 1.0, 1.3),
-                (2.756, 0.75, 1.1),
-                (5.404, 0.45, 0.9),
-                (8.933, 0.28, 0.7),
-                (13.344, 0.18, 0.55),
-                (18.641, 0.1, 0.45)]
+    # Ideal bar partials with much faster decay on higher modes
+    partials = [(1.0, 1.0, 1.0),
+                (2.756, 0.55, 1.3),
+                (5.404, 0.22, 1.6),
+                (8.933, 0.10, 2.0),
+                (13.344, 0.04, 2.6)]
     s = np.zeros(n)
     for ratio, amp, rate in partials:
-        # subtle frequency drift per partial
         drift = rng.uniform(-0.002, 0.002)
         decay = np.exp(-t * rate)
         s += amp * decay * np.sin(2 * np.pi * freq * ratio * (1 + drift) * t
                                    + rng.uniform(0, 2 * np.pi))
-    # Initial noise burst (strike transient)
-    burst_n = min(int(SR * 0.02), n)
-    burst = rng.normal(0, 1, burst_n) * np.exp(-np.linspace(0, 30, burst_n))
-    s[:burst_n] += burst * 0.3
-    return s / 2.6
+    # Softer initial burst
+    burst_n = min(int(SR * 0.012), n)
+    burst = rng.normal(0, 1, burst_n) * np.exp(-np.linspace(0, 35, burst_n))
+    s[:burst_n] += burst * 0.18
+    # Mellow LPF to keep it warm
+    s = lowpass(s, max(3500, freq * 6))
+    return s / 2.4
 
 
 def timbre_plucked_string(freq, duration, inflect=None, seed=0):
@@ -315,6 +455,12 @@ TIMBRES: Dict[str, Callable] = {
     "bowed_string": timbre_bowed_string,
     "struck_metal": timbre_struck_metal,
     "plucked_string": timbre_plucked_string,
+    "plucked_gut": timbre_plucked_gut,
+    "bamboo_flute": timbre_bamboo_flute,
+    "low_wood": timbre_low_wood,
+    "chimes": timbre_chimes,
+    "soft_pad": timbre_soft_pad,
+    "membrane_drum": timbre_membrane_drum,
     "breath_noise": timbre_breath_noise,
     "reed": timbre_reed,
     "percussive": timbre_percussive,
@@ -373,28 +519,40 @@ def adsr_env(n: int, attack: float = 0.12, decay: float = 0.18, sustain: float =
 Event = Tuple[float, str, int, float, float]
 
 
-def melodic_walk(pitches: List[int], count: int, rng: np.random.Generator,
-                  max_step: int = 2, step_bias: List[float] = None) -> List[int]:
-    """Generate a sequence of pitch indices that move by small steps within `pitches`.
+def _arched_phrase(pitches: List[int], length: int, start_idx: int,
+                    rng: np.random.Generator) -> List[int]:
+    """Generate one phrase with rise-peak-fall shape within the pitch set.
 
-    This is how musical lines feel — adjacent notes prefer to be close in pitch-space.
-    Without this, `pitches[cursor % len(pitches)]` produces mechanical cycling and
-    uniform-random selection produces atonal noise. Small-step random walk feels like
-    melody.
+    A musical phrase tends to: begin near a home pitch, rise to a peak around
+    40-65% through, then descend and resolve near (or back at) the home pitch.
+    This mirrors how the ear expects phrases to unfold and makes even unusual
+    scales feel intentional.
     """
-    if not pitches:
+    if length <= 0 or not pitches:
         return []
-    if step_bias is None:
-        # Prefer 0, ±1 steps, with occasional ±2. Larger leaps rare.
-        weights = [0.35, 0.30, 0.30, 0.04, 0.01]  # for |step| = 0, 1, 2, 3, 4
     out = []
-    idx = rng.integers(0, len(pitches))
-    out.append(pitches[idx])
-    for _ in range(count - 1):
-        # Choose step magnitude, then sign
-        step_mag = rng.choice(len(weights), p=weights if step_bias is None else step_bias)
-        sign = int(rng.choice([-1, 1]))
-        new_idx = idx + sign * int(step_mag)
+    peak_pos = rng.uniform(0.35, 0.65)
+    peak_ceiling = max(3, min(6, len(pitches)))
+    peak_reach = int(rng.integers(2, peak_ceiling)) if peak_ceiling > 2 else 2
+    idx = start_idx
+    for i in range(length):
+        frac = i / max(length - 1, 1)
+        # Target index follows a skewed arc: rise to peak, then fall
+        if frac < peak_pos:
+            target = start_idx + (peak_reach * frac / peak_pos)
+        else:
+            # Fall back toward start with a slight undershoot-overshoot allowed
+            target = start_idx + peak_reach * (1 - (frac - peak_pos) / (1 - peak_pos))
+        # Add small random deviation so phrases aren't identical
+        jitter = rng.normal(0, 0.7)
+        desired = target + jitter
+        # Small step from previous: never leap by more than 2-3
+        diff = desired - idx
+        step = int(np.clip(np.round(diff), -2, 2))
+        # 25% chance of holding (no change)
+        if rng.random() < 0.25:
+            step = 0
+        new_idx = idx + step
         # Reflect at boundaries
         if new_idx < 0:
             new_idx = -new_idx
@@ -404,6 +562,29 @@ def melodic_walk(pitches: List[int], count: int, rng: np.random.Generator,
         out.append(pitches[new_idx])
         idx = new_idx
     return out
+
+
+def melodic_walk(pitches: List[int], count: int, rng: np.random.Generator,
+                  phrase_length_range: Tuple[int, int] = (4, 8)) -> List[int]:
+    """Generate a long sequence of pitch indices organized into arched phrases.
+
+    Unlike a pure random walk, this produces sequences with rise-peak-fall
+    phrase shapes separated by implicit cadences. Adjacent phrases share the
+    starting pitch so phrase boundaries feel resolved rather than arbitrary.
+    """
+    if not pitches:
+        return []
+    out = []
+    home_idx = rng.integers(0, max(1, len(pitches) // 2))  # home near bottom of range
+    while len(out) < count:
+        ph_len = int(rng.integers(phrase_length_range[0], phrase_length_range[1] + 1))
+        phrase = _arched_phrase(pitches, ph_len, home_idx, rng)
+        out.extend(phrase)
+        # Occasionally shift home for variety — stay close to original
+        if rng.random() < 0.3:
+            shift = int(rng.choice([-1, 0, 1]))
+            home_idx = max(0, min(len(pitches) - 1, home_idx + shift))
+    return out[:count]
 
 
 def _active_in_section(voice: dict, section_name: str) -> bool:
@@ -777,18 +958,19 @@ def render_spec(spec: dict, seed: int = 42,
 
     # Pre-master pass: reduce raw peak to leave headroom for bus
     pre_peak = float(np.max(np.abs(stereo)))
-    if pre_peak > 0.8:
-        stereo *= (0.8 / pre_peak)
+    if pre_peak > 0.7:
+        stereo *= (0.7 / pre_peak)
 
     # Master bus — reverb + saturation + compression
     if apply_master:
         stereo = master_bus(stereo, reverb_wet=reverb_wet)
 
-    # Final safety normalize
+    # Final target peak — leave headroom, lower perceived loudness
     peak = float(np.max(np.abs(stereo)))
-    if peak > 0.98:
-        stereo *= (0.98 / peak)
-    print(f"  peak amplitude: {peak:.3f}")
+    target_peak = 0.82
+    if peak > 0:
+        stereo *= (target_peak / peak)
+    print(f"  peak amplitude: {peak:.3f} (normalized to {target_peak})")
 
     # to int16
     return (stereo * 32767).astype(np.int16)

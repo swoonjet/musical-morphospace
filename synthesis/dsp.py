@@ -163,19 +163,36 @@ def soft_saturate(stereo: np.ndarray, drive: float = 1.2) -> np.ndarray:
 # Master bus
 # ----------------------------------------------------------------------------
 
-def master_bus(stereo: np.ndarray, reverb_wet: float = 0.40,
-               reverb_length: float = 2.6, compressor_threshold: float = 0.45,
-               saturation_drive: float = 1.05, sr: int = SR) -> np.ndarray:
+def notch(signal_in: np.ndarray, freq: float, q: float = 4.0, sr: int = SR):
+    """Narrow notch filter at `freq` to carve out harsh frequency ranges."""
+    w0 = 2 * np.pi * freq / sr
+    cos_w0 = np.cos(w0)
+    sin_w0 = np.sin(w0)
+    alpha = sin_w0 / (2 * q)
+    b0, b1, b2 = 1, -2 * cos_w0, 1
+    a0 = 1 + alpha
+    a1 = -2 * cos_w0
+    a2 = 1 - alpha
+    b = np.array([b0, b1, b2]) / a0
+    a = np.array([1.0, a1 / a0, a2 / a0])
+    return sig.lfilter(b, a, signal_in, axis=0)
+
+
+def master_bus(stereo: np.ndarray, reverb_wet: float = 0.38,
+               reverb_length: float = 2.8, compressor_threshold: float = 0.40,
+               saturation_drive: float = 1.0, sr: int = SR) -> np.ndarray:
     # Subsonic removal
     out = highpass(stereo, 32)
-    # Reverb
+    # Notch the harsh 2.5-3.5 kHz "grind" range slightly
+    out = notch(out, 3000, q=1.2, sr=sr)
+    # Reverb (damped — shorter decay, more wet depth)
     out = apply_reverb(out, wet=reverb_wet, length_s=reverb_length,
-                       decay_rate=3.2, sr=sr)
-    # Saturation for warmth
+                       decay_rate=3.5, sr=sr)
+    # Very gentle saturation
     out = soft_saturate(out, drive=saturation_drive)
-    # Bus compression for glue
-    out = compress(out, threshold=compressor_threshold, ratio=2.5,
-                   attack_ms=10, release_ms=180, makeup_db=1.0, sr=sr)
-    # Gentle HF shelf cut to tame any shrill reverb tail
-    out = lowpass(out, 8500, order=2)
+    # Softer bus compression
+    out = compress(out, threshold=compressor_threshold, ratio=2.0,
+                   attack_ms=12, release_ms=220, makeup_db=0.5, sr=sr)
+    # Darker LPF — kill anything shrill above 6.5 kHz
+    out = lowpass(out, 6500, order=2)
     return out
