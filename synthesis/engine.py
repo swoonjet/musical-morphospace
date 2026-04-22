@@ -897,7 +897,7 @@ def _inject_pedal_if_missing(spec: dict) -> dict:
 
 
 def render_spec(spec: dict, seed: int = 42,
-                reverb_wet: float = 0.40,
+                reverb_wet: float = 0.28,
                 apply_master: bool = True,
                 auto_pedal: bool = True) -> np.ndarray:
     if auto_pedal:
@@ -956,21 +956,22 @@ def render_spec(spec: dict, seed: int = 42,
         stereo[start:end, 0] += sig[:n] * left_gain
         stereo[start:end, 1] += sig[:n] * right_gain
 
-    # Pre-master pass: reduce raw peak to leave headroom for bus
+    # Pre-master: bring summed mix to ~0.6 peak so reverb has headroom.
     pre_peak = float(np.max(np.abs(stereo)))
-    if pre_peak > 0.7:
-        stereo *= (0.7 / pre_peak)
+    if pre_peak > 0.6:
+        stereo *= (0.6 / pre_peak)
 
-    # Master bus — reverb + saturation + compression
+    # Master bus — HPF + reverb + gentle HF rolloff. No saturation, no comp.
     if apply_master:
         stereo = master_bus(stereo, reverb_wet=reverb_wet)
 
-    # Final target peak — leave headroom, lower perceived loudness
+    # Normalize to standard mastered level (-1 dBFS ≈ 0.89).
+    # Nothing above 0dBFS, no saturation, so laptop speakers see a clean signal.
     peak = float(np.max(np.abs(stereo)))
-    target_peak = 0.82
+    target = 0.89
     if peak > 0:
-        stereo *= (target_peak / peak)
-    print(f"  peak amplitude: {peak:.3f} (normalized to {target_peak})")
+        stereo *= (target / peak)
+    print(f"  mix peak: {peak:.3f} → normalized to {target}")
 
     # to int16
     return (stereo * 32767).astype(np.int16)

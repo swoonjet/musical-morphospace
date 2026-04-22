@@ -120,6 +120,13 @@ def apply_reverb(stereo: np.ndarray, wet: float = 0.3, length_s: float = 1.8,
     wet_l = sig.fftconvolve(stereo[:, 0], ir[:, 0])[:len(stereo)]
     wet_r = sig.fftconvolve(stereo[:, 1], ir[:, 1])[:len(stereo)]
     wet_sig = np.stack([wet_l, wet_r], axis=1)
+    # Match wet RMS to dry RMS so the reverb adds "space" at equivalent energy
+    # rather than amplifying. Without this, FFT convolution with a long IR
+    # produces wet peaks 10-20× the dry peak.
+    dry_rms = np.sqrt(np.mean(stereo ** 2))
+    wet_rms = np.sqrt(np.mean(wet_sig ** 2))
+    if wet_rms > 1e-9:
+        wet_sig = wet_sig * (dry_rms / wet_rms)
     return stereo * (1 - wet) + wet_sig * wet
 
 
@@ -178,21 +185,16 @@ def notch(signal_in: np.ndarray, freq: float, q: float = 4.0, sr: int = SR):
     return sig.lfilter(b, a, signal_in, axis=0)
 
 
-def master_bus(stereo: np.ndarray, reverb_wet: float = 0.38,
-               reverb_length: float = 2.8, compressor_threshold: float = 0.40,
-               saturation_drive: float = 1.0, sr: int = SR) -> np.ndarray:
-    # Subsonic removal
-    out = highpass(stereo, 32)
-    # Notch the harsh 2.5-3.5 kHz "grind" range slightly
-    out = notch(out, 3000, q=1.2, sr=sr)
-    # Reverb (damped — shorter decay, more wet depth)
+def master_bus(stereo: np.ndarray, reverb_wet: float = 0.25,
+               reverb_length: float = 2.0, sr: int = SR) -> np.ndarray:
+    """Standard mix-down master. HPF → reverb → gentle HF rolloff. Nothing
+    else. The caller normalizes to a target peak afterwards — no saturation,
+    no compression, no limiter. Distortion on playback comes from harmonic
+    stages (saturation, compression pumping), not from normal mix levels,
+    so remove them.
+    """
+    out = highpass(stereo, 40)
     out = apply_reverb(out, wet=reverb_wet, length_s=reverb_length,
-                       decay_rate=3.5, sr=sr)
-    # Very gentle saturation
-    out = soft_saturate(out, drive=saturation_drive)
-    # Softer bus compression
-    out = compress(out, threshold=compressor_threshold, ratio=2.0,
-                   attack_ms=12, release_ms=220, makeup_db=0.5, sr=sr)
-    # Darker LPF — kill anything shrill above 6.5 kHz
-    out = lowpass(out, 6500, order=2)
+                       decay_rate=3.8, sr=sr)
+    out = lowpass(out, 8000, order=2)
     return out
