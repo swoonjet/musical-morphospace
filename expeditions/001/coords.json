@@ -1,0 +1,59 @@
+{
+  "expedition_number": 1,
+  "iso_date": "2026-04-21T19:52:47",
+  "curiosity_score": 0.5645667170191296,
+  "continuous": {
+    "pitch_density": 0.961,
+    "microtonality_degree": 0.286,
+    "octave_equivalence": 0.309,
+    "interval_hierarchy": 0.985,
+    "pitch_flexibility": 0.851,
+    "metric_periodicity": 0.935,
+    "rhythmic_density": 0.042,
+    "polyrhythmic_complexity": 0.982,
+    "cycle_length": 0.873,
+    "tempo_stability": 0.098,
+    "piece_duration": 0.907,
+    "formal_repetition": 0.537,
+    "development_arc": 0.807,
+    "voice_count": 0.5,
+    "voice_independence": 0.328,
+    "drone_presence": 0.341,
+    "improvisation_degree": 0.962,
+    "ornament_density": 0.564
+  },
+  "categorical": {
+    "tuning_basis": "stretched",
+    "scale_topology": "aperiodic",
+    "rhythmic_structure": "indeterminate_proportional",
+    "formal_type": "nested_hierarchical",
+    "texture_type": "heterophonic",
+    "ornament_grammar": "decorative_optional",
+    "transmission_mode": "recorded_reference",
+    "ensemble_topology": "solo",
+    "social_function": "work_coordination",
+    "listener_role": "ritual_participant",
+    "silence_treatment": "equal_to_sound",
+    "temporal_framing": "indeterminate_open"
+  },
+  "warnings": [
+    "long piece with strict meter \u2014 rare but attested (minimalism, trance traditions)"
+  ],
+  "neighbors": [
+    {
+      "name": "IDM / Glitch",
+      "id": "idm_glitch",
+      "distance": 0.5645667170191296
+    },
+    {
+      "name": "Hasidic Nigun (wordless melody)",
+      "id": "hasidic_nigun",
+      "distance": 0.5995844455241294
+    },
+    {
+      "name": "Japanese Noh Theatre Music",
+      "id": "japanese_noh",
+      "distance": 0.5996317373841276
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "expedition_number": 4,
+  "iso_date": "2026-04-22T09:13:32",
+  "curiosity_score": 0.5855332936822597,
+  "continuous": {
+    "pitch_density": 0.967,
+    "microtonality_degree": 0.933,
+    "octave_equivalence": 0.213,
+    "interval_hierarchy": 0.364,
+    "pitch_flexibility": 0.704,
+    "metric_periodicity": 0.454,
+    "rhythmic_density": 0.644,
+    "polyrhythmic_complexity": 0.848,
+    "cycle_length": 0.931,
+    "tempo_stability": 0.923,
+    "piece_duration": 0.52,
+    "formal_repetition": 0.983,
+    "development_arc": 0.024,
+    "voice_count": 0.645,
+    "voice_independence": 0.66,
+    "drone_presence": 0.344,
+    "improvisation_degree": 0.805,
+    "ornament_density": 0.655
+  },
+  "categorical": {
+    "tuning_basis": "irrational_ratio",
+    "scale_topology": "single_cycle_no_repeat",
+    "rhythmic_structure": "ritual_cued",
+    "formal_type": "nested_hierarchical",
+    "texture_type": "spectral_cloud",
+    "ornament_grammar": "microtonal_inflection_core",
+    "transmission_mode": "hybrid",
+    "ensemble_topology": "call_response",
+    "social_function": "trance_induction",
+    "listener_role": "no_listener_intended",
+    "silence_treatment": "decorative_pause",
+    "temporal_framing": "indeterminate_open"
+  },
+  "warnings": [
+    "ensemble microtonal coordination \u2014 rare (Arabic takht, Turkish classical)"
+  ],
+  "neighbors": [
+    {
+      "name": "IDM / Glitch",
+      "id": "idm_glitch",
+      "distance": 0.5855332936822597
+    },
+    {
+      "name": "Black Gospel (Pentecostal tradition)",
+      "id": "black_gospel",
+      "distance": 0.5879021014164365
+    },
+    {
+      "name": "Ewe Agbekor (West African drum ensemble)",
+      "id": "ewe_agbekor",
+      "distance": 0.5884411928751359
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "expedition_number": 3,
+  "iso_date": "2026-04-22T09:07:18",
+  "curiosity_score": 0.5734352283695867,
+  "continuous": {
+    "pitch_density": 0.812,
+    "microtonality_degree": 0.6,
+    "octave_equivalence": 0.22,
+    "interval_hierarchy": 0.506,
+    "pitch_flexibility": 0.818,
+    "metric_periodicity": 0.69,
+    "rhythmic_density": 0.068,
+    "polyrhythmic_complexity": 0.228,
+    "cycle_length": 0.996,
+    "tempo_stability": 0.099,
+    "piece_duration": 0.209,
+    "formal_repetition": 0.209,
+    "development_arc": 0.49,
+    "voice_count": 0.953,
+    "voice_independence": 0.055,
+    "drone_presence": 0.577,
+    "improvisation_degree": 0.956,
+    "ornament_density": 0.874
+  },
+  "categorical": {
+    "tuning_basis": "irrational_ratio",
+    "scale_topology": "spiral_non_closing",
+    "rhythmic_structure": "isochronous_metric",
+    "formal_type": "through_composed_narrative",
+    "texture_type": "heterophonic",
+    "ornament_grammar": "rhythmic_only",
+    "transmission_mode": "recorded_reference",
+    "ensemble_topology": "antiphonal_choirs",
+    "social_function": "didactic_pedagogical",
+    "listener_role": "no_listener_intended",
+    "silence_treatment": "structural_punctuation",
+    "temporal_framing": "indeterminate_open"
+  },
+  "warnings": [
+    "large-ensemble improvisation \u2014 rare (New Orleans, some free jazz, Aka polyphony)"
+  ],
+  "neighbors": [
+    {
+      "name": "Arabic Maqam (Egyptian takht ensemble)",
+      "id": "arabic_maqam_takht",
+      "distance": 0.5734352283695867
+    },
+    {
+      "name": "Tabla Solo (North Indian percussion)",
+      "id": "tabla_solo",
+      "distance": 0.5759270193366355
+    },
+    {
+      "name": "Persian Dastgah (classical Iranian music)",
+      "id": "persian_dastgah",
+      "distance": 0.5796691204207965
+    }
+  ]
+}

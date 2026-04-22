@@ -1,0 +1,119 @@
+{
+  "duration_seconds": 65,
+  "pitch_system": {
+    "encoding": "ratio",
+    "reference_hz": 110,
+    "pitches": [
+      0.4444,
+      0.6667,
+      1.0,
+      1.5,
+      2.25,
+      3.375,
+      5.0625,
+      7.5938,
+      11.3906
+    ],
+    "octave_repeats": false
+  },
+  "rhythm_system": {
+    "type": "cyclical_nonmetric",
+    "cycle_duration_seconds": 12,
+    "event_density_per_cycle": 7,
+    "cycle_count": 5
+  },
+  "voices": [
+    {
+      "name": "conductor",
+      "timbre": "vocal_male_low",
+      "pitch_indices": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "rhythm_role": "melodic_lead",
+      "amplitude": 0.75,
+      "spatial_position": [
+        0.0,
+        0.3
+      ]
+    },
+    {
+      "name": "resp_low",
+      "timbre": "vocal_male_low",
+      "pitch_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "rhythm_role": "breath_phrase",
+      "amplitude": 0.55,
+      "spatial_position": [
+        -0.5,
+        -0.1
+      ]
+    },
+    {
+      "name": "resp_mid",
+      "timbre": "vocal_female_high",
+      "pitch_indices": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "rhythm_role": "breath_phrase",
+      "amplitude": 0.55,
+      "spatial_position": [
+        0.0,
+        -0.2
+      ]
+    },
+    {
+      "name": "resp_high",
+      "timbre": "vocal_female_high",
+      "pitch_indices": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "rhythm_role": "breath_phrase",
+      "amplitude": 0.5,
+      "spatial_position": [
+        0.5,
+        -0.1
+      ]
+    }
+  ],
+  "form": {
+    "arc_type": "through_composed",
+    "sections": [
+      {
+        "name": "approach",
+        "start_seconds": 0,
+        "duration_seconds": 24,
+        "character": "slow motion toward destination; voices sparse"
+      },
+      {
+        "name": "arrival",
+        "start_seconds": 24,
+        "duration_seconds": 18,
+        "character": "voices converging on destination pitch"
+      },
+      {
+        "name": "departure",
+        "start_seconds": 42,
+        "duration_seconds": 23,
+        "character": "voices spiraling outward into new pitches"
+      }
+    ]
+  },
+  "ornamentation": {
+    "density": 0.14,
+    "rule": "Every response voice phrase ends with one of: trill, slide, or damped release. Otherwise no ornamentation."
+  }
+}

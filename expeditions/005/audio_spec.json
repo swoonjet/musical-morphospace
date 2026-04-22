@@ -1,0 +1,151 @@
+{
+  "duration_seconds": 80,
+  "pitch_system": {
+    "encoding": "ratio",
+    "reference_hz": 90,
+    "pitches": [
+      1.0,
+      1.247,
+      1.554,
+      1.938,
+      2.416,
+      3.012,
+      3.755,
+      4.682,
+      5.837,
+      7.278,
+      9.075
+    ],
+    "octave_repeats": false,
+    "inflection_rules": [
+      {
+        "pitch_index": 0,
+        "inflection_cents_range": [
+          -8,
+          8
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 1,
+        "inflection_cents_range": [
+          -8,
+          8
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 2,
+        "inflection_cents_range": [
+          -8,
+          8
+        ],
+        "direction": "both"
+      }
+    ]
+  },
+  "rhythm_system": {
+    "type": "breath_based",
+    "breath_count": 18,
+    "breath_duration_range_seconds": [
+      3.5,
+      7.0
+    ],
+    "between_breaths_seconds": [
+      0.5,
+      1.4
+    ]
+  },
+  "voices": [
+    {
+      "name": "drone_low",
+      "timbre": "vocal_male_low",
+      "pitch_indices": [
+        0
+      ],
+      "rhythm_role": "sustained_drone",
+      "amplitude": 0.55,
+      "spatial_position": [
+        -0.4,
+        0.0
+      ]
+    },
+    {
+      "name": "drone_mid",
+      "timbre": "vocal_male_low",
+      "pitch_indices": [
+        1
+      ],
+      "rhythm_role": "sustained_drone",
+      "amplitude": 0.45,
+      "spatial_position": [
+        0.4,
+        0.0
+      ]
+    },
+    {
+      "name": "soloist",
+      "timbre": "reed",
+      "pitch_indices": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "rhythm_role": "breath_phrase",
+      "amplitude": 0.75,
+      "spatial_position": [
+        0.0,
+        0.3
+      ]
+    }
+  ],
+  "form": {
+    "arc_type": "cyclical",
+    "sections": [
+      {
+        "name": "outward_1",
+        "start_seconds": 0,
+        "duration_seconds": 18,
+        "character": "soloist ascends through the set, breath slowing"
+      },
+      {
+        "name": "apex_1",
+        "start_seconds": 18,
+        "duration_seconds": 8,
+        "character": "held pitches at the path's highest point"
+      },
+      {
+        "name": "return_1",
+        "start_seconds": 26,
+        "duration_seconds": 18,
+        "character": "soloist descends; breath relaxing"
+      },
+      {
+        "name": "outward_2",
+        "start_seconds": 44,
+        "duration_seconds": 16,
+        "character": "second traverse \u2014 variations on the first"
+      },
+      {
+        "name": "apex_2",
+        "start_seconds": 60,
+        "duration_seconds": 6,
+        "character": "apex held longer this time"
+      },
+      {
+        "name": "return_2",
+        "start_seconds": 66,
+        "duration_seconds": 14,
+        "character": "final descent; drone only at end"
+      }
+    ]
+  },
+  "ornamentation": {
+    "density": 0.35,
+    "rule": "Soloist pairs two adjacent pitches in a slow alternation when transitioning between sections. Otherwise pitches are held plainly."
+  }
+}

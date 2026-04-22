@@ -1,0 +1,59 @@
+{
+  "expedition_number": 2,
+  "iso_date": "2026-04-22T09:05:24",
+  "curiosity_score": 0.5661082890308912,
+  "continuous": {
+    "pitch_density": 0.841,
+    "microtonality_degree": 0.484,
+    "octave_equivalence": 0.281,
+    "interval_hierarchy": 0.017,
+    "pitch_flexibility": 0.503,
+    "metric_periodicity": 0.75,
+    "rhythmic_density": 0.153,
+    "polyrhythmic_complexity": 0.993,
+    "cycle_length": 0.864,
+    "tempo_stability": 0.888,
+    "piece_duration": 0.12,
+    "formal_repetition": 0.105,
+    "development_arc": 0.582,
+    "voice_count": 0.704,
+    "voice_independence": 0.734,
+    "drone_presence": 0.254,
+    "improvisation_degree": 0.873,
+    "ornament_density": 0.143
+  },
+  "categorical": {
+    "tuning_basis": "pythagorean",
+    "scale_topology": "spiral_non_closing",
+    "rhythmic_structure": "cyclical_nonmetric",
+    "formal_type": "through_composed_narrative",
+    "texture_type": "call_response",
+    "ornament_grammar": "obligatory_structural",
+    "transmission_mode": "gestural_conducted",
+    "ensemble_topology": "solo",
+    "social_function": "didactic_pedagogical",
+    "listener_role": "participatory_communal",
+    "silence_treatment": "equal_to_sound",
+    "temporal_framing": "geographic_mapped"
+  },
+  "warnings": [
+    "large-ensemble improvisation \u2014 rare (New Orleans, some free jazz, Aka polyphony)"
+  ],
+  "neighbors": [
+    {
+      "name": "Lachenmann Musique Concr\u00e8te Instrumentale",
+      "id": "lachenmann_instrumental_concrete",
+      "distance": 0.5661082890308912
+    },
+    {
+      "name": "IDM / Glitch",
+      "id": "idm_glitch",
+      "distance": 0.5668134823824549
+    },
+    {
+      "name": "Xenakis Stochastic Composition",
+      "id": "xenakis_stochastic",
+      "distance": 0.5866525298488267
+    }
+  ]
+}

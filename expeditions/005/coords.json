@@ -1,0 +1,57 @@
+{
+  "expedition_number": 5,
+  "iso_date": "2026-04-22T09:15:48",
+  "curiosity_score": 0.5778077569357093,
+  "continuous": {
+    "pitch_density": 0.736,
+    "microtonality_degree": 0.916,
+    "octave_equivalence": 0.094,
+    "interval_hierarchy": 0.004,
+    "pitch_flexibility": 0.176,
+    "metric_periodicity": 0.266,
+    "rhythmic_density": 0.26,
+    "polyrhythmic_complexity": 0.237,
+    "cycle_length": 0.744,
+    "tempo_stability": 0.237,
+    "piece_duration": 0.779,
+    "formal_repetition": 0.652,
+    "development_arc": 0.649,
+    "voice_count": 0.351,
+    "voice_independence": 0.325,
+    "drone_presence": 0.964,
+    "improvisation_degree": 0.797,
+    "ornament_density": 0.349
+  },
+  "categorical": {
+    "tuning_basis": "irrational_ratio",
+    "scale_topology": "spiral_non_closing",
+    "rhythmic_structure": "breath_based",
+    "formal_type": "cyclical_return",
+    "texture_type": "layered_ostinato",
+    "ornament_grammar": "microtonal_inflection_core",
+    "transmission_mode": "environmental_imitative",
+    "ensemble_topology": "soloist_with_accompaniment",
+    "social_function": "contemplative_personal",
+    "listener_role": "participatory_communal",
+    "silence_treatment": "decorative_pause",
+    "temporal_framing": "geographic_mapped"
+  },
+  "warnings": [],
+  "neighbors": [
+    {
+      "name": "Tuvan Khoomei (throat singing \u2014 sygyt style)",
+      "id": "tuvan_khoomei",
+      "distance": 0.5778077569357093
+    },
+    {
+      "name": "Ewe Agbekor (West African drum ensemble)",
+      "id": "ewe_agbekor",
+      "distance": 0.5787451183418825
+    },
+    {
+      "name": "Gy\u00fct\u00f6 Tantric Throat Chant",
+      "id": "gyuto_tantric_chant",
+      "distance": 0.5849732400903729
+    }
+  ]
+}

@@ -1,0 +1,365 @@
+{
+  "duration_seconds": 86,
+  "pitch_system": {
+    "encoding": "ratio",
+    "reference_hz": 100,
+    "pitches": [
+      1.0,
+      1.211,
+      1.467,
+      1.777,
+      2.152,
+      2.607,
+      3.158,
+      3.825,
+      4.634,
+      5.613,
+      6.798,
+      8.234
+    ],
+    "octave_repeats": false,
+    "inflection_rules": [
+      {
+        "pitch_index": 0,
+        "inflection_cents_range": [
+          -25,
+          25
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 1,
+        "inflection_cents_range": [
+          -25,
+          25
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 2,
+        "inflection_cents_range": [
+          -25,
+          25
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 3,
+        "inflection_cents_range": [
+          -25,
+          25
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 4,
+        "inflection_cents_range": [
+          -25,
+          25
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 5,
+        "inflection_cents_range": [
+          -25,
+          25
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 6,
+        "inflection_cents_range": [
+          -25,
+          25
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 7,
+        "inflection_cents_range": [
+          -25,
+          25
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 8,
+        "inflection_cents_range": [
+          -25,
+          25
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 9,
+        "inflection_cents_range": [
+          -25,
+          25
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 10,
+        "inflection_cents_range": [
+          -25,
+          25
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 11,
+        "inflection_cents_range": [
+          -25,
+          25
+        ],
+        "direction": "both"
+      }
+    ]
+  },
+  "rhythm_system": {
+    "type": "ritual_cued",
+    "cue_points_seconds": [
+      10,
+      22,
+      34,
+      46,
+      58,
+      70,
+      80
+    ]
+  },
+  "voices": [
+    {
+      "name": "a1",
+      "timbre": "vocal_male_low",
+      "pitch_indices": [
+        0
+      ],
+      "rhythm_role": "sustained_drone",
+      "amplitude": 0.55,
+      "spatial_position": [
+        -0.7,
+        0.2
+      ],
+      "active_sections": [
+        "cloud_a_1",
+        "cloud_a_2",
+        "cloud_a_3",
+        "cloud_a_4"
+      ]
+    },
+    {
+      "name": "a2",
+      "timbre": "vocal_male_low",
+      "pitch_indices": [
+        1
+      ],
+      "rhythm_role": "sustained_drone",
+      "amplitude": 0.5,
+      "spatial_position": [
+        -0.5,
+        -0.1
+      ],
+      "active_sections": [
+        "cloud_a_1",
+        "cloud_a_2",
+        "cloud_a_3",
+        "cloud_a_4"
+      ]
+    },
+    {
+      "name": "a3",
+      "timbre": "vocal_male_low",
+      "pitch_indices": [
+        2
+      ],
+      "rhythm_role": "sustained_drone",
+      "amplitude": 0.5,
+      "spatial_position": [
+        -0.35,
+        0.15
+      ],
+      "active_sections": [
+        "cloud_a_1",
+        "cloud_a_2",
+        "cloud_a_3",
+        "cloud_a_4"
+      ]
+    },
+    {
+      "name": "a4",
+      "timbre": "vocal_female_high",
+      "pitch_indices": [
+        3
+      ],
+      "rhythm_role": "sustained_drone",
+      "amplitude": 0.45,
+      "spatial_position": [
+        -0.2,
+        0.0
+      ],
+      "active_sections": [
+        "cloud_a_1",
+        "cloud_a_2",
+        "cloud_a_3",
+        "cloud_a_4"
+      ]
+    },
+    {
+      "name": "b1",
+      "timbre": "vocal_female_high",
+      "pitch_indices": [
+        6
+      ],
+      "rhythm_role": "sustained_drone",
+      "amplitude": 0.55,
+      "spatial_position": [
+        0.7,
+        0.2
+      ],
+      "active_sections": [
+        "cloud_b_1",
+        "cloud_b_2",
+        "cloud_b_3"
+      ]
+    },
+    {
+      "name": "b2",
+      "timbre": "vocal_female_high",
+      "pitch_indices": [
+        7
+      ],
+      "rhythm_role": "sustained_drone",
+      "amplitude": 0.5,
+      "spatial_position": [
+        0.5,
+        -0.1
+      ],
+      "active_sections": [
+        "cloud_b_1",
+        "cloud_b_2",
+        "cloud_b_3"
+      ]
+    },
+    {
+      "name": "b3",
+      "timbre": "vocal_female_high",
+      "pitch_indices": [
+        9
+      ],
+      "rhythm_role": "sustained_drone",
+      "amplitude": 0.5,
+      "spatial_position": [
+        0.35,
+        0.15
+      ],
+      "active_sections": [
+        "cloud_b_1",
+        "cloud_b_2",
+        "cloud_b_3"
+      ]
+    },
+    {
+      "name": "b4",
+      "timbre": "overtone_whistle",
+      "pitch_indices": [
+        11
+      ],
+      "rhythm_role": "sustained_drone",
+      "amplitude": 0.35,
+      "spatial_position": [
+        0.2,
+        0.0
+      ],
+      "active_sections": [
+        "cloud_b_1",
+        "cloud_b_2",
+        "cloud_b_3"
+      ]
+    }
+  ],
+  "form": {
+    "arc_type": "static",
+    "sections": [
+      {
+        "name": "cloud_a_1",
+        "start_seconds": 0,
+        "duration_seconds": 10,
+        "character": "group A cloud 1"
+      },
+      {
+        "name": "gap_1",
+        "start_seconds": 10,
+        "duration_seconds": 2,
+        "character": "decorative pause"
+      },
+      {
+        "name": "cloud_b_1",
+        "start_seconds": 12,
+        "duration_seconds": 10,
+        "character": "group B cloud 1"
+      },
+      {
+        "name": "gap_2",
+        "start_seconds": 22,
+        "duration_seconds": 2,
+        "character": "decorative pause"
+      },
+      {
+        "name": "cloud_a_2",
+        "start_seconds": 24,
+        "duration_seconds": 10,
+        "character": "group A cloud 2"
+      },
+      {
+        "name": "gap_3",
+        "start_seconds": 34,
+        "duration_seconds": 2,
+        "character": "decorative pause"
+      },
+      {
+        "name": "cloud_b_2",
+        "start_seconds": 36,
+        "duration_seconds": 10,
+        "character": "group B cloud 2"
+      },
+      {
+        "name": "gap_4",
+        "start_seconds": 46,
+        "duration_seconds": 2,
+        "character": "decorative pause"
+      },
+      {
+        "name": "cloud_a_3",
+        "start_seconds": 48,
+        "duration_seconds": 10,
+        "character": "group A cloud 3"
+      },
+      {
+        "name": "gap_5",
+        "start_seconds": 58,
+        "duration_seconds": 2,
+        "character": "decorative pause"
+      },
+      {
+        "name": "cloud_b_3",
+        "start_seconds": 60,
+        "duration_seconds": 10,
+        "character": "group B cloud 3"
+      },
+      {
+        "name": "gap_6",
+        "start_seconds": 70,
+        "duration_seconds": 2,
+        "character": "decorative pause"
+      },
+      {
+        "name": "cloud_a_4",
+        "start_seconds": 72,
+        "duration_seconds": 14,
+        "character": "group A cloud 4 \u2014 final"
+      }
+    ]
+  }
+}

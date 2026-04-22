@@ -20,7 +20,19 @@ from typing import Callable, Dict, List, Optional, Tuple
 
 import numpy as np
 
-SR = 44100
+# Make this file runnable both as `python3 synthesis/engine.py` and as
+# `python3 -m synthesis.engine` by ensuring the project root is on sys.path.
+_THIS_DIR = Path(__file__).parent
+_ROOT = _THIS_DIR.parent
+if str(_ROOT) not in sys.path:
+    sys.path.insert(0, str(_ROOT))
+
+from synthesis.dsp import (  # noqa: E402
+    SR,
+    apply_formants,
+    lowpass,
+    master_bus,
+)
 
 
 # ============================================================================
@@ -79,14 +91,8 @@ def _phase(freq: float, n: int, inflect: Optional[Callable] = None) -> np.ndarra
 
 
 def _lowpass(sig: np.ndarray, cutoff: float) -> np.ndarray:
-    rc = 1.0 / (2 * np.pi * cutoff)
-    alpha = (1.0 / SR) / (rc + 1.0 / SR)
-    out = np.empty_like(sig)
-    y = 0.0
-    for i in range(len(sig)):
-        y = y + alpha * (sig[i] - y)
-        out[i] = y
-    return out
+    """Fast lowpass via scipy butter (replaces per-sample python loop)."""
+    return lowpass(sig, cutoff)
 
 
 def timbre_sine(freq, duration, inflect=None, seed=0):
@@ -95,41 +101,78 @@ def timbre_sine(freq, duration, inflect=None, seed=0):
 
 
 def timbre_vocal_male_low(freq, duration, inflect=None, seed=0):
+    """Low male vocal: 3-voice detuned unison + formants (~/o/ vowel) + breath noise."""
     n = int(SR * duration)
     t = np.arange(n) / SR
     rng = np.random.default_rng(seed)
-    vib_rate = rng.uniform(4.0, 5.5)
-    vib = 0.008 * np.sin(2 * np.pi * vib_rate * t)
 
-    def combined_inflect(tt):
-        base = inflect(tt) if inflect else 0
-        return base + np.interp(tt, t, vib)
+    detunes = [0.0, 0.0035, -0.0028]
+    signal = np.zeros(n)
+    for det in detunes:
+        vib_rate = rng.uniform(4.0, 5.8)
+        vib = 0.007 * np.sin(2 * np.pi * vib_rate * t + rng.uniform(0, 2 * np.pi))
+        drift = 0.0025 * np.sin(2 * np.pi * 0.25 * t + rng.uniform(0, 2 * np.pi))
 
-    phase = _phase(freq, n, combined_inflect)
-    s = 1.0 * np.sin(phase)
-    s += 0.55 * np.sin(2 * phase)
-    s += 0.40 * np.sin(3 * phase)
-    s += 0.22 * np.sin(4 * phase)
-    s += 0.13 * np.sin(5 * phase)
-    s = _lowpass(s, max(1500, freq * 8))
-    return s / 2.3
+        def combined(tt, det=det, vib=vib, drift=drift):
+            base = inflect(tt) if inflect else 0.0
+            return base + det + np.interp(tt, t, vib) + np.interp(tt, t, drift)
+
+        phase = _phase(freq, n, combined)
+        voice = (1.0 * np.sin(phase)
+                 + 0.55 * np.sin(2 * phase)
+                 + 0.40 * np.sin(3 * phase)
+                 + 0.22 * np.sin(4 * phase)
+                 + 0.13 * np.sin(5 * phase))
+        signal = signal + voice
+    signal = signal / (len(detunes) * 2.3)
+
+    # Subtle breath noise
+    breath = rng.normal(0, 1, n)
+    breath = lowpass(breath, 1800)
+    signal = signal + breath * 0.025
+
+    # Formants: /o/–/ɑ/ blend
+    signal = apply_formants(signal,
+                             formants_hz=[520, 880, 2500],
+                             q_list=[5.5, 4.5, 3.0],
+                             amp_list=[1.0, 0.65, 0.3])
+    return signal * 1.8
 
 
 def timbre_vocal_female_high(freq, duration, inflect=None, seed=0):
+    """High vocal: 3-voice detuned unison + formants (~/a/ vowel)."""
     n = int(SR * duration)
     t = np.arange(n) / SR
     rng = np.random.default_rng(seed)
-    vib = 0.01 * np.sin(2 * np.pi * rng.uniform(5.0, 6.5) * t)
 
-    def combined_inflect(tt):
-        base = inflect(tt) if inflect else 0
-        return base + np.interp(tt, t, vib)
+    detunes = [0.0, 0.004, -0.0032]
+    signal = np.zeros(n)
+    for det in detunes:
+        vib_rate = rng.uniform(5.0, 6.8)
+        vib = 0.01 * np.sin(2 * np.pi * vib_rate * t + rng.uniform(0, 2 * np.pi))
 
-    phase = _phase(freq, n, combined_inflect)
-    s = 1.0 * np.sin(phase)
-    s += 0.4 * np.sin(2 * phase)
-    s += 0.2 * np.sin(3 * phase)
-    return _lowpass(s, max(2500, freq * 6)) / 1.6
+        def combined(tt, det=det, vib=vib):
+            base = inflect(tt) if inflect else 0.0
+            return base + det + np.interp(tt, t, vib)
+
+        phase = _phase(freq, n, combined)
+        voice = (1.0 * np.sin(phase)
+                 + 0.42 * np.sin(2 * phase)
+                 + 0.22 * np.sin(3 * phase)
+                 + 0.1 * np.sin(4 * phase))
+        signal = signal + voice
+    signal = signal / (len(detunes) * 1.7)
+
+    breath = rng.normal(0, 1, n)
+    breath = lowpass(breath, 3200)
+    signal = signal + breath * 0.02
+
+    # Formants: /a/ vowel
+    signal = apply_formants(signal,
+                             formants_hz=[720, 1200, 2800],
+                             q_list=[5.0, 4.5, 3.0],
+                             amp_list=[1.0, 0.7, 0.35])
+    return signal * 1.6
 
 
 def timbre_overtone_whistle(freq, duration, inflect=None, seed=0):
@@ -147,10 +190,11 @@ def timbre_overtone_whistle(freq, duration, inflect=None, seed=0):
 
 
 def timbre_bowed_string(freq, duration, inflect=None, seed=0):
+    """Bowed string: sawtooth + vibrato + bow-pressure noise + body resonance."""
     n = int(SR * duration)
     t = np.arange(n) / SR
     rng = np.random.default_rng(seed)
-    vib = 0.012 * np.sin(2 * np.pi * rng.uniform(4.8, 5.8) * t)
+    vib = 0.013 * np.sin(2 * np.pi * rng.uniform(4.8, 5.8) * t + rng.uniform(0, 2 * np.pi))
 
     def combined_inflect(tt):
         base = inflect(tt) if inflect else 0
@@ -158,37 +202,73 @@ def timbre_bowed_string(freq, duration, inflect=None, seed=0):
 
     phase = _phase(freq, n, combined_inflect)
     s = np.zeros(n)
-    for k in range(1, 18):
+    for k in range(1, 22):
         s += ((-1) ** (k + 1) / k) * np.sin(k * phase)
     s *= 2 / np.pi
-    return _lowpass(s, max(3500, freq * 10)) * 0.7
+
+    # Bow-pressure noise
+    bow_noise = rng.normal(0, 1, n)
+    bow_noise = lowpass(bow_noise, 5000)
+    s = s + bow_noise * 0.04
+
+    # Body resonance for warmth
+    from synthesis.dsp import biquad_peak_coefs
+    import scipy.signal as ss
+    for body_f, body_q, body_gain in [(280, 3.0, 3), (480, 4.0, 2), (1100, 6.0, 1.5)]:
+        b, a = biquad_peak_coefs(body_f, body_q, body_gain)
+        s = ss.lfilter(b, a, s)
+
+    return _lowpass(s, max(3500, freq * 10)) * 0.6
 
 
 def timbre_struck_metal(freq, duration, inflect=None, seed=0):
+    """Struck metal: inharmonic partials + initial noise burst + long tail."""
     n = int(SR * duration)
     t = np.arange(n) / SR
-    partials = [(1.0, 1.0, 2.0), (2.76, 0.65, 1.2), (5.40, 0.40, 0.8), (8.93, 0.25, 0.6), (13.34, 0.15, 0.5)]
+    rng = np.random.default_rng(seed)
+    # Ideal bar partials (modified) — 1, 2.76, 5.40, 8.93, 13.34
+    partials = [(1.0, 1.0, 1.3),
+                (2.756, 0.75, 1.1),
+                (5.404, 0.45, 0.9),
+                (8.933, 0.28, 0.7),
+                (13.344, 0.18, 0.55),
+                (18.641, 0.1, 0.45)]
     s = np.zeros(n)
     for ratio, amp, rate in partials:
+        # subtle frequency drift per partial
+        drift = rng.uniform(-0.002, 0.002)
         decay = np.exp(-t * rate)
-        s += amp * decay * np.sin(2 * np.pi * freq * ratio * t)
-    return s / 2.2
+        s += amp * decay * np.sin(2 * np.pi * freq * ratio * (1 + drift) * t
+                                   + rng.uniform(0, 2 * np.pi))
+    # Initial noise burst (strike transient)
+    burst_n = min(int(SR * 0.02), n)
+    burst = rng.normal(0, 1, burst_n) * np.exp(-np.linspace(0, 30, burst_n))
+    s[:burst_n] += burst * 0.3
+    return s / 2.6
 
 
 def timbre_plucked_string(freq, duration, inflect=None, seed=0):
-    # Karplus-Strong
+    """Karplus-Strong with body resonance."""
     n = int(SR * duration)
     delay = max(2, int(SR / freq))
     rng = np.random.default_rng(seed)
     buf = rng.uniform(-1, 1, delay).astype(np.float64)
+    # slight pluck shaping — attenuate high-frequency content of excitation
+    buf[1:] = 0.55 * buf[1:] + 0.45 * buf[:-1]
     out = np.zeros(n)
     idx = 0
     for i in range(n):
         out[i] = buf[idx]
         prev = buf[(idx - 1) % delay]
-        buf[idx] = 0.996 * 0.5 * (out[i] + prev)
+        buf[idx] = 0.9965 * 0.5 * (out[i] + prev)
         idx = (idx + 1) % delay
-    return out * 0.9
+    # body resonance — two peaking EQs at typical guitar body resonances
+    from synthesis.dsp import biquad_peak_coefs
+    import scipy.signal as ss
+    for body_f, body_q, body_gain in [(110, 3.0, 4), (220, 4.0, 2), (450, 5.0, 1)]:
+        b, a = biquad_peak_coefs(body_f, body_q, body_gain)
+        out = ss.lfilter(b, a, out)
+    return out * 0.85
 
 
 def timbre_breath_noise(freq, duration, inflect=None, seed=0):
@@ -532,13 +612,30 @@ def schedule_events(spec: dict, seed: int = 42) -> List[Event]:
 # Main render pipeline
 # ============================================================================
 
-def render_spec(spec: dict, seed: int = 42) -> np.ndarray:
+def humanize_events(events: List[Event], seed: int, timing_jitter_s: float = 0.012,
+                     amp_jitter: float = 0.04) -> List[Event]:
+    """Apply small random timing and amplitude variation to events."""
+    rng = np.random.default_rng(seed + 12345)
+    out = []
+    for t, vname, pi, dur, amp in events:
+        t2 = max(0, t + rng.uniform(-timing_jitter_s, timing_jitter_s))
+        a2 = max(0, min(1.0, amp + rng.uniform(-amp_jitter, amp_jitter)))
+        out.append((t2, vname, pi, dur, a2))
+    return out
+
+
+def render_spec(spec: dict, seed: int = 42,
+                reverb_wet: float = 0.30,
+                apply_master: bool = True) -> np.ndarray:
     duration = spec["duration_seconds"]
     total_samples = int(duration * SR)
     stereo = np.zeros((total_samples, 2), dtype=np.float64)
     voice_map = {v["name"]: v for v in spec["voices"]}
 
     events = schedule_events(spec, seed=seed)
+    # Humanize unless the LLM provided explicit events — those are scripted
+    if not spec.get("events"):
+        events = humanize_events(events, seed=seed)
     print(f"  scheduled {len(events)} events")
 
     for ev_idx, (t, vname, pi, dur, amp) in enumerate(events):
@@ -578,10 +675,19 @@ def render_spec(spec: dict, seed: int = 42) -> np.ndarray:
         stereo[start:end, 0] += sig[:n] * left_gain
         stereo[start:end, 1] += sig[:n] * right_gain
 
-    # Normalize to prevent clipping
+    # Pre-master pass: reduce raw peak to leave headroom for bus
+    pre_peak = float(np.max(np.abs(stereo)))
+    if pre_peak > 0.8:
+        stereo *= (0.8 / pre_peak)
+
+    # Master bus — reverb + saturation + compression
+    if apply_master:
+        stereo = master_bus(stereo, reverb_wet=reverb_wet)
+
+    # Final safety normalize
     peak = float(np.max(np.abs(stereo)))
-    if peak > 0.97:
-        stereo *= (0.97 / peak)
+    if peak > 0.98:
+        stereo *= (0.98 / peak)
     print(f"  peak amplitude: {peak:.3f}")
 
     # to int16
