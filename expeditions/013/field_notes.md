@@ -1,0 +1,1548 @@
+# Expedition 013
+
+### 1. System name
+The Drone Cloud Cycle
+
+### 2. Pitch organization
+Stretched tuning — pseudo-octave of 2.08 (instead of 2:1). Eight logarithmically-equal steps divide the pseudo-octave. The system extends upward into a second pseudo-octave (indices 9-16). Because the pseudo-octave does not equal 2:1, there is no true pitch equivalence across registers; each voice inhabits its own tuning-relative region.
+
+Adaptive contextual: the available pitch set varies by section. Cycle I uses {0,2,4,5} (tonic-family); Cycle II expands to {0,4,7,9} (fan-out through upper-register transpositions); Cycle III returns to {0,2,4}.
+
+### 3. Rhythmic organization
+Additive 4+4+3+4 = 15 units at 220 ms unit. Tempo stability is relatively high at the cycle level, but individual voices in Cycle II take different tempos simultaneously — producing polytempo texture within one metric frame.
+
+### 4. Formal structure
+Cyclical return. Three statements of the same core melody, each transformed:
+- **Cycle I**: four voices in near-unison cloud (small timing offsets, 10-25% pitch substitutions)
+- **Cycle II**: fan-out — voices at different tempos and transpositions, each taking the core as starting material and diverging
+- **Cycle III**: return to unison cloud; voices converge back to the home pitch
+
+The cycle is the structural unit; sections repeat the same material but transformed.
+
+### 5. Texture and voicing
+Spectral cloud, heterophonic. Two continuous drones (soft_pad + low male vocal on home). Four melodic voices — low male, reed, high female, bamboo flute — each play the core melody, but each realization differs: timing offsets, occasional pitch substitutions, tempo variation. The listener hears a single melody realized as a blurred cloud of near-identical utterances.
+
+### 6. Ornament and inflection
+Decorative-optional. Small microtonal inflection (±15 cents) allowed on any pitch; pitch substitutions (±1 step) allowed in heterophonic passes.
+
+### 7. Performance context
+Environmental coexistent. The piece is meditative — listeners are passive but co-present; the drone is considered the "center" of the piece rather than any melodic event.
+
+### 8. Relationship to neighboring systems
+Shares with **spectral composition (French school)** the inharmonic tuning and cloud texture. Shares with **Arabic maqam** the adaptive-contextual pitch set. Shares with **Turkish classical makam** the heterophonic ensemble realization. The unique synthesis: *cyclical heterophony in a stretched non-octave scale where the same core melody is realized three times as a cloud of near-identical but time-divergent voices over continuous drone*.
+
+### 9. Audio specification
+
+```json
+{
+  "duration_seconds": 85.0,
+  "pitch_system": {
+    "encoding": "ratio",
+    "reference_hz": 140,
+    "pitches": [
+      1.0,
+      1.0959,
+      1.2009,
+      1.3161,
+      1.4422,
+      1.5805,
+      1.732,
+      1.898,
+      2.08,
+      2.08,
+      2.2794,
+      2.4979,
+      2.7374,
+      2.9998,
+      3.2874,
+      3.6026,
+      3.9479,
+      4.3264
+    ],
+    "octave_repeats": false,
+    "inflection_rules": [
+      {
+        "pitch_index": 0,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 1,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 2,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 3,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 4,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 5,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 6,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 7,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 8,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 9,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 10,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 11,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 12,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 13,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 14,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 15,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 16,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 17,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      }
+    ]
+  },
+  "rhythm_system": {
+    "type": "additive",
+    "groupings": [
+      4,
+      4,
+      3,
+      4
+    ],
+    "base_unit_ms": 220
+  },
+  "voices": [
+    {
+      "name": "drone",
+      "timbre": "soft_pad",
+      "pitch_indices": [
+        0
+      ],
+      "rhythm_role": "sustained_drone",
+      "amplitude": 0.48,
+      "spatial_position": [
+        0.0,
+        -0.4
+      ]
+    },
+    {
+      "name": "drone2",
+      "timbre": "vocal_male_low",
+      "pitch_indices": [
+        0
+      ],
+      "rhythm_role": "sustained_drone",
+      "amplitude": 0.42,
+      "spatial_position": [
+        -0.2,
+        -0.25
+      ]
+    },
+    {
+      "name": "v_low",
+      "timbre": "vocal_male_low",
+      "pitch_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "rhythm_role": "melodic_lead",
+      "amplitude": 0.55,
+      "spatial_position": [
+        -0.5,
+        0.1
+      ]
+    },
+    {
+      "name": "v_mid",
+      "timbre": "reed",
+      "pitch_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "rhythm_role": "melodic_lead",
+      "amplitude": 0.55,
+      "spatial_position": [
+        0.0,
+        0.2
+      ]
+    },
+    {
+      "name": "v_high",
+      "timbre": "vocal_female_high",
+      "pitch_indices": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "rhythm_role": "melodic_lead",
+      "amplitude": 0.58,
+      "spatial_position": [
+        0.5,
+        0.15
+      ]
+    },
+    {
+      "name": "v_flute",
+      "timbre": "bamboo_flute",
+      "pitch_indices": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "rhythm_role": "melodic_lead",
+      "amplitude": 0.5,
+      "spatial_position": [
+        0.25,
+        0.3
+      ]
+    }
+  ],
+  "form": {
+    "arc_type": "cyclical",
+    "sections": [
+      {
+        "name": "cycle_I_unison_cloud",
+        "start_seconds": 0,
+        "duration_seconds": 28,
+        "character": "four voices state core melody near-unison with small offsets",
+        "chord_tones": [
+          0,
+          2,
+          4,
+          5
+        ]
+      },
+      {
+        "name": "cycle_II_fan_out",
+        "start_seconds": 28,
+        "duration_seconds": 30,
+        "character": "voices at different tempos, different transpositions",
+        "chord_tones": [
+          0,
+          4,
+          7,
+          9
+        ]
+      },
+      {
+        "name": "cycle_III_return",
+        "start_seconds": 58,
+        "duration_seconds": 27,
+        "character": "voices converge back to unison cloud on home",
+        "chord_tones": [
+          0,
+          2,
+          4
+        ]
+      }
+    ]
+  },
+  "ornamentation": {
+    "density": 0.55,
+    "rule": "Decorative optional. Small pitch substitutions (\u00b11 scale step) in heterophonic passes are permitted but not required. Small microtonal inflection (\u00b115 cents)."
+  },
+  "auto_pedal": false,
+  "events": [
+    {
+      "t": 1.0,
+      "voice": "v_low",
+      "pitch_index": 0,
+      "duration_seconds": 0.806,
+      "amplitude": 0.55
+    },
+    {
+      "t": 1.88,
+      "voice": "v_low",
+      "pitch_index": 2,
+      "duration_seconds": 0.646,
+      "amplitude": 0.55
+    },
+    {
+      "t": 2.558,
+      "voice": "v_low",
+      "pitch_index": 4,
+      "duration_seconds": 0.686,
+      "amplitude": 0.55
+    },
+    {
+      "t": 3.196,
+      "voice": "v_low",
+      "pitch_index": 3,
+      "duration_seconds": 0.396,
+      "amplitude": 0.55
+    },
+    {
+      "t": 3.631,
+      "voice": "v_low",
+      "pitch_index": 5,
+      "duration_seconds": 0.753,
+      "amplitude": 0.55
+    },
+    {
+      "t": 4.496,
+      "voice": "v_low",
+      "pitch_index": 5,
+      "duration_seconds": 0.595,
+      "amplitude": 0.55
+    },
+    {
+      "t": 5.182,
+      "voice": "v_low",
+      "pitch_index": 2,
+      "duration_seconds": 0.691,
+      "amplitude": 0.55
+    },
+    {
+      "t": 5.858,
+      "voice": "v_low",
+      "pitch_index": 0,
+      "duration_seconds": 1.224,
+      "amplitude": 0.55
+    },
+    {
+      "t": 13.0,
+      "voice": "v_low",
+      "pitch_index": 0,
+      "duration_seconds": 0.803,
+      "amplitude": 0.58
+    },
+    {
+      "t": 13.907,
+      "voice": "v_low",
+      "pitch_index": 2,
+      "duration_seconds": 0.607,
+      "amplitude": 0.58
+    },
+    {
+      "t": 14.573,
+      "voice": "v_low",
+      "pitch_index": 5,
+      "duration_seconds": 0.661,
+      "amplitude": 0.58
+    },
+    {
+      "t": 15.257,
+      "voice": "v_low",
+      "pitch_index": 3,
+      "duration_seconds": 0.409,
+      "amplitude": 0.58
+    },
+    {
+      "t": 15.716,
+      "voice": "v_low",
+      "pitch_index": 5,
+      "duration_seconds": 0.855,
+      "amplitude": 0.58
+    },
+    {
+      "t": 16.619,
+      "voice": "v_low",
+      "pitch_index": 4,
+      "duration_seconds": 0.648,
+      "amplitude": 0.58
+    },
+    {
+      "t": 17.299,
+      "voice": "v_low",
+      "pitch_index": 2,
+      "duration_seconds": 0.571,
+      "amplitude": 0.58
+    },
+    {
+      "t": 17.934,
+      "voice": "v_low",
+      "pitch_index": 0,
+      "duration_seconds": 1.122,
+      "amplitude": 0.58
+    },
+    {
+      "t": 1.12,
+      "voice": "v_mid",
+      "pitch_index": 0,
+      "duration_seconds": 0.837,
+      "amplitude": 0.55
+    },
+    {
+      "t": 2.007,
+      "voice": "v_mid",
+      "pitch_index": 2,
+      "duration_seconds": 0.613,
+      "amplitude": 0.55
+    },
+    {
+      "t": 2.656,
+      "voice": "v_mid",
+      "pitch_index": 4,
+      "duration_seconds": 0.586,
+      "amplitude": 0.55
+    },
+    {
+      "t": 3.305,
+      "voice": "v_mid",
+      "pitch_index": 3,
+      "duration_seconds": 0.376,
+      "amplitude": 0.55
+    },
+    {
+      "t": 3.726,
+      "voice": "v_mid",
+      "pitch_index": 6,
+      "duration_seconds": 0.919,
+      "amplitude": 0.55
+    },
+    {
+      "t": 4.581,
+      "voice": "v_mid",
+      "pitch_index": 4,
+      "duration_seconds": 0.62,
+      "amplitude": 0.55
+    },
+    {
+      "t": 5.243,
+      "voice": "v_mid",
+      "pitch_index": 2,
+      "duration_seconds": 0.568,
+      "amplitude": 0.55
+    },
+    {
+      "t": 5.876,
+      "voice": "v_mid",
+      "pitch_index": 0,
+      "duration_seconds": 1.381,
+      "amplitude": 0.55
+    },
+    {
+      "t": 13.12,
+      "voice": "v_mid",
+      "pitch_index": 0,
+      "duration_seconds": 0.819,
+      "amplitude": 0.58
+    },
+    {
+      "t": 13.983,
+      "voice": "v_mid",
+      "pitch_index": 2,
+      "duration_seconds": 0.683,
+      "amplitude": 0.58
+    },
+    {
+      "t": 14.632,
+      "voice": "v_mid",
+      "pitch_index": 4,
+      "duration_seconds": 0.58,
+      "amplitude": 0.58
+    },
+    {
+      "t": 15.267,
+      "voice": "v_mid",
+      "pitch_index": 3,
+      "duration_seconds": 0.432,
+      "amplitude": 0.58
+    },
+    {
+      "t": 15.697,
+      "voice": "v_mid",
+      "pitch_index": 6,
+      "duration_seconds": 0.79,
+      "amplitude": 0.58
+    },
+    {
+      "t": 16.546,
+      "voice": "v_mid",
+      "pitch_index": 4,
+      "duration_seconds": 0.623,
+      "amplitude": 0.58
+    },
+    {
+      "t": 17.193,
+      "voice": "v_mid",
+      "pitch_index": 1,
+      "duration_seconds": 0.594,
+      "amplitude": 0.58
+    },
+    {
+      "t": 17.88,
+      "voice": "v_mid",
+      "pitch_index": 0,
+      "duration_seconds": 1.372,
+      "amplitude": 0.58
+    },
+    {
+      "t": 1.25,
+      "voice": "v_high",
+      "pitch_index": 0,
+      "duration_seconds": 0.816,
+      "amplitude": 0.55
+    },
+    {
+      "t": 2.164,
+      "voice": "v_high",
+      "pitch_index": 2,
+      "duration_seconds": 0.647,
+      "amplitude": 0.55
+    },
+    {
+      "t": 2.824,
+      "voice": "v_high",
+      "pitch_index": 4,
+      "duration_seconds": 0.655,
+      "amplitude": 0.55
+    },
+    {
+      "t": 3.484,
+      "voice": "v_high",
+      "pitch_index": 4,
+      "duration_seconds": 0.413,
+      "amplitude": 0.55
+    },
+    {
+      "t": 3.917,
+      "voice": "v_high",
+      "pitch_index": 5,
+      "duration_seconds": 0.892,
+      "amplitude": 0.55
+    },
+    {
+      "t": 4.796,
+      "voice": "v_high",
+      "pitch_index": 4,
+      "duration_seconds": 0.599,
+      "amplitude": 0.55
+    },
+    {
+      "t": 5.451,
+      "voice": "v_high",
+      "pitch_index": 1,
+      "duration_seconds": 0.679,
+      "amplitude": 0.55
+    },
+    {
+      "t": 6.137,
+      "voice": "v_high",
+      "pitch_index": 0,
+      "duration_seconds": 1.142,
+      "amplitude": 0.55
+    },
+    {
+      "t": 13.25,
+      "voice": "v_high",
+      "pitch_index": 1,
+      "duration_seconds": 0.832,
+      "amplitude": 0.58
+    },
+    {
+      "t": 14.124,
+      "voice": "v_high",
+      "pitch_index": 2,
+      "duration_seconds": 0.614,
+      "amplitude": 0.58
+    },
+    {
+      "t": 14.757,
+      "voice": "v_high",
+      "pitch_index": 4,
+      "duration_seconds": 0.596,
+      "amplitude": 0.58
+    },
+    {
+      "t": 15.426,
+      "voice": "v_high",
+      "pitch_index": 3,
+      "duration_seconds": 0.456,
+      "amplitude": 0.58
+    },
+    {
+      "t": 15.859,
+      "voice": "v_high",
+      "pitch_index": 5,
+      "duration_seconds": 0.808,
+      "amplitude": 0.58
+    },
+    {
+      "t": 16.746,
+      "voice": "v_high",
+      "pitch_index": 4,
+      "duration_seconds": 0.562,
+      "amplitude": 0.58
+    },
+    {
+      "t": 17.394,
+      "voice": "v_high",
+      "pitch_index": 3,
+      "duration_seconds": 0.592,
+      "amplitude": 0.58
+    },
+    {
+      "t": 18.08,
+      "voice": "v_high",
+      "pitch_index": 0,
+      "duration_seconds": 1.21,
+      "amplitude": 0.58
+    },
+    {
+      "t": 1.08,
+      "voice": "v_flute",
+      "pitch_index": 0,
+      "duration_seconds": 0.786,
+      "amplitude": 0.55
+    },
+    {
+      "t": 1.958,
+      "voice": "v_flute",
+      "pitch_index": 2,
+      "duration_seconds": 0.672,
+      "amplitude": 0.55
+    },
+    {
+      "t": 2.596,
+      "voice": "v_flute",
+      "pitch_index": 4,
+      "duration_seconds": 0.638,
+      "amplitude": 0.55
+    },
+    {
+      "t": 3.245,
+      "voice": "v_flute",
+      "pitch_index": 3,
+      "duration_seconds": 0.396,
+      "amplitude": 0.55
+    },
+    {
+      "t": 3.695,
+      "voice": "v_flute",
+      "pitch_index": 5,
+      "duration_seconds": 0.895,
+      "amplitude": 0.55
+    },
+    {
+      "t": 4.603,
+      "voice": "v_flute",
+      "pitch_index": 4,
+      "duration_seconds": 0.681,
+      "amplitude": 0.55
+    },
+    {
+      "t": 5.26,
+      "voice": "v_flute",
+      "pitch_index": 3,
+      "duration_seconds": 0.656,
+      "amplitude": 0.55
+    },
+    {
+      "t": 5.932,
+      "voice": "v_flute",
+      "pitch_index": 0,
+      "duration_seconds": 1.218,
+      "amplitude": 0.55
+    },
+    {
+      "t": 13.08,
+      "voice": "v_flute",
+      "pitch_index": 0,
+      "duration_seconds": 0.909,
+      "amplitude": 0.58
+    },
+    {
+      "t": 13.953,
+      "voice": "v_flute",
+      "pitch_index": 2,
+      "duration_seconds": 0.597,
+      "amplitude": 0.58
+    },
+    {
+      "t": 14.633,
+      "voice": "v_flute",
+      "pitch_index": 4,
+      "duration_seconds": 0.641,
+      "amplitude": 0.58
+    },
+    {
+      "t": 15.295,
+      "voice": "v_flute",
+      "pitch_index": 3,
+      "duration_seconds": 0.395,
+      "amplitude": 0.58
+    },
+    {
+      "t": 15.719,
+      "voice": "v_flute",
+      "pitch_index": 5,
+      "duration_seconds": 0.852,
+      "amplitude": 0.58
+    },
+    {
+      "t": 16.61,
+      "voice": "v_flute",
+      "pitch_index": 4,
+      "duration_seconds": 0.676,
+      "amplitude": 0.58
+    },
+    {
+      "t": 17.292,
+      "voice": "v_flute",
+      "pitch_index": 2,
+      "duration_seconds": 0.597,
+      "amplitude": 0.58
+    },
+    {
+      "t": 17.978,
+      "voice": "v_flute",
+      "pitch_index": 0,
+      "duration_seconds": 1.296,
+      "amplitude": 0.58
+    },
+    {
+      "t": 28.0,
+      "voice": "v_low",
+      "pitch_index": 0,
+      "duration_seconds": 0.843,
+      "amplitude": 0.55
+    },
+    {
+      "t": 28.88,
+      "voice": "v_low",
+      "pitch_index": 2,
+      "duration_seconds": 0.62,
+      "amplitude": 0.55
+    },
+    {
+      "t": 29.54,
+      "voice": "v_low",
+      "pitch_index": 4,
+      "duration_seconds": 0.669,
+      "amplitude": 0.55
+    },
+    {
+      "t": 30.2,
+      "voice": "v_low",
+      "pitch_index": 3,
+      "duration_seconds": 0.413,
+      "amplitude": 0.55
+    },
+    {
+      "t": 30.64,
+      "voice": "v_low",
+      "pitch_index": 5,
+      "duration_seconds": 0.76,
+      "amplitude": 0.55
+    },
+    {
+      "t": 31.52,
+      "voice": "v_low",
+      "pitch_index": 4,
+      "duration_seconds": 0.677,
+      "amplitude": 0.55
+    },
+    {
+      "t": 32.18,
+      "voice": "v_low",
+      "pitch_index": 2,
+      "duration_seconds": 0.578,
+      "amplitude": 0.55
+    },
+    {
+      "t": 32.84,
+      "voice": "v_low",
+      "pitch_index": 0,
+      "duration_seconds": 1.227,
+      "amplitude": 0.55
+    },
+    {
+      "t": 34.16,
+      "voice": "v_low",
+      "pitch_index": 0,
+      "duration_seconds": 0.802,
+      "amplitude": 0.55
+    },
+    {
+      "t": 35.04,
+      "voice": "v_low",
+      "pitch_index": 2,
+      "duration_seconds": 0.633,
+      "amplitude": 0.55
+    },
+    {
+      "t": 35.7,
+      "voice": "v_low",
+      "pitch_index": 4,
+      "duration_seconds": 0.666,
+      "amplitude": 0.55
+    },
+    {
+      "t": 36.36,
+      "voice": "v_low",
+      "pitch_index": 3,
+      "duration_seconds": 0.453,
+      "amplitude": 0.55
+    },
+    {
+      "t": 36.8,
+      "voice": "v_low",
+      "pitch_index": 5,
+      "duration_seconds": 0.872,
+      "amplitude": 0.55
+    },
+    {
+      "t": 37.68,
+      "voice": "v_low",
+      "pitch_index": 4,
+      "duration_seconds": 0.566,
+      "amplitude": 0.55
+    },
+    {
+      "t": 38.34,
+      "voice": "v_low",
+      "pitch_index": 2,
+      "duration_seconds": 0.68,
+      "amplitude": 0.55
+    },
+    {
+      "t": 39.0,
+      "voice": "v_low",
+      "pitch_index": 0,
+      "duration_seconds": 1.252,
+      "amplitude": 0.55
+    },
+    {
+      "t": 28.0,
+      "voice": "v_mid",
+      "pitch_index": 4,
+      "duration_seconds": 0.671,
+      "amplitude": 0.55
+    },
+    {
+      "t": 28.677,
+      "voice": "v_mid",
+      "pitch_index": 6,
+      "duration_seconds": 0.445,
+      "amplitude": 0.55
+    },
+    {
+      "t": 29.185,
+      "voice": "v_mid",
+      "pitch_index": 8,
+      "duration_seconds": 0.46,
+      "amplitude": 0.55
+    },
+    {
+      "t": 29.692,
+      "voice": "v_mid",
+      "pitch_index": 7,
+      "duration_seconds": 0.338,
+      "amplitude": 0.55
+    },
+    {
+      "t": 30.031,
+      "voice": "v_mid",
+      "pitch_index": 9,
+      "duration_seconds": 0.598,
+      "amplitude": 0.55
+    },
+    {
+      "t": 30.708,
+      "voice": "v_mid",
+      "pitch_index": 8,
+      "duration_seconds": 0.442,
+      "amplitude": 0.55
+    },
+    {
+      "t": 31.215,
+      "voice": "v_mid",
+      "pitch_index": 6,
+      "duration_seconds": 0.517,
+      "amplitude": 0.55
+    },
+    {
+      "t": 31.723,
+      "voice": "v_mid",
+      "pitch_index": 4,
+      "duration_seconds": 1.0,
+      "amplitude": 0.55
+    },
+    {
+      "t": 32.738,
+      "voice": "v_mid",
+      "pitch_index": 4,
+      "duration_seconds": 0.686,
+      "amplitude": 0.55
+    },
+    {
+      "t": 33.415,
+      "voice": "v_mid",
+      "pitch_index": 6,
+      "duration_seconds": 0.442,
+      "amplitude": 0.55
+    },
+    {
+      "t": 33.923,
+      "voice": "v_mid",
+      "pitch_index": 8,
+      "duration_seconds": 0.51,
+      "amplitude": 0.55
+    },
+    {
+      "t": 34.431,
+      "voice": "v_mid",
+      "pitch_index": 7,
+      "duration_seconds": 0.34,
+      "amplitude": 0.55
+    },
+    {
+      "t": 34.769,
+      "voice": "v_mid",
+      "pitch_index": 9,
+      "duration_seconds": 0.627,
+      "amplitude": 0.55
+    },
+    {
+      "t": 35.446,
+      "voice": "v_mid",
+      "pitch_index": 8,
+      "duration_seconds": 0.501,
+      "amplitude": 0.55
+    },
+    {
+      "t": 35.954,
+      "voice": "v_mid",
+      "pitch_index": 6,
+      "duration_seconds": 0.493,
+      "amplitude": 0.55
+    },
+    {
+      "t": 36.462,
+      "voice": "v_mid",
+      "pitch_index": 4,
+      "duration_seconds": 1.035,
+      "amplitude": 0.55
+    },
+    {
+      "t": 28.0,
+      "voice": "v_high",
+      "pitch_index": 7,
+      "duration_seconds": 1.184,
+      "amplitude": 0.55
+    },
+    {
+      "t": 29.257,
+      "voice": "v_high",
+      "pitch_index": 9,
+      "duration_seconds": 0.84,
+      "amplitude": 0.55
+    },
+    {
+      "t": 30.2,
+      "voice": "v_high",
+      "pitch_index": 11,
+      "duration_seconds": 0.987,
+      "amplitude": 0.55
+    },
+    {
+      "t": 31.143,
+      "voice": "v_high",
+      "pitch_index": 10,
+      "duration_seconds": 0.629,
+      "amplitude": 0.55
+    },
+    {
+      "t": 31.771,
+      "voice": "v_high",
+      "pitch_index": 12,
+      "duration_seconds": 1.305,
+      "amplitude": 0.55
+    },
+    {
+      "t": 33.029,
+      "voice": "v_high",
+      "pitch_index": 11,
+      "duration_seconds": 0.912,
+      "amplitude": 0.55
+    },
+    {
+      "t": 33.971,
+      "voice": "v_high",
+      "pitch_index": 9,
+      "duration_seconds": 0.889,
+      "amplitude": 0.55
+    },
+    {
+      "t": 34.914,
+      "voice": "v_high",
+      "pitch_index": 7,
+      "duration_seconds": 1.701,
+      "amplitude": 0.55
+    },
+    {
+      "t": 36.8,
+      "voice": "v_high",
+      "pitch_index": 7,
+      "duration_seconds": 1.127,
+      "amplitude": 0.55
+    },
+    {
+      "t": 38.057,
+      "voice": "v_high",
+      "pitch_index": 9,
+      "duration_seconds": 0.964,
+      "amplitude": 0.55
+    },
+    {
+      "t": 39.0,
+      "voice": "v_high",
+      "pitch_index": 11,
+      "duration_seconds": 0.858,
+      "amplitude": 0.55
+    },
+    {
+      "t": 39.943,
+      "voice": "v_high",
+      "pitch_index": 10,
+      "duration_seconds": 0.623,
+      "amplitude": 0.55
+    },
+    {
+      "t": 40.571,
+      "voice": "v_high",
+      "pitch_index": 12,
+      "duration_seconds": 1.194,
+      "amplitude": 0.55
+    },
+    {
+      "t": 41.829,
+      "voice": "v_high",
+      "pitch_index": 11,
+      "duration_seconds": 0.971,
+      "amplitude": 0.55
+    },
+    {
+      "t": 42.771,
+      "voice": "v_high",
+      "pitch_index": 9,
+      "duration_seconds": 0.941,
+      "amplitude": 0.55
+    },
+    {
+      "t": 43.714,
+      "voice": "v_high",
+      "pitch_index": 7,
+      "duration_seconds": 1.746,
+      "amplitude": 0.55
+    },
+    {
+      "t": 28.0,
+      "voice": "v_flute",
+      "pitch_index": 9,
+      "duration_seconds": 0.515,
+      "amplitude": 0.55
+    },
+    {
+      "t": 28.568,
+      "voice": "v_flute",
+      "pitch_index": 11,
+      "duration_seconds": 0.416,
+      "amplitude": 0.55
+    },
+    {
+      "t": 28.994,
+      "voice": "v_flute",
+      "pitch_index": 13,
+      "duration_seconds": 0.376,
+      "amplitude": 0.55
+    },
+    {
+      "t": 29.419,
+      "voice": "v_flute",
+      "pitch_index": 12,
+      "duration_seconds": 0.288,
+      "amplitude": 0.55
+    },
+    {
+      "t": 29.703,
+      "voice": "v_flute",
+      "pitch_index": 14,
+      "duration_seconds": 0.573,
+      "amplitude": 0.55
+    },
+    {
+      "t": 30.271,
+      "voice": "v_flute",
+      "pitch_index": 13,
+      "duration_seconds": 0.409,
+      "amplitude": 0.55
+    },
+    {
+      "t": 30.697,
+      "voice": "v_flute",
+      "pitch_index": 11,
+      "duration_seconds": 0.441,
+      "amplitude": 0.55
+    },
+    {
+      "t": 31.123,
+      "voice": "v_flute",
+      "pitch_index": 9,
+      "duration_seconds": 0.756,
+      "amplitude": 0.55
+    },
+    {
+      "t": 31.974,
+      "voice": "v_flute",
+      "pitch_index": 9,
+      "duration_seconds": 0.505,
+      "amplitude": 0.55
+    },
+    {
+      "t": 32.542,
+      "voice": "v_flute",
+      "pitch_index": 11,
+      "duration_seconds": 0.402,
+      "amplitude": 0.55
+    },
+    {
+      "t": 32.968,
+      "voice": "v_flute",
+      "pitch_index": 13,
+      "duration_seconds": 0.389,
+      "amplitude": 0.55
+    },
+    {
+      "t": 33.394,
+      "voice": "v_flute",
+      "pitch_index": 12,
+      "duration_seconds": 0.264,
+      "amplitude": 0.55
+    },
+    {
+      "t": 33.677,
+      "voice": "v_flute",
+      "pitch_index": 14,
+      "duration_seconds": 0.524,
+      "amplitude": 0.55
+    },
+    {
+      "t": 34.245,
+      "voice": "v_flute",
+      "pitch_index": 13,
+      "duration_seconds": 0.416,
+      "amplitude": 0.55
+    },
+    {
+      "t": 34.671,
+      "voice": "v_flute",
+      "pitch_index": 11,
+      "duration_seconds": 0.364,
+      "amplitude": 0.55
+    },
+    {
+      "t": 35.097,
+      "voice": "v_flute",
+      "pitch_index": 9,
+      "duration_seconds": 0.841,
+      "amplitude": 0.55
+    },
+    {
+      "t": 60.0,
+      "voice": "v_low",
+      "pitch_index": 0,
+      "duration_seconds": 0.771,
+      "amplitude": 0.55
+    },
+    {
+      "t": 60.892,
+      "voice": "v_low",
+      "pitch_index": 2,
+      "duration_seconds": 0.64,
+      "amplitude": 0.55
+    },
+    {
+      "t": 61.557,
+      "voice": "v_low",
+      "pitch_index": 4,
+      "duration_seconds": 0.589,
+      "amplitude": 0.55
+    },
+    {
+      "t": 62.226,
+      "voice": "v_low",
+      "pitch_index": 3,
+      "duration_seconds": 0.393,
+      "amplitude": 0.55
+    },
+    {
+      "t": 62.688,
+      "voice": "v_low",
+      "pitch_index": 5,
+      "duration_seconds": 0.854,
+      "amplitude": 0.55
+    },
+    {
+      "t": 63.6,
+      "voice": "v_low",
+      "pitch_index": 4,
+      "duration_seconds": 0.623,
+      "amplitude": 0.55
+    },
+    {
+      "t": 64.258,
+      "voice": "v_low",
+      "pitch_index": 2,
+      "duration_seconds": 0.685,
+      "amplitude": 0.55
+    },
+    {
+      "t": 64.941,
+      "voice": "v_low",
+      "pitch_index": 0,
+      "duration_seconds": 1.153,
+      "amplitude": 0.55
+    },
+    {
+      "t": 60.08,
+      "voice": "v_mid",
+      "pitch_index": 0,
+      "duration_seconds": 0.851,
+      "amplitude": 0.55
+    },
+    {
+      "t": 60.985,
+      "voice": "v_mid",
+      "pitch_index": 2,
+      "duration_seconds": 0.6,
+      "amplitude": 0.55
+    },
+    {
+      "t": 61.653,
+      "voice": "v_mid",
+      "pitch_index": 4,
+      "duration_seconds": 0.565,
+      "amplitude": 0.55
+    },
+    {
+      "t": 62.34,
+      "voice": "v_mid",
+      "pitch_index": 3,
+      "duration_seconds": 0.415,
+      "amplitude": 0.55
+    },
+    {
+      "t": 62.772,
+      "voice": "v_mid",
+      "pitch_index": 5,
+      "duration_seconds": 0.908,
+      "amplitude": 0.55
+    },
+    {
+      "t": 63.623,
+      "voice": "v_mid",
+      "pitch_index": 4,
+      "duration_seconds": 0.688,
+      "amplitude": 0.55
+    },
+    {
+      "t": 64.298,
+      "voice": "v_mid",
+      "pitch_index": 2,
+      "duration_seconds": 0.657,
+      "amplitude": 0.55
+    },
+    {
+      "t": 64.978,
+      "voice": "v_mid",
+      "pitch_index": 0,
+      "duration_seconds": 1.241,
+      "amplitude": 0.55
+    },
+    {
+      "t": 60.18,
+      "voice": "v_high",
+      "pitch_index": 0,
+      "duration_seconds": 0.816,
+      "amplitude": 0.55
+    },
+    {
+      "t": 61.053,
+      "voice": "v_high",
+      "pitch_index": 2,
+      "duration_seconds": 0.685,
+      "amplitude": 0.55
+    },
+    {
+      "t": 61.715,
+      "voice": "v_high",
+      "pitch_index": 4,
+      "duration_seconds": 0.679,
+      "amplitude": 0.55
+    },
+    {
+      "t": 62.367,
+      "voice": "v_high",
+      "pitch_index": 2,
+      "duration_seconds": 0.415,
+      "amplitude": 0.55
+    },
+    {
+      "t": 62.785,
+      "voice": "v_high",
+      "pitch_index": 5,
+      "duration_seconds": 0.825,
+      "amplitude": 0.55
+    },
+    {
+      "t": 63.667,
+      "voice": "v_high",
+      "pitch_index": 5,
+      "duration_seconds": 0.607,
+      "amplitude": 0.55
+    },
+    {
+      "t": 64.306,
+      "voice": "v_high",
+      "pitch_index": 2,
+      "duration_seconds": 0.684,
+      "amplitude": 0.55
+    },
+    {
+      "t": 64.978,
+      "voice": "v_high",
+      "pitch_index": 0,
+      "duration_seconds": 1.168,
+      "amplitude": 0.55
+    },
+    {
+      "t": 60.05,
+      "voice": "v_flute",
+      "pitch_index": 0,
+      "duration_seconds": 0.8,
+      "amplitude": 0.55
+    },
+    {
+      "t": 60.941,
+      "voice": "v_flute",
+      "pitch_index": 2,
+      "duration_seconds": 0.582,
+      "amplitude": 0.55
+    },
+    {
+      "t": 61.586,
+      "voice": "v_flute",
+      "pitch_index": 4,
+      "duration_seconds": 0.565,
+      "amplitude": 0.55
+    },
+    {
+      "t": 62.254,
+      "voice": "v_flute",
+      "pitch_index": 2,
+      "duration_seconds": 0.412,
+      "amplitude": 0.55
+    },
+    {
+      "t": 62.709,
+      "voice": "v_flute",
+      "pitch_index": 5,
+      "duration_seconds": 0.761,
+      "amplitude": 0.55
+    },
+    {
+      "t": 63.584,
+      "voice": "v_flute",
+      "pitch_index": 5,
+      "duration_seconds": 0.649,
+      "amplitude": 0.55
+    },
+    {
+      "t": 64.232,
+      "voice": "v_flute",
+      "pitch_index": 2,
+      "duration_seconds": 0.631,
+      "amplitude": 0.55
+    },
+    {
+      "t": 64.896,
+      "voice": "v_flute",
+      "pitch_index": 0,
+      "duration_seconds": 1.339,
+      "amplitude": 0.55
+    },
+    {
+      "t": 75.0,
+      "voice": "v_low",
+      "pitch_index": 0,
+      "duration_seconds": 7.5,
+      "amplitude": 0.48
+    },
+    {
+      "t": 75.0,
+      "voice": "v_mid",
+      "pitch_index": 0,
+      "duration_seconds": 7.5,
+      "amplitude": 0.48
+    },
+    {
+      "t": 75.0,
+      "voice": "v_high",
+      "pitch_index": 0,
+      "duration_seconds": 7.5,
+      "amplitude": 0.48
+    },
+    {
+      "t": 75.0,
+      "voice": "v_flute",
+      "pitch_index": 0,
+      "duration_seconds": 7.5,
+      "amplitude": 0.48
+    }
+  ]
+}
+```
+
+### 10. Field note
+The melody is sung four times by four voices in three cycles — twelve renditions total. The piece is the *difference* between them, not any one of them.

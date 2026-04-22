@@ -45,23 +45,59 @@ def sample_random_point(schema: dict, rng: random.Random) -> Tuple[Dict[str, flo
     return cont, cat
 
 
+def is_compositional(cont: Dict[str, float], cat: Dict[str, str]) -> bool:
+    """Filter candidates that can support real composition (melody/harmony/rhythm).
+
+    Rejects grammars that are structurally hostile to composed form: no home
+    pitch, forbidden ornaments, avoided silence, no intended listener, aperiodic
+    scales, or non-metric rhythm. See feedback_musical_morphospace_composition.md
+    for the reasoning behind each threshold.
+    """
+    if cont["interval_hierarchy"] < 0.55:
+        return False
+    if cont["pitch_flexibility"] > 0.85:
+        return False
+    if cont["metric_periodicity"] < 0.45:
+        return False
+    if cont["voice_count"] < 0.35:
+        return False
+    if cont["formal_repetition"] < 0.3 and cont["development_arc"] < 0.4:
+        return False
+    if cat["rhythmic_structure"] not in ("metric", "additive_metric"):
+        return False
+    if cat["scale_topology"] == "aperiodic":
+        return False
+    if cat["ornament_grammar"] == "forbidden":
+        return False
+    if cat["silence_treatment"] == "avoided":
+        return False
+    if cat["listener_role"] == "no_listener_intended":
+        return False
+    if cat["formal_type"] in ("generative_algorithmic", "spectral_static"):
+        return False
+    return True
+
+
 def sample_expedition(
     schema: dict,
     corpus: List[dict],
     n_candidates: int = 500,
     min_curiosity: float = 0.35,
     seed: int | None = None,
+    compositional: bool = False,
 ) -> Tuple[Dict[str, float], Dict[str, str], float, List[str]]:
     """Sample one viable expedition point.
 
     Returns (continuous, categorical, curiosity_score, warnings).
     Raises RuntimeError if no viable point is found after n_candidates attempts.
+    If compositional=True, only candidates passing is_compositional() are kept.
     """
     rng = random.Random(seed)
     best: Tuple[Dict[str, float], Dict[str, str], float, List[str]] | None = None
 
     attempts = 0
     rejects_coherence = 0
+    rejects_not_compositional = 0
     rejects_low_curiosity = 0
 
     while attempts < n_candidates:
@@ -70,6 +106,9 @@ def sample_expedition(
         result = check(cont, cat)
         if not result.ok:
             rejects_coherence += 1
+            continue
+        if compositional and not is_compositional(cont, cat):
+            rejects_not_compositional += 1
             continue
         score = curiosity_score(cont, cat, corpus)
         if score < min_curiosity:
@@ -81,11 +120,14 @@ def sample_expedition(
     if best is None:
         raise RuntimeError(
             f"No viable point after {n_candidates} attempts "
-            f"(coherence rejects: {rejects_coherence}, low-curiosity rejects: {rejects_low_curiosity}). "
+            f"(coherence rejects: {rejects_coherence}, "
+            f"non-compositional rejects: {rejects_not_compositional}, "
+            f"low-curiosity rejects: {rejects_low_curiosity}). "
             f"Try lowering min_curiosity or increasing n_candidates."
         )
 
     print(f"Sampled {attempts} candidates: {rejects_coherence} incoherent, "
+          f"{rejects_not_compositional} non-compositional, "
           f"{rejects_low_curiosity} too-close-to-corpus, "
           f"accepted 1 with curiosity={best[2]:.3f}", file=sys.stderr)
     return best

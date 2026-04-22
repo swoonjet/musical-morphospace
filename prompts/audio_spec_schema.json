@@ -177,7 +177,8 @@
               "name": {"type": "string"},
               "start_seconds": {"type": "number", "minimum": 0},
               "duration_seconds": {"type": "number", "minimum": 1},
-              "character": {"type": "string", "description": "One-line descriptor of this section's character. E.g. 'sparse, single voice' or 'full ensemble, accelerating'."}
+              "character": {"type": "string", "description": "One-line descriptor of this section's character. E.g. 'sparse, single voice' or 'full ensemble, accelerating'."},
+              "chord_tones": {"type": "array", "items": {"type": "integer"}, "description": "Optional. Indices into pitch_system.pitches that form the harmonic ground of this section. Voices without scripted events will be biased toward these pitches on downbeats — gives the ensemble vertical harmonic alignment. Typical: 3–5 tones."}
             }
           }
         }

@@ -135,17 +135,18 @@ def make_index_html(expedition_num: int, system_name: str, curiosity: float, dur
 # Orchestrator
 # ----------------------------------------------------------------------------
 
-def run_expedition(backend_name: str, seed: int | None, min_curiosity: float, n_candidates: int) -> Path:
+def run_expedition(backend_name: str, seed: int | None, min_curiosity: float, n_candidates: int, compositional: bool = False) -> Path:
     schema = load_schema()
     corpus = load_corpus()
 
-    print(f"Sampling coordinate (min_curiosity={min_curiosity}, n_candidates={n_candidates})...")
+    print(f"Sampling coordinate (min_curiosity={min_curiosity}, n_candidates={n_candidates}, compositional={compositional})...")
     cont, cat, curiosity, warnings = sample_expedition(
         schema=schema,
         corpus=corpus,
         n_candidates=n_candidates,
         min_curiosity=min_curiosity,
         seed=seed,
+        compositional=compositional,
     )
     neighbors = nearest_neighbors(cont, cat, corpus, k=3)
     print(f"  curiosity: {curiosity:.3f}")
@@ -229,6 +230,8 @@ def main():
     ap.add_argument("--seed", type=int, default=None)
     ap.add_argument("--min-curiosity", type=float, default=0.35)
     ap.add_argument("--n-candidates", type=int, default=500)
+    ap.add_argument("--compositional", action="store_true",
+                    help="Restrict sampling to grammars that can support melody/harmony/rhythm")
     args = ap.parse_args()
 
     run_expedition(
@@ -236,6 +239,7 @@ def main():
         seed=args.seed,
         min_curiosity=args.min_curiosity,
         n_candidates=args.n_candidates,
+        compositional=args.compositional,
     )
 
 

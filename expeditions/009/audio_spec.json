@@ -1,0 +1,4045 @@
+{
+  "duration_seconds": 75.0,
+  "pitch_system": {
+    "encoding": "ratio",
+    "reference_hz": 175,
+    "pitches": [
+      1.0,
+      1.1118,
+      1.2361,
+      1.3743,
+      1.528,
+      1.6989,
+      1.8888,
+      2.1,
+      2.0,
+      2.2236,
+      2.4723,
+      2.7487,
+      3.056,
+      3.3977,
+      3.7776,
+      4.2
+    ],
+    "octave_repeats": false,
+    "inflection_rules": [
+      {
+        "pitch_index": 0,
+        "inflection_cents_range": [
+          -20,
+          10
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 1,
+        "inflection_cents_range": [
+          -20,
+          10
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 2,
+        "inflection_cents_range": [
+          -20,
+          10
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 3,
+        "inflection_cents_range": [
+          -20,
+          10
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 4,
+        "inflection_cents_range": [
+          -20,
+          10
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 5,
+        "inflection_cents_range": [
+          -20,
+          10
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 6,
+        "inflection_cents_range": [
+          -20,
+          10
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 7,
+        "inflection_cents_range": [
+          -20,
+          10
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 8,
+        "inflection_cents_range": [
+          -20,
+          10
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 9,
+        "inflection_cents_range": [
+          -20,
+          10
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 10,
+        "inflection_cents_range": [
+          -20,
+          10
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 11,
+        "inflection_cents_range": [
+          -20,
+          10
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 12,
+        "inflection_cents_range": [
+          -20,
+          10
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 13,
+        "inflection_cents_range": [
+          -20,
+          10
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 14,
+        "inflection_cents_range": [
+          -20,
+          10
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 15,
+        "inflection_cents_range": [
+          -20,
+          10
+        ],
+        "direction": "both"
+      }
+    ]
+  },
+  "rhythm_system": {
+    "type": "additive",
+    "groupings": [
+      3,
+      3,
+      2,
+      3,
+      2
+    ],
+    "base_unit_ms": 175
+  },
+  "voices": [
+    {
+      "name": "drone",
+      "timbre": "vocal_male_low",
+      "pitch_indices": [
+        0
+      ],
+      "rhythm_role": "sustained_drone",
+      "amplitude": 0.32,
+      "spatial_position": [
+        0.0,
+        -0.3
+      ]
+    },
+    {
+      "name": "gut_A",
+      "timbre": "plucked_gut",
+      "pitch_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "rhythm_role": "ornamental",
+      "amplitude": 0.7,
+      "spatial_position": [
+        -0.5,
+        0.1
+      ]
+    },
+    {
+      "name": "reed_B",
+      "timbre": "reed",
+      "pitch_indices": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "rhythm_role": "ornamental",
+      "amplitude": 0.65,
+      "spatial_position": [
+        0.45,
+        0.1
+      ]
+    },
+    {
+      "name": "flute_C",
+      "timbre": "bamboo_flute",
+      "pitch_indices": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "rhythm_role": "melodic_lead",
+      "amplitude": 0.78,
+      "spatial_position": [
+        0.1,
+        0.3
+      ]
+    },
+    {
+      "name": "wood_D",
+      "timbre": "low_wood",
+      "pitch_indices": [
+        0,
+        7
+      ],
+      "rhythm_role": "percussive",
+      "amplitude": 0.7,
+      "spatial_position": [
+        0.0,
+        -0.1
+      ]
+    }
+  ],
+  "form": {
+    "arc_type": "modular",
+    "sections": [
+      {
+        "name": "intro",
+        "start_seconds": 0,
+        "duration_seconds": 8,
+        "character": "drone + pattern A alone",
+        "chord_tones": [
+          0
+        ]
+      },
+      {
+        "name": "interlocking",
+        "start_seconds": 8.5,
+        "duration_seconds": 16,
+        "character": "all voices interlocking at home",
+        "chord_tones": [
+          0,
+          2,
+          4,
+          7
+        ]
+      },
+      {
+        "name": "modulation",
+        "start_seconds": 25,
+        "duration_seconds": 15,
+        "character": "patterns shift up two steps",
+        "chord_tones": [
+          2,
+          4,
+          6,
+          9
+        ]
+      },
+      {
+        "name": "climax",
+        "start_seconds": 41,
+        "duration_seconds": 15,
+        "character": "patterns accelerate, density doubles",
+        "chord_tones": [
+          0,
+          4,
+          7,
+          11
+        ]
+      },
+      {
+        "name": "recession",
+        "start_seconds": 57,
+        "duration_seconds": 18,
+        "character": "voices drop out one at a time back to drone",
+        "chord_tones": [
+          0,
+          4
+        ]
+      }
+    ]
+  },
+  "ornamentation": {
+    "density": 0.18,
+    "rule": "Microtonal inflection is core: every pitch bends \u00b120/+10 cents at onset. Voices coordinate pitch drift \u2014 the ensemble stays tuned *relative to* itself rather than to absolute pitch."
+  },
+  "auto_pedal": false,
+  "events": [
+    {
+      "t": 0.4,
+      "voice": "gut_A",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 0.925,
+      "voice": "gut_A",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 1.45,
+      "voice": "gut_A",
+      "pitch_index": 4,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 1.8,
+      "voice": "gut_A",
+      "pitch_index": 3,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 2.325,
+      "voice": "gut_A",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 2.675,
+      "voice": "gut_A",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 3.2,
+      "voice": "gut_A",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 3.725,
+      "voice": "gut_A",
+      "pitch_index": 4,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 4.075,
+      "voice": "gut_A",
+      "pitch_index": 3,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 4.6,
+      "voice": "gut_A",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 4.95,
+      "voice": "gut_A",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 5.475,
+      "voice": "gut_A",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 6.0,
+      "voice": "gut_A",
+      "pitch_index": 4,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 6.35,
+      "voice": "gut_A",
+      "pitch_index": 3,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 6.875,
+      "voice": "gut_A",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 8.5,
+      "voice": "gut_A",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 9.025,
+      "voice": "gut_A",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 9.55,
+      "voice": "gut_A",
+      "pitch_index": 4,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 9.9,
+      "voice": "gut_A",
+      "pitch_index": 3,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 10.425,
+      "voice": "gut_A",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 8.5,
+      "voice": "reed_B",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.65
+    },
+    {
+      "t": 8.85,
+      "voice": "reed_B",
+      "pitch_index": 3,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 9.375,
+      "voice": "reed_B",
+      "pitch_index": 6,
+      "duration_seconds": 0.332,
+      "amplitude": 0.65
+    },
+    {
+      "t": 9.725,
+      "voice": "reed_B",
+      "pitch_index": 4,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 10.25,
+      "voice": "reed_B",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 8.5,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 8.85,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 9.2,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.499,
+      "amplitude": 0.78
+    },
+    {
+      "t": 9.725,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 10.075,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 10.425,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 8.5,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 8.85,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 9.375,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 9.725,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 10.25,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 10.775,
+      "voice": "gut_A",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 11.3,
+      "voice": "gut_A",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 11.825,
+      "voice": "gut_A",
+      "pitch_index": 4,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 12.175,
+      "voice": "gut_A",
+      "pitch_index": 3,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 12.7,
+      "voice": "gut_A",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 10.775,
+      "voice": "reed_B",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.65
+    },
+    {
+      "t": 11.125,
+      "voice": "reed_B",
+      "pitch_index": 3,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 11.65,
+      "voice": "reed_B",
+      "pitch_index": 6,
+      "duration_seconds": 0.332,
+      "amplitude": 0.65
+    },
+    {
+      "t": 12.0,
+      "voice": "reed_B",
+      "pitch_index": 4,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 12.525,
+      "voice": "reed_B",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 10.775,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 11.125,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 11.475,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.499,
+      "amplitude": 0.78
+    },
+    {
+      "t": 12.0,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 12.35,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 12.7,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 10.775,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 11.125,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 11.65,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 12.0,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 12.525,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 13.05,
+      "voice": "gut_A",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 13.575,
+      "voice": "gut_A",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 14.1,
+      "voice": "gut_A",
+      "pitch_index": 4,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 14.45,
+      "voice": "gut_A",
+      "pitch_index": 3,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 14.975,
+      "voice": "gut_A",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 13.05,
+      "voice": "reed_B",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.65
+    },
+    {
+      "t": 13.4,
+      "voice": "reed_B",
+      "pitch_index": 3,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 13.925,
+      "voice": "reed_B",
+      "pitch_index": 6,
+      "duration_seconds": 0.332,
+      "amplitude": 0.65
+    },
+    {
+      "t": 14.275,
+      "voice": "reed_B",
+      "pitch_index": 4,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 14.8,
+      "voice": "reed_B",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 13.05,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 13.4,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 13.75,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.499,
+      "amplitude": 0.78
+    },
+    {
+      "t": 14.275,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 14.625,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 14.975,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 13.05,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 13.4,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 13.925,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 14.275,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 14.8,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 15.325,
+      "voice": "gut_A",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 15.85,
+      "voice": "gut_A",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 16.375,
+      "voice": "gut_A",
+      "pitch_index": 4,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 16.725,
+      "voice": "gut_A",
+      "pitch_index": 3,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 17.25,
+      "voice": "gut_A",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 15.325,
+      "voice": "reed_B",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.65
+    },
+    {
+      "t": 15.675,
+      "voice": "reed_B",
+      "pitch_index": 3,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 16.2,
+      "voice": "reed_B",
+      "pitch_index": 6,
+      "duration_seconds": 0.332,
+      "amplitude": 0.65
+    },
+    {
+      "t": 16.55,
+      "voice": "reed_B",
+      "pitch_index": 4,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 17.075,
+      "voice": "reed_B",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 15.325,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 15.675,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 16.025,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.499,
+      "amplitude": 0.78
+    },
+    {
+      "t": 16.55,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 16.9,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 17.25,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 15.325,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 15.675,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 16.2,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 16.55,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 17.075,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 17.6,
+      "voice": "gut_A",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 18.125,
+      "voice": "gut_A",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 18.65,
+      "voice": "gut_A",
+      "pitch_index": 4,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 19.0,
+      "voice": "gut_A",
+      "pitch_index": 3,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 19.525,
+      "voice": "gut_A",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 17.6,
+      "voice": "reed_B",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.65
+    },
+    {
+      "t": 17.95,
+      "voice": "reed_B",
+      "pitch_index": 3,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 18.475,
+      "voice": "reed_B",
+      "pitch_index": 6,
+      "duration_seconds": 0.332,
+      "amplitude": 0.65
+    },
+    {
+      "t": 18.825,
+      "voice": "reed_B",
+      "pitch_index": 4,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 19.35,
+      "voice": "reed_B",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 17.6,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 17.95,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 18.3,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.499,
+      "amplitude": 0.78
+    },
+    {
+      "t": 18.825,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 19.175,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 19.525,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 17.6,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 17.95,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 18.475,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 18.825,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 19.35,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 19.875,
+      "voice": "gut_A",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 20.4,
+      "voice": "gut_A",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 20.925,
+      "voice": "gut_A",
+      "pitch_index": 4,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 21.275,
+      "voice": "gut_A",
+      "pitch_index": 3,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 21.8,
+      "voice": "gut_A",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 19.875,
+      "voice": "reed_B",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.65
+    },
+    {
+      "t": 20.225,
+      "voice": "reed_B",
+      "pitch_index": 3,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 20.75,
+      "voice": "reed_B",
+      "pitch_index": 6,
+      "duration_seconds": 0.332,
+      "amplitude": 0.65
+    },
+    {
+      "t": 21.1,
+      "voice": "reed_B",
+      "pitch_index": 4,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 21.625,
+      "voice": "reed_B",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 19.875,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 20.225,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 20.575,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.499,
+      "amplitude": 0.78
+    },
+    {
+      "t": 21.1,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 21.45,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 21.8,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 19.875,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 20.225,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 20.75,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 21.1,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 21.625,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 25.0,
+      "voice": "gut_A",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 25.525,
+      "voice": "gut_A",
+      "pitch_index": 4,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 26.05,
+      "voice": "gut_A",
+      "pitch_index": 6,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 26.4,
+      "voice": "gut_A",
+      "pitch_index": 5,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 26.925,
+      "voice": "gut_A",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 25.0,
+      "voice": "reed_B",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.65
+    },
+    {
+      "t": 25.35,
+      "voice": "reed_B",
+      "pitch_index": 5,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 25.875,
+      "voice": "reed_B",
+      "pitch_index": 8,
+      "duration_seconds": 0.332,
+      "amplitude": 0.65
+    },
+    {
+      "t": 26.225,
+      "voice": "reed_B",
+      "pitch_index": 6,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 26.75,
+      "voice": "reed_B",
+      "pitch_index": 4,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 25.0,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 25.35,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 25.7,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.499,
+      "amplitude": 0.78
+    },
+    {
+      "t": 26.225,
+      "voice": "flute_C",
+      "pitch_index": 11,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 26.575,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 26.925,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 25.0,
+      "voice": "wood_D",
+      "pitch_index": 2,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 25.35,
+      "voice": "wood_D",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 25.875,
+      "voice": "wood_D",
+      "pitch_index": 9,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 26.225,
+      "voice": "wood_D",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 26.75,
+      "voice": "wood_D",
+      "pitch_index": 9,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 27.275,
+      "voice": "gut_A",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 27.8,
+      "voice": "gut_A",
+      "pitch_index": 4,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 28.325,
+      "voice": "gut_A",
+      "pitch_index": 6,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 28.675,
+      "voice": "gut_A",
+      "pitch_index": 5,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 29.2,
+      "voice": "gut_A",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 27.275,
+      "voice": "reed_B",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.65
+    },
+    {
+      "t": 27.625,
+      "voice": "reed_B",
+      "pitch_index": 5,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 28.15,
+      "voice": "reed_B",
+      "pitch_index": 8,
+      "duration_seconds": 0.332,
+      "amplitude": 0.65
+    },
+    {
+      "t": 28.5,
+      "voice": "reed_B",
+      "pitch_index": 6,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 29.025,
+      "voice": "reed_B",
+      "pitch_index": 4,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 27.275,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 27.625,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 27.975,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.499,
+      "amplitude": 0.78
+    },
+    {
+      "t": 28.5,
+      "voice": "flute_C",
+      "pitch_index": 11,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 28.85,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 29.2,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 27.275,
+      "voice": "wood_D",
+      "pitch_index": 2,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 27.625,
+      "voice": "wood_D",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 28.15,
+      "voice": "wood_D",
+      "pitch_index": 9,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 28.5,
+      "voice": "wood_D",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 29.025,
+      "voice": "wood_D",
+      "pitch_index": 9,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 29.55,
+      "voice": "gut_A",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 30.075,
+      "voice": "gut_A",
+      "pitch_index": 4,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 30.6,
+      "voice": "gut_A",
+      "pitch_index": 6,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 30.95,
+      "voice": "gut_A",
+      "pitch_index": 5,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 31.475,
+      "voice": "gut_A",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 29.55,
+      "voice": "reed_B",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.65
+    },
+    {
+      "t": 29.9,
+      "voice": "reed_B",
+      "pitch_index": 5,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 30.425,
+      "voice": "reed_B",
+      "pitch_index": 8,
+      "duration_seconds": 0.332,
+      "amplitude": 0.65
+    },
+    {
+      "t": 30.775,
+      "voice": "reed_B",
+      "pitch_index": 6,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 31.3,
+      "voice": "reed_B",
+      "pitch_index": 4,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 29.55,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 29.9,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 30.25,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.499,
+      "amplitude": 0.78
+    },
+    {
+      "t": 30.775,
+      "voice": "flute_C",
+      "pitch_index": 11,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 31.125,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 31.475,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 29.55,
+      "voice": "wood_D",
+      "pitch_index": 2,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 29.9,
+      "voice": "wood_D",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 30.425,
+      "voice": "wood_D",
+      "pitch_index": 9,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 30.775,
+      "voice": "wood_D",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 31.3,
+      "voice": "wood_D",
+      "pitch_index": 9,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 31.825,
+      "voice": "gut_A",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 32.35,
+      "voice": "gut_A",
+      "pitch_index": 4,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 32.875,
+      "voice": "gut_A",
+      "pitch_index": 6,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 33.225,
+      "voice": "gut_A",
+      "pitch_index": 5,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 33.75,
+      "voice": "gut_A",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 31.825,
+      "voice": "reed_B",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.65
+    },
+    {
+      "t": 32.175,
+      "voice": "reed_B",
+      "pitch_index": 5,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 32.7,
+      "voice": "reed_B",
+      "pitch_index": 8,
+      "duration_seconds": 0.332,
+      "amplitude": 0.65
+    },
+    {
+      "t": 33.05,
+      "voice": "reed_B",
+      "pitch_index": 6,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 33.575,
+      "voice": "reed_B",
+      "pitch_index": 4,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 31.825,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 32.175,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 32.525,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.499,
+      "amplitude": 0.78
+    },
+    {
+      "t": 33.05,
+      "voice": "flute_C",
+      "pitch_index": 11,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 33.4,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 33.75,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 31.825,
+      "voice": "wood_D",
+      "pitch_index": 2,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 32.175,
+      "voice": "wood_D",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 32.7,
+      "voice": "wood_D",
+      "pitch_index": 9,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 33.05,
+      "voice": "wood_D",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 33.575,
+      "voice": "wood_D",
+      "pitch_index": 9,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 34.1,
+      "voice": "gut_A",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 34.625,
+      "voice": "gut_A",
+      "pitch_index": 4,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 35.15,
+      "voice": "gut_A",
+      "pitch_index": 6,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 35.5,
+      "voice": "gut_A",
+      "pitch_index": 5,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 36.025,
+      "voice": "gut_A",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 34.1,
+      "voice": "reed_B",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.65
+    },
+    {
+      "t": 34.45,
+      "voice": "reed_B",
+      "pitch_index": 5,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 34.975,
+      "voice": "reed_B",
+      "pitch_index": 8,
+      "duration_seconds": 0.332,
+      "amplitude": 0.65
+    },
+    {
+      "t": 35.325,
+      "voice": "reed_B",
+      "pitch_index": 6,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 35.85,
+      "voice": "reed_B",
+      "pitch_index": 4,
+      "duration_seconds": 0.499,
+      "amplitude": 0.65
+    },
+    {
+      "t": 34.1,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 34.45,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 34.8,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.499,
+      "amplitude": 0.78
+    },
+    {
+      "t": 35.325,
+      "voice": "flute_C",
+      "pitch_index": 11,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 35.675,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 36.025,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.78
+    },
+    {
+      "t": 34.1,
+      "voice": "wood_D",
+      "pitch_index": 2,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 34.45,
+      "voice": "wood_D",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 34.975,
+      "voice": "wood_D",
+      "pitch_index": 9,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 35.325,
+      "voice": "wood_D",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 35.85,
+      "voice": "wood_D",
+      "pitch_index": 9,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 41.0,
+      "voice": "gut_A",
+      "pitch_index": 0,
+      "duration_seconds": 0.274,
+      "amplitude": 0.75
+    },
+    {
+      "t": 41.289,
+      "voice": "gut_A",
+      "pitch_index": 2,
+      "duration_seconds": 0.274,
+      "amplitude": 0.75
+    },
+    {
+      "t": 41.578,
+      "voice": "gut_A",
+      "pitch_index": 4,
+      "duration_seconds": 0.183,
+      "amplitude": 0.75
+    },
+    {
+      "t": 41.77,
+      "voice": "gut_A",
+      "pitch_index": 3,
+      "duration_seconds": 0.274,
+      "amplitude": 0.75
+    },
+    {
+      "t": 42.059,
+      "voice": "gut_A",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.75
+    },
+    {
+      "t": 41.0,
+      "voice": "reed_B",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.72
+    },
+    {
+      "t": 41.193,
+      "voice": "reed_B",
+      "pitch_index": 3,
+      "duration_seconds": 0.274,
+      "amplitude": 0.72
+    },
+    {
+      "t": 41.481,
+      "voice": "reed_B",
+      "pitch_index": 6,
+      "duration_seconds": 0.183,
+      "amplitude": 0.72
+    },
+    {
+      "t": 41.674,
+      "voice": "reed_B",
+      "pitch_index": 4,
+      "duration_seconds": 0.274,
+      "amplitude": 0.72
+    },
+    {
+      "t": 41.963,
+      "voice": "reed_B",
+      "pitch_index": 2,
+      "duration_seconds": 0.274,
+      "amplitude": 0.72
+    },
+    {
+      "t": 41.0,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 41.193,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 41.385,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.274,
+      "amplitude": 0.82
+    },
+    {
+      "t": 41.674,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 41.866,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 42.059,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 41.0,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.183,
+      "amplitude": 0.78
+    },
+    {
+      "t": 41.193,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.274,
+      "amplitude": 0.78
+    },
+    {
+      "t": 41.481,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.183,
+      "amplitude": 0.78
+    },
+    {
+      "t": 41.674,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.274,
+      "amplitude": 0.78
+    },
+    {
+      "t": 41.963,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.274,
+      "amplitude": 0.78
+    },
+    {
+      "t": 42.251,
+      "voice": "gut_A",
+      "pitch_index": 0,
+      "duration_seconds": 0.274,
+      "amplitude": 0.75
+    },
+    {
+      "t": 42.54,
+      "voice": "gut_A",
+      "pitch_index": 2,
+      "duration_seconds": 0.274,
+      "amplitude": 0.75
+    },
+    {
+      "t": 42.829,
+      "voice": "gut_A",
+      "pitch_index": 4,
+      "duration_seconds": 0.183,
+      "amplitude": 0.75
+    },
+    {
+      "t": 43.021,
+      "voice": "gut_A",
+      "pitch_index": 3,
+      "duration_seconds": 0.274,
+      "amplitude": 0.75
+    },
+    {
+      "t": 43.31,
+      "voice": "gut_A",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.75
+    },
+    {
+      "t": 42.251,
+      "voice": "reed_B",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.72
+    },
+    {
+      "t": 42.444,
+      "voice": "reed_B",
+      "pitch_index": 3,
+      "duration_seconds": 0.274,
+      "amplitude": 0.72
+    },
+    {
+      "t": 42.733,
+      "voice": "reed_B",
+      "pitch_index": 6,
+      "duration_seconds": 0.183,
+      "amplitude": 0.72
+    },
+    {
+      "t": 42.925,
+      "voice": "reed_B",
+      "pitch_index": 4,
+      "duration_seconds": 0.274,
+      "amplitude": 0.72
+    },
+    {
+      "t": 43.214,
+      "voice": "reed_B",
+      "pitch_index": 2,
+      "duration_seconds": 0.274,
+      "amplitude": 0.72
+    },
+    {
+      "t": 42.251,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 42.444,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 42.636,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.274,
+      "amplitude": 0.82
+    },
+    {
+      "t": 42.925,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 43.118,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 43.31,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 42.251,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.183,
+      "amplitude": 0.78
+    },
+    {
+      "t": 42.444,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.274,
+      "amplitude": 0.78
+    },
+    {
+      "t": 42.733,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.183,
+      "amplitude": 0.78
+    },
+    {
+      "t": 42.925,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.274,
+      "amplitude": 0.78
+    },
+    {
+      "t": 43.214,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.274,
+      "amplitude": 0.78
+    },
+    {
+      "t": 43.502,
+      "voice": "gut_A",
+      "pitch_index": 0,
+      "duration_seconds": 0.274,
+      "amplitude": 0.75
+    },
+    {
+      "t": 43.791,
+      "voice": "gut_A",
+      "pitch_index": 2,
+      "duration_seconds": 0.274,
+      "amplitude": 0.75
+    },
+    {
+      "t": 44.08,
+      "voice": "gut_A",
+      "pitch_index": 4,
+      "duration_seconds": 0.183,
+      "amplitude": 0.75
+    },
+    {
+      "t": 44.273,
+      "voice": "gut_A",
+      "pitch_index": 3,
+      "duration_seconds": 0.274,
+      "amplitude": 0.75
+    },
+    {
+      "t": 44.561,
+      "voice": "gut_A",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.75
+    },
+    {
+      "t": 43.502,
+      "voice": "reed_B",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.72
+    },
+    {
+      "t": 43.695,
+      "voice": "reed_B",
+      "pitch_index": 3,
+      "duration_seconds": 0.274,
+      "amplitude": 0.72
+    },
+    {
+      "t": 43.984,
+      "voice": "reed_B",
+      "pitch_index": 6,
+      "duration_seconds": 0.183,
+      "amplitude": 0.72
+    },
+    {
+      "t": 44.176,
+      "voice": "reed_B",
+      "pitch_index": 4,
+      "duration_seconds": 0.274,
+      "amplitude": 0.72
+    },
+    {
+      "t": 44.465,
+      "voice": "reed_B",
+      "pitch_index": 2,
+      "duration_seconds": 0.274,
+      "amplitude": 0.72
+    },
+    {
+      "t": 43.502,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 43.695,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 43.888,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.274,
+      "amplitude": 0.82
+    },
+    {
+      "t": 44.176,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 44.369,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 44.561,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 43.502,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.183,
+      "amplitude": 0.78
+    },
+    {
+      "t": 43.695,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.274,
+      "amplitude": 0.78
+    },
+    {
+      "t": 43.984,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.183,
+      "amplitude": 0.78
+    },
+    {
+      "t": 44.176,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.274,
+      "amplitude": 0.78
+    },
+    {
+      "t": 44.465,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.274,
+      "amplitude": 0.78
+    },
+    {
+      "t": 44.754,
+      "voice": "gut_A",
+      "pitch_index": 0,
+      "duration_seconds": 0.274,
+      "amplitude": 0.75
+    },
+    {
+      "t": 45.042,
+      "voice": "gut_A",
+      "pitch_index": 2,
+      "duration_seconds": 0.274,
+      "amplitude": 0.75
+    },
+    {
+      "t": 45.331,
+      "voice": "gut_A",
+      "pitch_index": 4,
+      "duration_seconds": 0.183,
+      "amplitude": 0.75
+    },
+    {
+      "t": 45.524,
+      "voice": "gut_A",
+      "pitch_index": 3,
+      "duration_seconds": 0.274,
+      "amplitude": 0.75
+    },
+    {
+      "t": 45.812,
+      "voice": "gut_A",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.75
+    },
+    {
+      "t": 44.754,
+      "voice": "reed_B",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.72
+    },
+    {
+      "t": 44.946,
+      "voice": "reed_B",
+      "pitch_index": 3,
+      "duration_seconds": 0.274,
+      "amplitude": 0.72
+    },
+    {
+      "t": 45.235,
+      "voice": "reed_B",
+      "pitch_index": 6,
+      "duration_seconds": 0.183,
+      "amplitude": 0.72
+    },
+    {
+      "t": 45.428,
+      "voice": "reed_B",
+      "pitch_index": 4,
+      "duration_seconds": 0.274,
+      "amplitude": 0.72
+    },
+    {
+      "t": 45.716,
+      "voice": "reed_B",
+      "pitch_index": 2,
+      "duration_seconds": 0.274,
+      "amplitude": 0.72
+    },
+    {
+      "t": 44.754,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 44.946,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 45.139,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.274,
+      "amplitude": 0.82
+    },
+    {
+      "t": 45.428,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 45.62,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 45.813,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 44.754,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.183,
+      "amplitude": 0.78
+    },
+    {
+      "t": 44.946,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.274,
+      "amplitude": 0.78
+    },
+    {
+      "t": 45.235,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.183,
+      "amplitude": 0.78
+    },
+    {
+      "t": 45.428,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.274,
+      "amplitude": 0.78
+    },
+    {
+      "t": 45.716,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.274,
+      "amplitude": 0.78
+    },
+    {
+      "t": 46.005,
+      "voice": "gut_A",
+      "pitch_index": 0,
+      "duration_seconds": 0.274,
+      "amplitude": 0.75
+    },
+    {
+      "t": 46.294,
+      "voice": "gut_A",
+      "pitch_index": 2,
+      "duration_seconds": 0.274,
+      "amplitude": 0.75
+    },
+    {
+      "t": 46.582,
+      "voice": "gut_A",
+      "pitch_index": 4,
+      "duration_seconds": 0.183,
+      "amplitude": 0.75
+    },
+    {
+      "t": 46.775,
+      "voice": "gut_A",
+      "pitch_index": 3,
+      "duration_seconds": 0.274,
+      "amplitude": 0.75
+    },
+    {
+      "t": 47.064,
+      "voice": "gut_A",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.75
+    },
+    {
+      "t": 46.005,
+      "voice": "reed_B",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.72
+    },
+    {
+      "t": 46.197,
+      "voice": "reed_B",
+      "pitch_index": 3,
+      "duration_seconds": 0.274,
+      "amplitude": 0.72
+    },
+    {
+      "t": 46.486,
+      "voice": "reed_B",
+      "pitch_index": 6,
+      "duration_seconds": 0.183,
+      "amplitude": 0.72
+    },
+    {
+      "t": 46.679,
+      "voice": "reed_B",
+      "pitch_index": 4,
+      "duration_seconds": 0.274,
+      "amplitude": 0.72
+    },
+    {
+      "t": 46.968,
+      "voice": "reed_B",
+      "pitch_index": 2,
+      "duration_seconds": 0.274,
+      "amplitude": 0.72
+    },
+    {
+      "t": 46.005,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 46.197,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 46.39,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.274,
+      "amplitude": 0.82
+    },
+    {
+      "t": 46.679,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 46.871,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 47.064,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 46.005,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.183,
+      "amplitude": 0.78
+    },
+    {
+      "t": 46.197,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.274,
+      "amplitude": 0.78
+    },
+    {
+      "t": 46.486,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.183,
+      "amplitude": 0.78
+    },
+    {
+      "t": 46.679,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.274,
+      "amplitude": 0.78
+    },
+    {
+      "t": 46.968,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.274,
+      "amplitude": 0.78
+    },
+    {
+      "t": 47.256,
+      "voice": "gut_A",
+      "pitch_index": 0,
+      "duration_seconds": 0.274,
+      "amplitude": 0.75
+    },
+    {
+      "t": 47.545,
+      "voice": "gut_A",
+      "pitch_index": 2,
+      "duration_seconds": 0.274,
+      "amplitude": 0.75
+    },
+    {
+      "t": 47.834,
+      "voice": "gut_A",
+      "pitch_index": 4,
+      "duration_seconds": 0.183,
+      "amplitude": 0.75
+    },
+    {
+      "t": 48.026,
+      "voice": "gut_A",
+      "pitch_index": 3,
+      "duration_seconds": 0.274,
+      "amplitude": 0.75
+    },
+    {
+      "t": 48.315,
+      "voice": "gut_A",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.75
+    },
+    {
+      "t": 47.256,
+      "voice": "reed_B",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.72
+    },
+    {
+      "t": 47.449,
+      "voice": "reed_B",
+      "pitch_index": 3,
+      "duration_seconds": 0.274,
+      "amplitude": 0.72
+    },
+    {
+      "t": 47.737,
+      "voice": "reed_B",
+      "pitch_index": 6,
+      "duration_seconds": 0.183,
+      "amplitude": 0.72
+    },
+    {
+      "t": 47.93,
+      "voice": "reed_B",
+      "pitch_index": 4,
+      "duration_seconds": 0.274,
+      "amplitude": 0.72
+    },
+    {
+      "t": 48.219,
+      "voice": "reed_B",
+      "pitch_index": 2,
+      "duration_seconds": 0.274,
+      "amplitude": 0.72
+    },
+    {
+      "t": 47.256,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 47.449,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 47.641,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.274,
+      "amplitude": 0.82
+    },
+    {
+      "t": 47.93,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 48.123,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 48.315,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 47.256,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.183,
+      "amplitude": 0.78
+    },
+    {
+      "t": 47.449,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.274,
+      "amplitude": 0.78
+    },
+    {
+      "t": 47.737,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.183,
+      "amplitude": 0.78
+    },
+    {
+      "t": 47.93,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.274,
+      "amplitude": 0.78
+    },
+    {
+      "t": 48.219,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.274,
+      "amplitude": 0.78
+    },
+    {
+      "t": 48.507,
+      "voice": "gut_A",
+      "pitch_index": 0,
+      "duration_seconds": 0.274,
+      "amplitude": 0.75
+    },
+    {
+      "t": 48.796,
+      "voice": "gut_A",
+      "pitch_index": 2,
+      "duration_seconds": 0.274,
+      "amplitude": 0.75
+    },
+    {
+      "t": 49.085,
+      "voice": "gut_A",
+      "pitch_index": 4,
+      "duration_seconds": 0.183,
+      "amplitude": 0.75
+    },
+    {
+      "t": 49.277,
+      "voice": "gut_A",
+      "pitch_index": 3,
+      "duration_seconds": 0.274,
+      "amplitude": 0.75
+    },
+    {
+      "t": 49.566,
+      "voice": "gut_A",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.75
+    },
+    {
+      "t": 48.507,
+      "voice": "reed_B",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.72
+    },
+    {
+      "t": 48.7,
+      "voice": "reed_B",
+      "pitch_index": 3,
+      "duration_seconds": 0.274,
+      "amplitude": 0.72
+    },
+    {
+      "t": 48.989,
+      "voice": "reed_B",
+      "pitch_index": 6,
+      "duration_seconds": 0.183,
+      "amplitude": 0.72
+    },
+    {
+      "t": 49.181,
+      "voice": "reed_B",
+      "pitch_index": 4,
+      "duration_seconds": 0.274,
+      "amplitude": 0.72
+    },
+    {
+      "t": 49.47,
+      "voice": "reed_B",
+      "pitch_index": 2,
+      "duration_seconds": 0.274,
+      "amplitude": 0.72
+    },
+    {
+      "t": 48.507,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 48.7,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 48.892,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.274,
+      "amplitude": 0.82
+    },
+    {
+      "t": 49.181,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 49.374,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 49.566,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 48.507,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.183,
+      "amplitude": 0.78
+    },
+    {
+      "t": 48.7,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.274,
+      "amplitude": 0.78
+    },
+    {
+      "t": 48.989,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.183,
+      "amplitude": 0.78
+    },
+    {
+      "t": 49.181,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.274,
+      "amplitude": 0.78
+    },
+    {
+      "t": 49.47,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.274,
+      "amplitude": 0.78
+    },
+    {
+      "t": 49.759,
+      "voice": "gut_A",
+      "pitch_index": 0,
+      "duration_seconds": 0.274,
+      "amplitude": 0.75
+    },
+    {
+      "t": 50.047,
+      "voice": "gut_A",
+      "pitch_index": 2,
+      "duration_seconds": 0.274,
+      "amplitude": 0.75
+    },
+    {
+      "t": 50.336,
+      "voice": "gut_A",
+      "pitch_index": 4,
+      "duration_seconds": 0.183,
+      "amplitude": 0.75
+    },
+    {
+      "t": 50.529,
+      "voice": "gut_A",
+      "pitch_index": 3,
+      "duration_seconds": 0.274,
+      "amplitude": 0.75
+    },
+    {
+      "t": 50.817,
+      "voice": "gut_A",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.75
+    },
+    {
+      "t": 49.759,
+      "voice": "reed_B",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.72
+    },
+    {
+      "t": 49.951,
+      "voice": "reed_B",
+      "pitch_index": 3,
+      "duration_seconds": 0.274,
+      "amplitude": 0.72
+    },
+    {
+      "t": 50.24,
+      "voice": "reed_B",
+      "pitch_index": 6,
+      "duration_seconds": 0.183,
+      "amplitude": 0.72
+    },
+    {
+      "t": 50.432,
+      "voice": "reed_B",
+      "pitch_index": 4,
+      "duration_seconds": 0.274,
+      "amplitude": 0.72
+    },
+    {
+      "t": 50.721,
+      "voice": "reed_B",
+      "pitch_index": 2,
+      "duration_seconds": 0.274,
+      "amplitude": 0.72
+    },
+    {
+      "t": 49.759,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 49.951,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 50.144,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.274,
+      "amplitude": 0.82
+    },
+    {
+      "t": 50.432,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 50.625,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 50.818,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.183,
+      "amplitude": 0.82
+    },
+    {
+      "t": 49.759,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.183,
+      "amplitude": 0.78
+    },
+    {
+      "t": 49.951,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.274,
+      "amplitude": 0.78
+    },
+    {
+      "t": 50.24,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.183,
+      "amplitude": 0.78
+    },
+    {
+      "t": 50.432,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.274,
+      "amplitude": 0.78
+    },
+    {
+      "t": 50.721,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.274,
+      "amplitude": 0.78
+    },
+    {
+      "t": 57.0,
+      "voice": "gut_A",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.6
+    },
+    {
+      "t": 57.525,
+      "voice": "gut_A",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.6
+    },
+    {
+      "t": 58.05,
+      "voice": "gut_A",
+      "pitch_index": 4,
+      "duration_seconds": 0.332,
+      "amplitude": 0.6
+    },
+    {
+      "t": 58.4,
+      "voice": "gut_A",
+      "pitch_index": 3,
+      "duration_seconds": 0.499,
+      "amplitude": 0.6
+    },
+    {
+      "t": 58.925,
+      "voice": "gut_A",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.6
+    },
+    {
+      "t": 57.0,
+      "voice": "reed_B",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.55
+    },
+    {
+      "t": 57.35,
+      "voice": "reed_B",
+      "pitch_index": 3,
+      "duration_seconds": 0.499,
+      "amplitude": 0.55
+    },
+    {
+      "t": 57.875,
+      "voice": "reed_B",
+      "pitch_index": 6,
+      "duration_seconds": 0.332,
+      "amplitude": 0.55
+    },
+    {
+      "t": 58.225,
+      "voice": "reed_B",
+      "pitch_index": 4,
+      "duration_seconds": 0.499,
+      "amplitude": 0.55
+    },
+    {
+      "t": 58.75,
+      "voice": "reed_B",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.55
+    },
+    {
+      "t": 57.0,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 57.35,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 57.7,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 58.225,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 58.575,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 58.925,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 57.0,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.332,
+      "amplitude": 0.6
+    },
+    {
+      "t": 57.35,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.6
+    },
+    {
+      "t": 57.875,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.6
+    },
+    {
+      "t": 58.225,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.6
+    },
+    {
+      "t": 58.75,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.499,
+      "amplitude": 0.6
+    },
+    {
+      "t": 59.275,
+      "voice": "gut_A",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.6
+    },
+    {
+      "t": 59.8,
+      "voice": "gut_A",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.6
+    },
+    {
+      "t": 60.325,
+      "voice": "gut_A",
+      "pitch_index": 4,
+      "duration_seconds": 0.332,
+      "amplitude": 0.6
+    },
+    {
+      "t": 60.675,
+      "voice": "gut_A",
+      "pitch_index": 3,
+      "duration_seconds": 0.499,
+      "amplitude": 0.6
+    },
+    {
+      "t": 61.2,
+      "voice": "gut_A",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.6
+    },
+    {
+      "t": 59.275,
+      "voice": "reed_B",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.55
+    },
+    {
+      "t": 59.625,
+      "voice": "reed_B",
+      "pitch_index": 3,
+      "duration_seconds": 0.499,
+      "amplitude": 0.55
+    },
+    {
+      "t": 60.15,
+      "voice": "reed_B",
+      "pitch_index": 6,
+      "duration_seconds": 0.332,
+      "amplitude": 0.55
+    },
+    {
+      "t": 60.5,
+      "voice": "reed_B",
+      "pitch_index": 4,
+      "duration_seconds": 0.499,
+      "amplitude": 0.55
+    },
+    {
+      "t": 61.025,
+      "voice": "reed_B",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.55
+    },
+    {
+      "t": 59.275,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 59.625,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 59.975,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 60.5,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 60.85,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 61.2,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 59.275,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.332,
+      "amplitude": 0.6
+    },
+    {
+      "t": 59.625,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.6
+    },
+    {
+      "t": 60.15,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.6
+    },
+    {
+      "t": 60.5,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.6
+    },
+    {
+      "t": 61.025,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.499,
+      "amplitude": 0.6
+    },
+    {
+      "t": 61.55,
+      "voice": "gut_A",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.6
+    },
+    {
+      "t": 62.075,
+      "voice": "gut_A",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.6
+    },
+    {
+      "t": 62.6,
+      "voice": "gut_A",
+      "pitch_index": 4,
+      "duration_seconds": 0.332,
+      "amplitude": 0.6
+    },
+    {
+      "t": 62.95,
+      "voice": "gut_A",
+      "pitch_index": 3,
+      "duration_seconds": 0.499,
+      "amplitude": 0.6
+    },
+    {
+      "t": 63.475,
+      "voice": "gut_A",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.6
+    },
+    {
+      "t": 61.55,
+      "voice": "reed_B",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.55
+    },
+    {
+      "t": 61.9,
+      "voice": "reed_B",
+      "pitch_index": 3,
+      "duration_seconds": 0.499,
+      "amplitude": 0.55
+    },
+    {
+      "t": 62.425,
+      "voice": "reed_B",
+      "pitch_index": 6,
+      "duration_seconds": 0.332,
+      "amplitude": 0.55
+    },
+    {
+      "t": 62.775,
+      "voice": "reed_B",
+      "pitch_index": 4,
+      "duration_seconds": 0.499,
+      "amplitude": 0.55
+    },
+    {
+      "t": 63.3,
+      "voice": "reed_B",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.55
+    },
+    {
+      "t": 61.55,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 61.9,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 62.25,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.499,
+      "amplitude": 0.7
+    },
+    {
+      "t": 62.775,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 63.125,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 63.475,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.7
+    },
+    {
+      "t": 61.55,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.332,
+      "amplitude": 0.6
+    },
+    {
+      "t": 61.9,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.6
+    },
+    {
+      "t": 62.425,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.6
+    },
+    {
+      "t": 62.775,
+      "voice": "wood_D",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.6
+    },
+    {
+      "t": 63.3,
+      "voice": "wood_D",
+      "pitch_index": 7,
+      "duration_seconds": 0.499,
+      "amplitude": 0.6
+    },
+    {
+      "t": 63.825,
+      "voice": "gut_A",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.5
+    },
+    {
+      "t": 64.35,
+      "voice": "gut_A",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.5
+    },
+    {
+      "t": 64.875,
+      "voice": "gut_A",
+      "pitch_index": 4,
+      "duration_seconds": 0.332,
+      "amplitude": 0.5
+    },
+    {
+      "t": 65.225,
+      "voice": "gut_A",
+      "pitch_index": 3,
+      "duration_seconds": 0.499,
+      "amplitude": 0.5
+    },
+    {
+      "t": 65.75,
+      "voice": "gut_A",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.5
+    },
+    {
+      "t": 63.825,
+      "voice": "reed_B",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.45
+    },
+    {
+      "t": 64.175,
+      "voice": "reed_B",
+      "pitch_index": 3,
+      "duration_seconds": 0.499,
+      "amplitude": 0.45
+    },
+    {
+      "t": 64.7,
+      "voice": "reed_B",
+      "pitch_index": 6,
+      "duration_seconds": 0.332,
+      "amplitude": 0.45
+    },
+    {
+      "t": 65.05,
+      "voice": "reed_B",
+      "pitch_index": 4,
+      "duration_seconds": 0.499,
+      "amplitude": 0.45
+    },
+    {
+      "t": 65.575,
+      "voice": "reed_B",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.45
+    },
+    {
+      "t": 63.825,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.6
+    },
+    {
+      "t": 64.175,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.6
+    },
+    {
+      "t": 64.525,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.499,
+      "amplitude": 0.6
+    },
+    {
+      "t": 65.05,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.332,
+      "amplitude": 0.6
+    },
+    {
+      "t": 65.4,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.6
+    },
+    {
+      "t": 65.75,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.6
+    },
+    {
+      "t": 66.1,
+      "voice": "gut_A",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.5
+    },
+    {
+      "t": 66.625,
+      "voice": "gut_A",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.5
+    },
+    {
+      "t": 67.15,
+      "voice": "gut_A",
+      "pitch_index": 4,
+      "duration_seconds": 0.332,
+      "amplitude": 0.5
+    },
+    {
+      "t": 67.5,
+      "voice": "gut_A",
+      "pitch_index": 3,
+      "duration_seconds": 0.499,
+      "amplitude": 0.5
+    },
+    {
+      "t": 68.025,
+      "voice": "gut_A",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.5
+    },
+    {
+      "t": 66.1,
+      "voice": "reed_B",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.45
+    },
+    {
+      "t": 66.45,
+      "voice": "reed_B",
+      "pitch_index": 3,
+      "duration_seconds": 0.499,
+      "amplitude": 0.45
+    },
+    {
+      "t": 66.975,
+      "voice": "reed_B",
+      "pitch_index": 6,
+      "duration_seconds": 0.332,
+      "amplitude": 0.45
+    },
+    {
+      "t": 67.325,
+      "voice": "reed_B",
+      "pitch_index": 4,
+      "duration_seconds": 0.499,
+      "amplitude": 0.45
+    },
+    {
+      "t": 67.85,
+      "voice": "reed_B",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.45
+    },
+    {
+      "t": 66.1,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.6
+    },
+    {
+      "t": 66.45,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.6
+    },
+    {
+      "t": 66.8,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.499,
+      "amplitude": 0.6
+    },
+    {
+      "t": 67.325,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.332,
+      "amplitude": 0.6
+    },
+    {
+      "t": 67.675,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.6
+    },
+    {
+      "t": 68.025,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.6
+    },
+    {
+      "t": 68.375,
+      "voice": "gut_A",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.4
+    },
+    {
+      "t": 68.9,
+      "voice": "gut_A",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.4
+    },
+    {
+      "t": 69.425,
+      "voice": "gut_A",
+      "pitch_index": 4,
+      "duration_seconds": 0.332,
+      "amplitude": 0.4
+    },
+    {
+      "t": 69.775,
+      "voice": "gut_A",
+      "pitch_index": 3,
+      "duration_seconds": 0.499,
+      "amplitude": 0.4
+    },
+    {
+      "t": 70.3,
+      "voice": "gut_A",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.4
+    },
+    {
+      "t": 68.375,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.5
+    },
+    {
+      "t": 68.725,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.5
+    },
+    {
+      "t": 69.075,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.499,
+      "amplitude": 0.5
+    },
+    {
+      "t": 69.6,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.332,
+      "amplitude": 0.5
+    },
+    {
+      "t": 69.95,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.5
+    },
+    {
+      "t": 70.3,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.5
+    },
+    {
+      "t": 70.65,
+      "voice": "gut_A",
+      "pitch_index": 0,
+      "duration_seconds": 0.499,
+      "amplitude": 0.4
+    },
+    {
+      "t": 71.175,
+      "voice": "gut_A",
+      "pitch_index": 2,
+      "duration_seconds": 0.499,
+      "amplitude": 0.4
+    },
+    {
+      "t": 71.7,
+      "voice": "gut_A",
+      "pitch_index": 4,
+      "duration_seconds": 0.332,
+      "amplitude": 0.4
+    },
+    {
+      "t": 72.05,
+      "voice": "gut_A",
+      "pitch_index": 3,
+      "duration_seconds": 0.499,
+      "amplitude": 0.4
+    },
+    {
+      "t": 72.575,
+      "voice": "gut_A",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.4
+    },
+    {
+      "t": 70.65,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.5
+    },
+    {
+      "t": 71.0,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.5
+    },
+    {
+      "t": 71.35,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.499,
+      "amplitude": 0.5
+    },
+    {
+      "t": 71.875,
+      "voice": "flute_C",
+      "pitch_index": 9,
+      "duration_seconds": 0.332,
+      "amplitude": 0.5
+    },
+    {
+      "t": 72.225,
+      "voice": "flute_C",
+      "pitch_index": 7,
+      "duration_seconds": 0.332,
+      "amplitude": 0.5
+    },
+    {
+      "t": 72.575,
+      "voice": "flute_C",
+      "pitch_index": 5,
+      "duration_seconds": 0.332,
+      "amplitude": 0.5
+    }
+  ]
+}

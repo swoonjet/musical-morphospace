@@ -1,0 +1,59 @@
+{
+  "expedition_number": 7,
+  "iso_date": "2026-04-22T13:57:55",
+  "curiosity_score": 0.5071209048106977,
+  "continuous": {
+    "pitch_density": 0.928,
+    "microtonality_degree": 0.729,
+    "octave_equivalence": 0.303,
+    "interval_hierarchy": 0.908,
+    "pitch_flexibility": 0.448,
+    "metric_periodicity": 0.488,
+    "rhythmic_density": 0.595,
+    "polyrhythmic_complexity": 0.98,
+    "cycle_length": 0.039,
+    "tempo_stability": 0.321,
+    "piece_duration": 0.732,
+    "formal_repetition": 0.583,
+    "development_arc": 0.927,
+    "voice_count": 0.964,
+    "voice_independence": 0.858,
+    "drone_presence": 0.817,
+    "improvisation_degree": 0.099,
+    "ornament_density": 0.621
+  },
+  "categorical": {
+    "tuning_basis": "irrational_ratio",
+    "scale_topology": "single_cycle_no_repeat",
+    "rhythmic_structure": "additive_metric",
+    "formal_type": "nested_hierarchical",
+    "texture_type": "layered_ostinato",
+    "ornament_grammar": "decorative_optional",
+    "transmission_mode": "notated_prescriptive",
+    "ensemble_topology": "solo",
+    "social_function": "environmental_dialogue",
+    "listener_role": "environmental_coexistent",
+    "silence_treatment": "decorative_pause",
+    "temporal_framing": "indeterminate_open"
+  },
+  "warnings": [
+    "ensemble microtonal coordination \u2014 rare (Arabic takht, Turkish classical)"
+  ],
+  "neighbors": [
+    {
+      "name": "Spectral Composition (French school)",
+      "id": "spectral_composition",
+      "distance": 0.5071209048106977
+    },
+    {
+      "name": "Xenakis Stochastic Composition",
+      "id": "xenakis_stochastic",
+      "distance": 0.525677088105876
+    },
+    {
+      "name": "IDM / Glitch",
+      "id": "idm_glitch",
+      "distance": 0.5381388670502991
+    }
+  ]
+}

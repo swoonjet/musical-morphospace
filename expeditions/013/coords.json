@@ -1,0 +1,57 @@
+{
+  "expedition_number": 13,
+  "iso_date": "2026-04-22T14:18:58",
+  "curiosity_score": 0.49946147497699905,
+  "continuous": {
+    "pitch_density": 0.978,
+    "microtonality_degree": 0.6,
+    "octave_equivalence": 0.048,
+    "interval_hierarchy": 0.631,
+    "pitch_flexibility": 0.199,
+    "metric_periodicity": 0.821,
+    "rhythmic_density": 0.615,
+    "polyrhythmic_complexity": 0.167,
+    "cycle_length": 0.768,
+    "tempo_stability": 0.744,
+    "piece_duration": 0.564,
+    "formal_repetition": 0.506,
+    "development_arc": 0.624,
+    "voice_count": 0.89,
+    "voice_independence": 0.698,
+    "drone_presence": 0.973,
+    "improvisation_degree": 0.41,
+    "ornament_density": 0.546
+  },
+  "categorical": {
+    "tuning_basis": "stretched",
+    "scale_topology": "adaptive_contextual",
+    "rhythmic_structure": "additive_metric",
+    "formal_type": "cyclical_return",
+    "texture_type": "spectral_cloud",
+    "ornament_grammar": "decorative_optional",
+    "transmission_mode": "notated_prescriptive",
+    "ensemble_topology": "heterophonic_group",
+    "social_function": "didactic_pedagogical",
+    "listener_role": "evaluator_connoisseur",
+    "silence_treatment": "equal_to_sound",
+    "temporal_framing": "natural_cycle_aligned"
+  },
+  "warnings": [],
+  "neighbors": [
+    {
+      "name": "Spectral Composition (French school)",
+      "id": "spectral_composition",
+      "distance": 0.510334115159667
+    },
+    {
+      "name": "Arabic Maqam (Egyptian takht ensemble)",
+      "id": "arabic_maqam_takht",
+      "distance": 0.5162039183947402
+    },
+    {
+      "name": "Turkish Classical Makam",
+      "id": "turkish_classical_makam",
+      "distance": 0.5185603744086427
+    }
+  ]
+}

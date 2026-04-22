@@ -605,6 +605,30 @@ def _voice_section_windows(voice: dict, form: dict, duration: float) -> List[Tup
     return windows or [(0, duration)]
 
 
+def _chord_tones_at_time(t: float, form: dict) -> Optional[List[int]]:
+    """Return the chord_tones of the section containing t, or None. Sections may
+    declare a `chord_tones` array (indices into pitch_system.pitches). Voices
+    without scripted events will be biased toward these pitches — giving the
+    ensemble real harmonic alignment on each section."""
+    for s in form.get("sections", []):
+        if s["start_seconds"] <= t < s["start_seconds"] + s["duration_seconds"]:
+            return s.get("chord_tones")
+    return None
+
+
+def _snap_to_chord(pitch_idx: int, chord_tones: Optional[List[int]],
+                    voice_pitches: List[int], bias: float,
+                    rng: np.random.Generator) -> int:
+    """With probability `bias`, move pitch_idx to the nearest chord tone the
+    voice is allowed to play. Otherwise pass through (produces passing tones)."""
+    if not chord_tones or rng.random() > bias:
+        return pitch_idx
+    allowed = [c for c in chord_tones if c in voice_pitches]
+    if not allowed:
+        return pitch_idx
+    return min(allowed, key=lambda c: abs(c - pitch_idx))
+
+
 def schedule_metric(rhythm: dict, voices: List[dict], form: dict, duration: float, rng: np.random.Generator) -> List[Event]:
     events: List[Event] = []
     bpm = rhythm["tempo_bpm"]
@@ -627,15 +651,27 @@ def schedule_metric(rhythm: dict, voices: List[dict], form: dict, duration: floa
             while t < w_end:
                 beat_in_cycle = int((t / beat_dur) % beats_per_cycle)
                 accent_mult = accent[beat_in_cycle] if beat_in_cycle < len(accent) else 0.8
+                chord_tones = _chord_tones_at_time(t, form)
                 if role == "ostinato":
-                    pitch = pitches[beat_in_cycle % len(pitches)]
+                    # Cycle chord tones if provided, else the voice's pitch pool
+                    allowed = [c for c in (chord_tones or []) if c in pitches]
+                    pool = allowed if allowed else pitches
+                    pitch = pool[beat_in_cycle % len(pool)]
                     dur = beat_dur * 0.9
                 elif role == "melodic_lead":
                     pitch = walk[cursor % len(walk)]
+                    # Strong snap on cycle downbeats, weak otherwise
+                    bias = 0.85 if beat_in_cycle == 0 else 0.35
+                    pitch = _snap_to_chord(pitch, chord_tones, pitches, bias, rng)
                     dur = beat_dur * float(rng.choice([0.5, 1.0, 1.0, 2.0]))
                 elif role == "percussive":
                     pitch = walk[cursor % len(walk)]
-                    dur = beat_dur * 0.3
+                    # Fire one hit per beat; the hit itself is short.
+                    hit_dur = beat_dur * 0.3
+                    events.append((t, v["name"], pitch, min(hit_dur, w_end - t), amp * accent_mult))
+                    t += beat_dur
+                    cursor += 1
+                    continue
                 elif role == "hocket_single_pitch":
                     if rng.random() < 0.4:
                         pitch = pitches[0]
@@ -645,6 +681,7 @@ def schedule_metric(rhythm: dict, voices: List[dict], form: dict, duration: floa
                         continue
                 elif role == "ornamental":
                     pitch = walk[cursor % len(walk)]
+                    pitch = _snap_to_chord(pitch, chord_tones, pitches, 0.5, rng)
                     dur = beat_dur * 0.25
                     t += beat_dur * 0.1
                 else:
@@ -837,18 +874,33 @@ def _prepare_voices_with_walks(spec: dict, seed: int) -> List[dict]:
 
 
 def schedule_events(spec: dict, seed: int = 42) -> List[Event]:
-    if spec.get("events"):
-        voice_map = {v["name"]: v for v in spec["voices"]}
-        out = []
-        for e in spec["events"]:
-            amp = e.get("amplitude", voice_map[e["voice"]]["amplitude"])
-            out.append((e["t"], e["voice"], e["pitch_index"], e["duration_seconds"], amp))
-        return out
-    rhythm = spec["rhythm_system"]
-    scheduler = SCHEDULERS.get(rhythm["type"], schedule_metric)
-    rng = np.random.default_rng(seed)
-    prepared = _prepare_voices_with_walks(spec, seed)
-    return scheduler(rhythm, prepared, spec["form"], spec["duration_seconds"], rng)
+    """Hybrid: scripted events fire as written. Voices with NO scripted events
+    get populated by the procedural scheduler so they still contribute (drums,
+    drones, pad). Voices that have any scripted events are trusted to be
+    fully scripted — the scheduler does not fill gaps for them."""
+    scripted: List[Event] = []
+    scripted_voices: set = set()
+    voice_map = {v["name"]: v for v in spec["voices"]}
+
+    for e in spec.get("events", []) or []:
+        amp = e.get("amplitude", voice_map[e["voice"]]["amplitude"])
+        scripted.append((e["t"], e["voice"], e["pitch_index"], e["duration_seconds"], amp))
+        scripted_voices.add(e["voice"])
+
+    # Voices with no scripted events go through the scheduler
+    unscripted_voices = [v for v in spec["voices"] if v["name"] not in scripted_voices]
+    scheduled: List[Event] = []
+    if unscripted_voices:
+        rhythm = spec["rhythm_system"]
+        scheduler = SCHEDULERS.get(rhythm["type"], schedule_metric)
+        rng = np.random.default_rng(seed)
+        # Only pass the unscripted voices through the walk/scheduler pipeline
+        sub_spec = dict(spec)
+        sub_spec["voices"] = unscripted_voices
+        prepared = _prepare_voices_with_walks(sub_spec, seed)
+        scheduled = scheduler(rhythm, prepared, spec["form"], spec["duration_seconds"], rng)
+
+    return scripted + scheduled
 
 
 # ============================================================================
@@ -900,6 +952,9 @@ def render_spec(spec: dict, seed: int = 42,
                 reverb_wet: float = 0.28,
                 apply_master: bool = True,
                 auto_pedal: bool = True) -> np.ndarray:
+    # Spec can opt out of the auto-pedal when the grammar says drone should be absent
+    if spec.get("auto_pedal") is False:
+        auto_pedal = False
     if auto_pedal:
         spec = _inject_pedal_if_missing(spec)
     duration = spec["duration_seconds"]
@@ -907,11 +962,15 @@ def render_spec(spec: dict, seed: int = 42,
     stereo = np.zeros((total_samples, 2), dtype=np.float64)
     voice_map = {v["name"]: v for v in spec["voices"]}
 
-    events = schedule_events(spec, seed=seed)
-    # Humanize unless the LLM provided explicit events — those are scripted
-    if not spec.get("events"):
-        events = humanize_events(events, seed=seed)
-    print(f"  scheduled {len(events)} events")
+    # Partition scripted vs scheduled so we humanize only the scheduled ones
+    scripted_voices = {e["voice"] for e in (spec.get("events") or [])}
+    all_events = schedule_events(spec, seed=seed)
+    scripted = [e for e in all_events if e[1] in scripted_voices]
+    scheduled = [e for e in all_events if e[1] not in scripted_voices]
+    if scheduled:
+        scheduled = humanize_events(scheduled, seed=seed)
+    events = scripted + scheduled
+    print(f"  events: {len(scripted)} scripted + {len(scheduled)} scheduled")
 
     for ev_idx, (t, vname, pi, dur, amp) in enumerate(events):
         if t >= duration or dur <= 0:
