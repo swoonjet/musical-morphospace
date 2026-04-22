@@ -163,16 +163,19 @@ def soft_saturate(stereo: np.ndarray, drive: float = 1.2) -> np.ndarray:
 # Master bus
 # ----------------------------------------------------------------------------
 
-def master_bus(stereo: np.ndarray, reverb_wet: float = 0.28,
-               reverb_length: float = 1.8, compressor_threshold: float = 0.55,
-               saturation_drive: float = 1.15, sr: int = SR) -> np.ndarray:
+def master_bus(stereo: np.ndarray, reverb_wet: float = 0.40,
+               reverb_length: float = 2.6, compressor_threshold: float = 0.45,
+               saturation_drive: float = 1.05, sr: int = SR) -> np.ndarray:
     # Subsonic removal
     out = highpass(stereo, 32)
     # Reverb
-    out = apply_reverb(out, wet=reverb_wet, length_s=reverb_length, sr=sr)
+    out = apply_reverb(out, wet=reverb_wet, length_s=reverb_length,
+                       decay_rate=3.2, sr=sr)
     # Saturation for warmth
     out = soft_saturate(out, drive=saturation_drive)
     # Bus compression for glue
     out = compress(out, threshold=compressor_threshold, ratio=2.5,
-                   attack_ms=8, release_ms=140, makeup_db=1.5, sr=sr)
+                   attack_ms=10, release_ms=180, makeup_db=1.0, sr=sr)
+    # Gentle HF shelf cut to tame any shrill reverb tail
+    out = lowpass(out, 8500, order=2)
     return out

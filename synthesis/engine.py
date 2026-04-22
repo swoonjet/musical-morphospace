@@ -336,24 +336,32 @@ def get_timbre(name: str) -> Callable:
 # Envelope
 # ============================================================================
 
-def adsr_env(n: int, attack: float = 0.08, decay: float = 0.15, sustain: float = 0.8, release: float = 0.3) -> np.ndarray:
+def _s_curve(n: int, start: float, end: float) -> np.ndarray:
+    """Smooth S-curve interpolation (smoothstep) — avoids audible clicks at edges."""
+    if n <= 1:
+        return np.full(n, end)
+    x = np.linspace(0, 1, n)
+    s = x * x * (3 - 2 * x)  # cubic smoothstep
+    return start + (end - start) * s
+
+
+def adsr_env(n: int, attack: float = 0.12, decay: float = 0.18, sustain: float = 0.82, release: float = 0.5) -> np.ndarray:
     env = np.ones(n)
     a = int(SR * attack)
     d = int(SR * decay)
     r = int(SR * release)
     if a + d + r > n:
-        # short note — compress envelope
         scale = n / (a + d + r + 1)
         a, d, r = int(a * scale), int(d * scale), int(r * scale)
     s_n = max(0, n - a - d - r)
     if a > 0:
-        env[:a] = np.linspace(0, 1, a)
+        env[:a] = _s_curve(a, 0.0, 1.0)
     if d > 0:
-        env[a:a + d] = np.linspace(1, sustain, d)
+        env[a:a + d] = _s_curve(d, 1.0, sustain)
     if s_n > 0:
         env[a + d:a + d + s_n] = sustain
     if r > 0 and (a + d + s_n) < n:
-        env[-r:] = np.linspace(sustain, 0, r)
+        env[-r:] = _s_curve(r, sustain, 0.0)
     return env
 
 
@@ -363,6 +371,39 @@ def adsr_env(n: int, attack: float = 0.08, decay: float = 0.15, sustain: float =
 # ============================================================================
 
 Event = Tuple[float, str, int, float, float]
+
+
+def melodic_walk(pitches: List[int], count: int, rng: np.random.Generator,
+                  max_step: int = 2, step_bias: List[float] = None) -> List[int]:
+    """Generate a sequence of pitch indices that move by small steps within `pitches`.
+
+    This is how musical lines feel — adjacent notes prefer to be close in pitch-space.
+    Without this, `pitches[cursor % len(pitches)]` produces mechanical cycling and
+    uniform-random selection produces atonal noise. Small-step random walk feels like
+    melody.
+    """
+    if not pitches:
+        return []
+    if step_bias is None:
+        # Prefer 0, ±1 steps, with occasional ±2. Larger leaps rare.
+        weights = [0.35, 0.30, 0.30, 0.04, 0.01]  # for |step| = 0, 1, 2, 3, 4
+    out = []
+    idx = rng.integers(0, len(pitches))
+    out.append(pitches[idx])
+    for _ in range(count - 1):
+        # Choose step magnitude, then sign
+        step_mag = rng.choice(len(weights), p=weights if step_bias is None else step_bias)
+        sign = int(rng.choice([-1, 1]))
+        new_idx = idx + sign * int(step_mag)
+        # Reflect at boundaries
+        if new_idx < 0:
+            new_idx = -new_idx
+        if new_idx >= len(pitches):
+            new_idx = 2 * (len(pitches) - 1) - new_idx
+        new_idx = max(0, min(len(pitches) - 1, new_idx))
+        out.append(pitches[new_idx])
+        idx = new_idx
+    return out
 
 
 def _active_in_section(voice: dict, section_name: str) -> bool:
@@ -395,6 +436,7 @@ def schedule_metric(rhythm: dict, voices: List[dict], form: dict, duration: floa
         role = v["rhythm_role"]
         amp = v["amplitude"]
         pitches = v["pitch_indices"]
+        walk = v.get("_walk", pitches)
         for w_start, w_end in windows:
             if role == "sustained_drone":
                 events.append((w_start, v["name"], pitches[0], w_end - w_start, amp))
@@ -408,10 +450,10 @@ def schedule_metric(rhythm: dict, voices: List[dict], form: dict, duration: floa
                     pitch = pitches[beat_in_cycle % len(pitches)]
                     dur = beat_dur * 0.9
                 elif role == "melodic_lead":
-                    pitch = pitches[cursor % len(pitches)]
+                    pitch = walk[cursor % len(walk)]
                     dur = beat_dur * float(rng.choice([0.5, 1.0, 1.0, 2.0]))
                 elif role == "percussive":
-                    pitch = pitches[cursor % len(pitches)]
+                    pitch = walk[cursor % len(walk)]
                     dur = beat_dur * 0.3
                 elif role == "hocket_single_pitch":
                     if rng.random() < 0.4:
@@ -421,11 +463,11 @@ def schedule_metric(rhythm: dict, voices: List[dict], form: dict, duration: floa
                         t += beat_dur
                         continue
                 elif role == "ornamental":
-                    pitch = pitches[cursor % len(pitches)]
+                    pitch = walk[cursor % len(walk)]
                     dur = beat_dur * 0.25
                     t += beat_dur * 0.1
                 else:
-                    pitch = pitches[cursor % len(pitches)]
+                    pitch = walk[cursor % len(walk)]
                     dur = beat_dur
                 events.append((t, v["name"], pitch, min(dur, w_end - t), amp * accent_mult))
                 t += dur
@@ -459,6 +501,7 @@ def schedule_pulse_free(rhythm: dict, voices: List[dict], form: dict, duration: 
         role = v["rhythm_role"]
         amp = v["amplitude"]
         pitches = v["pitch_indices"]
+        walk = v.get("_walk", pitches)
         for w_start, w_end in windows:
             if role == "sustained_drone":
                 events.append((w_start, v["name"], pitches[0], w_end - w_start, amp))
@@ -467,7 +510,7 @@ def schedule_pulse_free(rhythm: dict, voices: List[dict], form: dict, duration: 
             i = 0
             while t < w_end:
                 pdur = phrase_durs[i % len(phrase_durs)]
-                pitch = pitches[i % len(pitches)]
+                pitch = walk[i % len(walk)]
                 events.append((t, v["name"], pitch, min(pdur, w_end - t), amp))
                 t += pdur + rng.uniform(0.5, 1.5)
                 i += 1
@@ -484,31 +527,29 @@ def schedule_breath_based(rhythm: dict, voices: List[dict], form: dict, duration
         role = v["rhythm_role"]
         amp = v["amplitude"]
         pitches = v["pitch_indices"]
+        walk = v.get("_walk", pitches)
         for w_start, w_end in windows:
             if role == "sustained_drone":
-                # True drone: one event spanning the window
                 events.append((w_start, v["name"], pitches[0], w_end - w_start, amp))
                 continue
-            # breath-based voices stagger their cycles
             t = w_start + (i * 1.7 + rng.uniform(0, 2.5)) % 3.5
             cursor = 0
             while t < w_end:
                 breath_dur = rng.uniform(b_lo, b_hi)
                 gap = rng.uniform(gap_lo, gap_hi)
                 if role == "breath_phrase":
-                    # 1 or 2 pitches per breath
                     n_notes = int(rng.choice([1, 1, 2]))
                     sub = breath_dur / n_notes
                     for _ in range(n_notes):
                         if t >= w_end:
                             break
-                        pitch = pitches[cursor % len(pitches)]
+                        pitch = walk[cursor % len(walk)]
                         events.append((t, v["name"], pitch, min(sub, w_end - t), amp))
                         t += sub
                         cursor += 1
                     t += gap
                 else:
-                    pitch = pitches[cursor % len(pitches)]
+                    pitch = walk[cursor % len(walk)]
                     events.append((t, v["name"], pitch, min(breath_dur, w_end - t), amp))
                     t += breath_dur + gap
                 cursor += 1
@@ -526,6 +567,7 @@ def schedule_cyclical_nonmetric(rhythm: dict, voices: List[dict], form: dict, du
         role = v["rhythm_role"]
         amp = v["amplitude"]
         pitches = v["pitch_indices"]
+        walk = v.get("_walk", pitches)
         for w_start, w_end in windows:
             if role == "sustained_drone":
                 events.append((w_start, v["name"], pitches[0], w_end - w_start, amp))
@@ -534,14 +576,13 @@ def schedule_cyclical_nonmetric(rhythm: dict, voices: List[dict], form: dict, du
                 cycle_start = w_start + ci * cycle_dur
                 if cycle_start >= w_end:
                     break
-                # distribute events (roughly exponential gaps)
                 ts = sorted(rng.uniform(0, cycle_dur, density))
                 cursor = 0
                 for relt in ts:
                     abs_t = cycle_start + relt
                     if abs_t >= w_end:
                         break
-                    pitch = pitches[cursor % len(pitches)]
+                    pitch = walk[cursor % len(walk)]
                     note_dur = cycle_dur / density * rng.uniform(0.6, 1.4)
                     events.append((abs_t, v["name"], pitch, min(note_dur, w_end - abs_t), amp))
                     cursor += 1
@@ -593,9 +634,29 @@ SCHEDULERS = {
 }
 
 
+def _prepare_voices_with_walks(spec: dict, seed: int) -> List[dict]:
+    """Pre-compute a melodic walk sequence for each voice so that scheduler
+    functions can pull pitches sequentially from a musical-feeling line rather
+    than cycling or random-sampling the voice's pitch_indices directly.
+    """
+    rng = np.random.default_rng(seed + 777)
+    duration = spec["duration_seconds"]
+    prepared = []
+    for v in spec["voices"]:
+        v2 = dict(v)
+        if v["rhythm_role"] == "sustained_drone" or len(v["pitch_indices"]) <= 1:
+            # No walk needed; drones stay on their single pitch
+            v2["_walk"] = list(v["pitch_indices"]) * 50
+        else:
+            # Generate a long walk (enough for any scheduler)
+            walk_len = max(120, int(duration * 4))
+            v2["_walk"] = melodic_walk(v["pitch_indices"], walk_len, rng)
+        prepared.append(v2)
+    return prepared
+
+
 def schedule_events(spec: dict, seed: int = 42) -> List[Event]:
     if spec.get("events"):
-        # use explicit events, resolving amplitude defaults
         voice_map = {v["name"]: v for v in spec["voices"]}
         out = []
         for e in spec["events"]:
@@ -605,7 +666,8 @@ def schedule_events(spec: dict, seed: int = 42) -> List[Event]:
     rhythm = spec["rhythm_system"]
     scheduler = SCHEDULERS.get(rhythm["type"], schedule_metric)
     rng = np.random.default_rng(seed)
-    return scheduler(rhythm, spec["voices"], spec["form"], spec["duration_seconds"], rng)
+    prepared = _prepare_voices_with_walks(spec, seed)
+    return scheduler(rhythm, prepared, spec["form"], spec["duration_seconds"], rng)
 
 
 # ============================================================================
@@ -624,9 +686,41 @@ def humanize_events(events: List[Event], seed: int, timing_jitter_s: float = 0.0
     return out
 
 
+def _inject_pedal_if_missing(spec: dict) -> dict:
+    """If no sustained_drone voice exists, add a quiet pedal tone at the reference
+    pitch to give the ear a harmonic ground. Honors the grammar — does nothing if
+    the grammar already specifies a drone or if drone_presence would contradict.
+
+    Only triggers when: no voice has rhythm_role=sustained_drone AND the texture
+    is not explicitly one that forbids drone (e.g. spectral_cloud with explicit
+    no-drone intent). Safe default: err on the side of adding a quiet pedal.
+    """
+    voices = spec["voices"]
+    has_drone = any(v.get("rhythm_role") == "sustained_drone" for v in voices)
+    if has_drone:
+        return spec
+    # Do not add a pedal if pitches explicitly start above the first index
+    pitch_count = len(spec.get("pitch_system", {}).get("pitches", []))
+    if pitch_count == 0:
+        return spec
+    spec = dict(spec)
+    spec["voices"] = list(voices) + [{
+        "name": "_auto_pedal",
+        "timbre": "vocal_male_low",
+        "pitch_indices": [0],
+        "rhythm_role": "sustained_drone",
+        "amplitude": 0.22,
+        "spatial_position": [0.0, 0.0],
+    }]
+    return spec
+
+
 def render_spec(spec: dict, seed: int = 42,
-                reverb_wet: float = 0.30,
-                apply_master: bool = True) -> np.ndarray:
+                reverb_wet: float = 0.40,
+                apply_master: bool = True,
+                auto_pedal: bool = True) -> np.ndarray:
+    if auto_pedal:
+        spec = _inject_pedal_if_missing(spec)
     duration = spec["duration_seconds"]
     total_samples = int(duration * SR)
     stereo = np.zeros((total_samples, 2), dtype=np.float64)
@@ -653,11 +747,17 @@ def render_spec(spec: dict, seed: int = 42,
         # envelope — longer release for sustained roles
         role = voice.get("rhythm_role", "")
         if role in ("sustained_drone",):
-            env = adsr_env(len(sig), attack=0.6, decay=0.3, sustain=0.95, release=1.2)
-        elif role in ("breath_phrase", "melodic_lead"):
-            env = adsr_env(len(sig), attack=0.15, decay=0.2, sustain=0.85, release=0.4)
+            env = adsr_env(len(sig), attack=1.2, decay=0.4, sustain=0.95, release=2.0)
+        elif role in ("breath_phrase",):
+            env = adsr_env(len(sig), attack=0.35, decay=0.25, sustain=0.88, release=0.8)
+        elif role in ("melodic_lead",):
+            env = adsr_env(len(sig), attack=0.18, decay=0.22, sustain=0.85, release=0.6)
+        elif role in ("ostinato",):
+            env = adsr_env(len(sig), attack=0.08, decay=0.15, sustain=0.82, release=0.4)
         elif role == "percussive":
-            env = adsr_env(len(sig), attack=0.005, decay=0.2, sustain=0.0, release=0.05)
+            env = adsr_env(len(sig), attack=0.005, decay=0.15, sustain=0.0, release=0.08)
+        elif role == "ritual_punctuation":
+            env = adsr_env(len(sig), attack=0.01, decay=0.4, sustain=0.3, release=0.9)
         else:
             env = adsr_env(len(sig))
         sig = sig * env * amp
