@@ -164,67 +164,104 @@
         "name": "A_1",
         "start_seconds": 0,
         "duration_seconds": 10,
-        "character": "choir A \u2014 opening phrase of fragment"
+        "character": "choir A \u2014 opening phrase of fragment",
+        "chord_tones": [
+          0,
+          2,
+          4
+        ]
       },
       {
         "name": "gap_1",
         "start_seconds": 10,
         "duration_seconds": 2,
-        "character": "structural silence"
+        "character": "structural silence",
+        "chord_tones": []
       },
       {
         "name": "B_1",
         "start_seconds": 12,
         "duration_seconds": 10,
-        "character": "choir B answers, parallel spiral motion"
+        "character": "choir B answers, parallel spiral motion",
+        "chord_tones": [
+          4,
+          6,
+          1
+        ]
       },
       {
         "name": "gap_2",
         "start_seconds": 22,
         "duration_seconds": 2,
-        "character": "structural silence"
+        "character": "structural silence",
+        "chord_tones": []
       },
       {
         "name": "A_2",
         "start_seconds": 24,
         "duration_seconds": 12,
-        "character": "choir A \u2014 extended phrase"
+        "character": "choir A \u2014 extended phrase",
+        "chord_tones": [
+          0,
+          2,
+          4,
+          5
+        ]
       },
       {
         "name": "gap_3",
         "start_seconds": 36,
         "duration_seconds": 2,
-        "character": "structural silence"
+        "character": "structural silence",
+        "chord_tones": []
       },
       {
         "name": "B_2",
         "start_seconds": 38,
         "duration_seconds": 12,
-        "character": "choir B \u2014 extended answer"
+        "character": "choir B \u2014 extended answer",
+        "chord_tones": [
+          3,
+          5,
+          6
+        ]
       },
       {
         "name": "gap_4",
         "start_seconds": 50,
         "duration_seconds": 2,
-        "character": "structural silence"
+        "character": "structural silence",
+        "chord_tones": []
       },
       {
         "name": "A_3",
         "start_seconds": 52,
         "duration_seconds": 9,
-        "character": "choir A \u2014 fragment closing"
+        "character": "choir A \u2014 fragment closing",
+        "chord_tones": [
+          0,
+          2,
+          4,
+          7
+        ]
       },
       {
         "name": "gap_5",
         "start_seconds": 61,
         "duration_seconds": 2,
-        "character": "structural silence"
+        "character": "structural silence",
+        "chord_tones": []
       },
       {
         "name": "B_3",
         "start_seconds": 63,
         "duration_seconds": 12,
-        "character": "choir B \u2014 ends mid-phrase"
+        "character": "choir B \u2014 ends mid-phrase",
+        "chord_tones": [
+          6,
+          1,
+          3
+        ]
       }
     ]
   },

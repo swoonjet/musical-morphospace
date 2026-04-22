@@ -56,31 +56,60 @@
         "name": "cycle_1_sparse",
         "start_seconds": 0,
         "duration_seconds": 15,
-        "character": "opening, only lowest partials, wide gaps"
+        "character": "opening, only lowest partials, wide gaps",
+        "chord_tones": [
+          0,
+          1,
+          2
+        ]
       },
       {
         "name": "cycle_2_building",
         "start_seconds": 15,
         "duration_seconds": 20,
-        "character": "upper partials entering, gaps shortening"
+        "character": "upper partials entering, gaps shortening",
+        "chord_tones": [
+          0,
+          2,
+          4,
+          6
+        ]
       },
       {
         "name": "cycle_3_dense",
         "start_seconds": 35,
         "duration_seconds": 15,
-        "character": "full stretched-partial range, micro-cycles inserted"
+        "character": "full stretched-partial range, micro-cycles inserted",
+        "chord_tones": [
+          0,
+          3,
+          5,
+          7,
+          9,
+          11
+        ]
       },
       {
         "name": "cycle_4_receding",
         "start_seconds": 50,
         "duration_seconds": 15,
-        "character": "upper partials withdrawing, gaps lengthening"
+        "character": "upper partials withdrawing, gaps lengthening",
+        "chord_tones": [
+          0,
+          2,
+          4,
+          6
+        ]
       },
       {
         "name": "cycle_5_closing",
         "start_seconds": 65,
         "duration_seconds": 10,
-        "character": "fundamental + partial 2 only, fade into the task"
+        "character": "fundamental + partial 2 only, fade into the task",
+        "chord_tones": [
+          0,
+          1
+        ]
       }
     ]
   },

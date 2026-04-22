@@ -286,79 +286,126 @@
         "name": "cloud_a_1",
         "start_seconds": 0,
         "duration_seconds": 10,
-        "character": "group A cloud 1"
+        "character": "group A cloud 1",
+        "chord_tones": [
+          0,
+          2,
+          4,
+          6
+        ]
       },
       {
         "name": "gap_1",
         "start_seconds": 10,
         "duration_seconds": 2,
-        "character": "decorative pause"
+        "character": "decorative pause",
+        "chord_tones": []
       },
       {
         "name": "cloud_b_1",
         "start_seconds": 12,
         "duration_seconds": 10,
-        "character": "group B cloud 1"
+        "character": "group B cloud 1",
+        "chord_tones": [
+          1,
+          3,
+          5,
+          7
+        ]
       },
       {
         "name": "gap_2",
         "start_seconds": 22,
         "duration_seconds": 2,
-        "character": "decorative pause"
+        "character": "decorative pause",
+        "chord_tones": []
       },
       {
         "name": "cloud_a_2",
         "start_seconds": 24,
         "duration_seconds": 10,
-        "character": "group A cloud 2"
+        "character": "group A cloud 2",
+        "chord_tones": [
+          0,
+          3,
+          5,
+          7
+        ]
       },
       {
         "name": "gap_3",
         "start_seconds": 34,
         "duration_seconds": 2,
-        "character": "decorative pause"
+        "character": "decorative pause",
+        "chord_tones": []
       },
       {
         "name": "cloud_b_2",
         "start_seconds": 36,
         "duration_seconds": 10,
-        "character": "group B cloud 2"
+        "character": "group B cloud 2",
+        "chord_tones": [
+          2,
+          4,
+          6,
+          8
+        ]
       },
       {
         "name": "gap_4",
         "start_seconds": 46,
         "duration_seconds": 2,
-        "character": "decorative pause"
+        "character": "decorative pause",
+        "chord_tones": []
       },
       {
         "name": "cloud_a_3",
         "start_seconds": 48,
         "duration_seconds": 10,
-        "character": "group A cloud 3"
+        "character": "group A cloud 3",
+        "chord_tones": [
+          0,
+          2,
+          4,
+          5,
+          7
+        ]
       },
       {
         "name": "gap_5",
         "start_seconds": 58,
         "duration_seconds": 2,
-        "character": "decorative pause"
+        "character": "decorative pause",
+        "chord_tones": []
       },
       {
         "name": "cloud_b_3",
         "start_seconds": 60,
         "duration_seconds": 10,
-        "character": "group B cloud 3"
+        "character": "group B cloud 3",
+        "chord_tones": [
+          1,
+          4,
+          6,
+          9
+        ]
       },
       {
         "name": "gap_6",
         "start_seconds": 70,
         "duration_seconds": 2,
-        "character": "decorative pause"
+        "character": "decorative pause",
+        "chord_tones": []
       },
       {
         "name": "cloud_a_4",
         "start_seconds": 72,
         "duration_seconds": 14,
-        "character": "group A cloud 4 \u2014 final"
+        "character": "group A cloud 4 \u2014 final",
+        "chord_tones": [
+          0,
+          4
+        ]
       }
     ]
   }

@@ -600,8 +600,12 @@ def _voice_section_windows(voice: dict, form: dict, duration: float) -> List[Tup
         return [(0, duration)]
     windows = []
     for s in sections:
-        if _active_in_section(voice, s["name"]):
-            windows.append((s["start_seconds"], s["start_seconds"] + s["duration_seconds"]))
+        if not _active_in_section(voice, s["name"]):
+            continue
+        # Explicit empty chord_tones means "silent section" — skip for all voices
+        if "chord_tones" in s and s["chord_tones"] == []:
+            continue
+        windows.append((s["start_seconds"], s["start_seconds"] + s["duration_seconds"]))
     return windows or [(0, duration)]
 
 
@@ -627,6 +631,30 @@ def _snap_to_chord(pitch_idx: int, chord_tones: Optional[List[int]],
     if not allowed:
         return pitch_idx
     return min(allowed, key=lambda c: abs(c - pitch_idx))
+
+
+def _drone_pitch_for_section(section: dict, voice_pitches: List[int],
+                              voice_idx: int = 0) -> int:
+    """Pick the drone pitch for a sustained voice in this section. If the
+    section declares chord_tones, pick one from the allowed subset — rotate by
+    voice_idx so different drones form a chord. Otherwise fall back to
+    voice_pitches[0]."""
+    if section is None:
+        return voice_pitches[0]
+    chord = section.get("chord_tones")
+    if not chord:
+        return voice_pitches[0]
+    allowed = [c for c in chord if c in voice_pitches]
+    if not allowed:
+        return voice_pitches[0]
+    return allowed[voice_idx % len(allowed)]
+
+
+def _section_for_window(form: dict, w_start: float) -> Optional[dict]:
+    for s in form.get("sections", []):
+        if s["start_seconds"] <= w_start < s["start_seconds"] + s["duration_seconds"]:
+            return s
+    return None
 
 
 def schedule_metric(rhythm: dict, voices: List[dict], form: dict, duration: float, rng: np.random.Generator) -> List[Event]:
@@ -714,21 +742,26 @@ def schedule_additive(rhythm: dict, voices: List[dict], form: dict, duration: fl
 def schedule_pulse_free(rhythm: dict, voices: List[dict], form: dict, duration: float, rng: np.random.Generator) -> List[Event]:
     events: List[Event] = []
     phrase_durs = rhythm["phrase_durations_seconds"]
-    for v in voices:
+    for vi, v in enumerate(voices):
         windows = _voice_section_windows(v, form, duration)
         role = v["rhythm_role"]
         amp = v["amplitude"]
         pitches = v["pitch_indices"]
         walk = v.get("_walk", pitches)
         for w_start, w_end in windows:
+            section = _section_for_window(form, w_start)
             if role == "sustained_drone":
-                events.append((w_start, v["name"], pitches[0], w_end - w_start, amp))
+                dp = _drone_pitch_for_section(section, pitches, vi)
+                events.append((w_start, v["name"], dp, w_end - w_start, amp))
                 continue
-            t = w_start + rng.uniform(0, 1.5)  # stagger voices
+            t = w_start + rng.uniform(0, 1.5)
             i = 0
             while t < w_end:
                 pdur = phrase_durs[i % len(phrase_durs)]
                 pitch = walk[i % len(walk)]
+                chord = section.get("chord_tones") if section else None
+                bias = 0.6 if i == 0 else 0.35
+                pitch = _snap_to_chord(pitch, chord, pitches, bias, rng)
                 events.append((t, v["name"], pitch, min(pdur, w_end - t), amp))
                 t += pdur + rng.uniform(0.5, 1.5)
                 i += 1
@@ -740,37 +773,46 @@ def schedule_breath_based(rhythm: dict, voices: List[dict], form: dict, duration
     b_lo, b_hi = rhythm["breath_duration_range_seconds"]
     gap_lo, gap_hi = rhythm.get("between_breaths_seconds", [0.4, 1.2])
 
-    for i, v in enumerate(voices):
+    for vi, v in enumerate(voices):
         windows = _voice_section_windows(v, form, duration)
         role = v["rhythm_role"]
         amp = v["amplitude"]
         pitches = v["pitch_indices"]
         walk = v.get("_walk", pitches)
         for w_start, w_end in windows:
+            section = _section_for_window(form, w_start)
+            chord = section.get("chord_tones") if section else None
             if role == "sustained_drone":
-                events.append((w_start, v["name"], pitches[0], w_end - w_start, amp))
+                dp = _drone_pitch_for_section(section, pitches, vi)
+                events.append((w_start, v["name"], dp, w_end - w_start, amp))
                 continue
-            t = w_start + (i * 1.7 + rng.uniform(0, 2.5)) % 3.5
+            t = w_start + (vi * 1.7 + rng.uniform(0, 2.5)) % 3.5
             cursor = 0
+            first_in_window = True
             while t < w_end:
                 breath_dur = rng.uniform(b_lo, b_hi)
                 gap = rng.uniform(gap_lo, gap_hi)
                 if role == "breath_phrase":
                     n_notes = int(rng.choice([1, 1, 2]))
                     sub = breath_dur / n_notes
-                    for _ in range(n_notes):
+                    for ni in range(n_notes):
                         if t >= w_end:
                             break
                         pitch = walk[cursor % len(walk)]
+                        bias = 0.75 if (first_in_window and ni == 0) else 0.4
+                        pitch = _snap_to_chord(pitch, chord, pitches, bias, rng)
                         events.append((t, v["name"], pitch, min(sub, w_end - t), amp))
                         t += sub
                         cursor += 1
                     t += gap
                 else:
                     pitch = walk[cursor % len(walk)]
+                    bias = 0.75 if first_in_window else 0.4
+                    pitch = _snap_to_chord(pitch, chord, pitches, bias, rng)
                     events.append((t, v["name"], pitch, min(breath_dur, w_end - t), amp))
                     t += breath_dur + gap
                 cursor += 1
+                first_in_window = False
     return events
 
 
@@ -780,15 +822,18 @@ def schedule_cyclical_nonmetric(rhythm: dict, voices: List[dict], form: dict, du
     density = rhythm["event_density_per_cycle"]
     n_cycles = rhythm.get("cycle_count", max(1, int(duration / cycle_dur)))
 
-    for v in voices:
+    for vi, v in enumerate(voices):
         windows = _voice_section_windows(v, form, duration)
         role = v["rhythm_role"]
         amp = v["amplitude"]
         pitches = v["pitch_indices"]
         walk = v.get("_walk", pitches)
         for w_start, w_end in windows:
+            section = _section_for_window(form, w_start)
+            chord = section.get("chord_tones") if section else None
             if role == "sustained_drone":
-                events.append((w_start, v["name"], pitches[0], w_end - w_start, amp))
+                dp = _drone_pitch_for_section(section, pitches, vi)
+                events.append((w_start, v["name"], dp, w_end - w_start, amp))
                 continue
             for ci in range(n_cycles):
                 cycle_start = w_start + ci * cycle_dur
@@ -796,11 +841,14 @@ def schedule_cyclical_nonmetric(rhythm: dict, voices: List[dict], form: dict, du
                     break
                 ts = sorted(rng.uniform(0, cycle_dur, density))
                 cursor = 0
-                for relt in ts:
+                for idx_in_cycle, relt in enumerate(ts):
                     abs_t = cycle_start + relt
                     if abs_t >= w_end:
                         break
                     pitch = walk[cursor % len(walk)]
+                    # Strong snap on first event of cycle (the "downbeat"), weak elsewhere
+                    bias = 0.75 if idx_in_cycle == 0 else 0.35
+                    pitch = _snap_to_chord(pitch, chord, pitches, bias, rng)
                     note_dur = cycle_dur / density * rng.uniform(0.6, 1.4)
                     events.append((abs_t, v["name"], pitch, min(note_dur, w_end - abs_t), amp))
                     cursor += 1
@@ -810,24 +858,34 @@ def schedule_cyclical_nonmetric(rhythm: dict, voices: List[dict], form: dict, du
 def schedule_ritual_cued(rhythm: dict, voices: List[dict], form: dict, duration: float, rng: np.random.Generator) -> List[Event]:
     events: List[Event] = []
     cues = rhythm["cue_points_seconds"]
-    for v in voices:
+    for vi, v in enumerate(voices):
         windows = _voice_section_windows(v, form, duration)
         role = v["rhythm_role"]
         amp = v["amplitude"]
         pitches = v["pitch_indices"]
         for w_start, w_end in windows:
+            section = _section_for_window(form, w_start)
+            chord = section.get("chord_tones") if section else None
             if role == "sustained_drone":
-                events.append((w_start, v["name"], pitches[0], w_end - w_start, amp))
+                dp = _drone_pitch_for_section(section, pitches, vi)
+                events.append((w_start, v["name"], dp, w_end - w_start, amp))
                 continue
             # events between cues
             bounds = [w_start] + [c for c in cues if w_start < c < w_end] + [w_end]
             for a, b in zip(bounds, bounds[1:]):
-                # one event per segment
-                pitch = pitches[rng.integers(0, len(pitches))]
-                events.append((a + 0.3, v["name"], int(pitch), (b - a) * 0.7, amp))
+                # Prefer a chord tone if available, else random from voice's pitches
+                if chord:
+                    allowed = [c for c in chord if c in pitches] or pitches
+                    pitch = int(allowed[vi % len(allowed)])
+                else:
+                    pitch = int(pitches[rng.integers(0, len(pitches))])
+                events.append((a + 0.3, v["name"], pitch, (b - a) * 0.7, amp))
                 if role == "ritual_punctuation":
-                    # extra hit at cue
-                    events.append((a, v["name"], pitches[0], 0.4, amp * 0.9))
+                    # extra hit at cue on the section's anchor tone
+                    anchor_pitch = int((chord[0] if chord else pitches[0]))
+                    if anchor_pitch not in pitches and pitches:
+                        anchor_pitch = pitches[0]
+                    events.append((a, v["name"], anchor_pitch, 0.4, amp * 0.9))
     return events
 
 
