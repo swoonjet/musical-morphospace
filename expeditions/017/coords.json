@@ -1,0 +1,59 @@
+{
+  "expedition_number": 17,
+  "iso_date": "2026-04-22T19:49:28",
+  "curiosity_score": 0.5065398750846917,
+  "continuous": {
+    "pitch_density": 0.118,
+    "microtonality_degree": 0.531,
+    "octave_equivalence": 0.998,
+    "interval_hierarchy": 0.729,
+    "pitch_flexibility": 0.234,
+    "metric_periodicity": 0.891,
+    "rhythmic_density": 0.272,
+    "polyrhythmic_complexity": 0.605,
+    "cycle_length": 0.917,
+    "tempo_stability": 0.904,
+    "piece_duration": 0.37,
+    "formal_repetition": 0.916,
+    "development_arc": 0.251,
+    "voice_count": 0.971,
+    "voice_independence": 0.272,
+    "drone_presence": 0.424,
+    "improvisation_degree": 0.841,
+    "ornament_density": 0.054
+  },
+  "categorical": {
+    "tuning_basis": "inharmonic_spectral",
+    "scale_topology": "spiral_non_closing",
+    "rhythmic_structure": "additive_metric",
+    "formal_type": "static_contemplation",
+    "texture_type": "homophonic",
+    "ornament_grammar": "microtonal_inflection_core",
+    "transmission_mode": "notated_skeletal",
+    "ensemble_topology": "heterophonic_group",
+    "social_function": "trance_induction",
+    "listener_role": "participatory_communal",
+    "silence_treatment": "equal_to_sound",
+    "temporal_framing": "indeterminate_open"
+  },
+  "warnings": [
+    "large-ensemble improvisation \u2014 rare (New Orleans, some free jazz, Aka polyphony)"
+  ],
+  "neighbors": [
+    {
+      "name": "Andean Quechua Wayno",
+      "id": "andean_wayno",
+      "distance": 0.5065398750846917
+    },
+    {
+      "name": "Zulu Isicathamiya (a cappella choral)",
+      "id": "zulu_isicathamiya",
+      "distance": 0.508721632803119
+    },
+    {
+      "name": "Mexican Mariachi",
+      "id": "mexican_mariachi",
+      "distance": 0.5127625906967671
+    }
+  ]
+}

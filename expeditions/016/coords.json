@@ -1,0 +1,59 @@
+{
+  "expedition_number": 16,
+  "iso_date": "2026-04-22T19:49:28",
+  "curiosity_score": 0.5090389835677518,
+  "continuous": {
+    "pitch_density": 0.849,
+    "microtonality_degree": 0.82,
+    "octave_equivalence": 0.867,
+    "interval_hierarchy": 0.557,
+    "pitch_flexibility": 0.144,
+    "metric_periodicity": 0.61,
+    "rhythmic_density": 0.169,
+    "polyrhythmic_complexity": 0.261,
+    "cycle_length": 0.735,
+    "tempo_stability": 0.439,
+    "piece_duration": 0.003,
+    "formal_repetition": 0.109,
+    "development_arc": 0.538,
+    "voice_count": 0.965,
+    "voice_independence": 0.154,
+    "drone_presence": 0.186,
+    "improvisation_degree": 0.044,
+    "ornament_density": 0.053
+  },
+  "categorical": {
+    "tuning_basis": "pythagorean",
+    "scale_topology": "spiral_non_closing",
+    "rhythmic_structure": "additive_metric",
+    "formal_type": "arc_buildup",
+    "texture_type": "polyphonic_independent",
+    "ornament_grammar": "improvisatory_expansive",
+    "transmission_mode": "notated_prescriptive",
+    "ensemble_topology": "call_response",
+    "social_function": "environmental_dialogue",
+    "listener_role": "ritual_participant",
+    "silence_treatment": "decorative_pause",
+    "temporal_framing": "natural_cycle_aligned"
+  },
+  "warnings": [
+    "ensemble microtonal coordination \u2014 rare (Arabic takht, Turkish classical)"
+  ],
+  "neighbors": [
+    {
+      "name": "Korean Aak Court Music",
+      "id": "korean_aak_court",
+      "distance": 0.5389513772886244
+    },
+    {
+      "name": "Western Romantic Symphony (late 19th c.)",
+      "id": "western_romantic_symphony",
+      "distance": 0.5431040517967564
+    },
+    {
+      "name": "Sephardic Liturgical Song",
+      "id": "sephardic_liturgical",
+      "distance": 0.5523148430037361
+    }
+  ]
+}

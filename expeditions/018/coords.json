@@ -1,0 +1,57 @@
+{
+  "expedition_number": 18,
+  "iso_date": "2026-04-22T19:49:28",
+  "curiosity_score": 0.5072373518456555,
+  "continuous": {
+    "pitch_density": 0.213,
+    "microtonality_degree": 0.15,
+    "octave_equivalence": 0.578,
+    "interval_hierarchy": 0.876,
+    "pitch_flexibility": 0.261,
+    "metric_periodicity": 0.595,
+    "rhythmic_density": 0.262,
+    "polyrhythmic_complexity": 0.796,
+    "cycle_length": 0.034,
+    "tempo_stability": 0.975,
+    "piece_duration": 0.894,
+    "formal_repetition": 0.074,
+    "development_arc": 0.917,
+    "voice_count": 0.998,
+    "voice_independence": 0.032,
+    "drone_presence": 0.008,
+    "improvisation_degree": 0.119,
+    "ornament_density": 0.126
+  },
+  "categorical": {
+    "tuning_basis": "irrational_ratio",
+    "scale_topology": "octave_repeating",
+    "rhythmic_structure": "additive_metric",
+    "formal_type": "through_composed_narrative",
+    "texture_type": "spectral_cloud",
+    "ornament_grammar": "obligatory_structural",
+    "transmission_mode": "environmental_imitative",
+    "ensemble_topology": "antiphonal_choirs",
+    "social_function": "trance_induction",
+    "listener_role": "evaluator_connoisseur",
+    "silence_treatment": "foundational_ground",
+    "temporal_framing": "natural_cycle_aligned"
+  },
+  "warnings": [],
+  "neighbors": [
+    {
+      "name": "Aboriginal Australian Song Cycle (Dreaming)",
+      "id": "aboriginal_song_cycle",
+      "distance": 0.5072373518456555
+    },
+    {
+      "name": "Korean Pansori (solo epic narrative)",
+      "id": "korean_pansori",
+      "distance": 0.5154382888425089
+    },
+    {
+      "name": "Japanese Noh Theatre Music",
+      "id": "japanese_noh",
+      "distance": 0.522582512209689
+    }
+  ]
+}

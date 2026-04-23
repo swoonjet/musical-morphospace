@@ -1,0 +1,1167 @@
+# Expedition 018
+
+### 1. System name
+Narrative Antiphon with Obligatory Closure
+
+### 2. Pitch organization
+Irrational-ratio tuning. Seven pitches per octave derived from 2^(k/7) with a golden-ratio-modulated perturbation (±0.8% from strict 7-EDO). Octave-repeating; two octaves used (16 pitches). The perturbation ensures no interval is a simple rational ratio — all intervals are *nearly-tempered but not quite*, producing a slightly unstable harmonic quality that the bell-strike at each phrase-end "locks" into resolution.
+
+### 3. Rhythmic organization
+Additive 4+4+3 at 300 ms (cycle 3.3 s). Silence is the piece's foundation — between phrases, long silences mark the narrative's breath. The bell-strike at each phrase-end is the grammar's *closure marker*; without it the next phrase cannot begin.
+
+### 4. Formal structure
+Through-composed narrative in five sections:
+- **I. Opening** — choir L sings; silence; choir R answers; silence
+- **II. Rising** — alternation faster, chord motion increases
+- **III. Encounter** — choirs overlap briefly at the center of the piece, then separate
+- **IV. Resolution** — choirs begin to sing the same chord material simultaneously
+- **V. United** — both choirs on home chord, all eight voices together, final bell
+
+The narrative is about the meeting of two bodies. It is not metaphor for anything outside the piece; the two choirs are the story.
+
+### 5. Texture and voicing
+Spectral cloud, antiphonal choirs. Two four-voice choirs (L and R) each moving as a homophonic body (voice independence near zero within each choir). Plus one ritual-punctuation bell that delivers the obligatory phrase-closure.
+
+### 6. Ornament and inflection
+Obligatory structural. Every phrase ends with a bell-strike on the upper-octave home and a collective downward slide (-45 cents) across the entire choir. This is not expressive ornament — it is the grammar's phrase-terminator. A phrase without closure is incomplete.
+
+### 7. Performance context
+Ritual-ceremonial; the two choirs stand in the space and the silence between them is what the listener attends to. The bell is sounded by a third participant — neither choir, but necessary to both.
+
+### 8. Relationship to neighboring systems
+Shares with **Aboriginal Australian song cycle** the through-composed narrative over long duration with silence as foundational. Shares with **Korean pansori** the narrative-storytelling function. Shares with **Japanese Noh** the ritual-ceremonial context and the restraint of ornament. The unique synthesis: *antiphonal narrative for two eight-voice choirs in irrational-ratio tuning where every phrase closure is a bell-locked resolution of the tuning's instability*.
+
+### 9. Audio specification
+
+```json
+{
+  "duration_seconds": 93.0,
+  "pitch_system": {
+    "encoding": "ratio",
+    "reference_hz": 200,
+    "pitches": [
+      1.0,
+      1.1129,
+      1.2181,
+      1.3352,
+      1.4882,
+      1.6534,
+      1.8074,
+      2.0,
+      2.0,
+      2.2258,
+      2.4362,
+      2.6705,
+      2.9765,
+      3.3069,
+      3.6148,
+      4.0
+    ],
+    "octave_repeats": true,
+    "inflection_rules": [
+      {
+        "pitch_index": 0,
+        "inflection_cents_range": [
+          -45,
+          0
+        ],
+        "direction": "down"
+      },
+      {
+        "pitch_index": 1,
+        "inflection_cents_range": [
+          -45,
+          0
+        ],
+        "direction": "down"
+      },
+      {
+        "pitch_index": 2,
+        "inflection_cents_range": [
+          -45,
+          0
+        ],
+        "direction": "down"
+      },
+      {
+        "pitch_index": 3,
+        "inflection_cents_range": [
+          -45,
+          0
+        ],
+        "direction": "down"
+      },
+      {
+        "pitch_index": 4,
+        "inflection_cents_range": [
+          -45,
+          0
+        ],
+        "direction": "down"
+      },
+      {
+        "pitch_index": 5,
+        "inflection_cents_range": [
+          -45,
+          0
+        ],
+        "direction": "down"
+      },
+      {
+        "pitch_index": 6,
+        "inflection_cents_range": [
+          -45,
+          0
+        ],
+        "direction": "down"
+      },
+      {
+        "pitch_index": 7,
+        "inflection_cents_range": [
+          -45,
+          0
+        ],
+        "direction": "down"
+      },
+      {
+        "pitch_index": 8,
+        "inflection_cents_range": [
+          -45,
+          0
+        ],
+        "direction": "down"
+      },
+      {
+        "pitch_index": 9,
+        "inflection_cents_range": [
+          -45,
+          0
+        ],
+        "direction": "down"
+      },
+      {
+        "pitch_index": 10,
+        "inflection_cents_range": [
+          -45,
+          0
+        ],
+        "direction": "down"
+      },
+      {
+        "pitch_index": 11,
+        "inflection_cents_range": [
+          -45,
+          0
+        ],
+        "direction": "down"
+      },
+      {
+        "pitch_index": 12,
+        "inflection_cents_range": [
+          -45,
+          0
+        ],
+        "direction": "down"
+      },
+      {
+        "pitch_index": 13,
+        "inflection_cents_range": [
+          -45,
+          0
+        ],
+        "direction": "down"
+      },
+      {
+        "pitch_index": 14,
+        "inflection_cents_range": [
+          -45,
+          0
+        ],
+        "direction": "down"
+      },
+      {
+        "pitch_index": 15,
+        "inflection_cents_range": [
+          -45,
+          0
+        ],
+        "direction": "down"
+      }
+    ]
+  },
+  "rhythm_system": {
+    "type": "additive",
+    "groupings": [
+      4,
+      4,
+      3
+    ],
+    "base_unit_ms": 300
+  },
+  "voices": [
+    {
+      "name": "L1",
+      "timbre": "vocal_male_low",
+      "pitch_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "rhythm_role": "sustained_drone",
+      "amplitude": 0.55,
+      "spatial_position": [
+        -0.7,
+        0.1
+      ]
+    },
+    {
+      "name": "L2",
+      "timbre": "vocal_male_low",
+      "pitch_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "rhythm_role": "sustained_drone",
+      "amplitude": 0.55,
+      "spatial_position": [
+        -0.6,
+        0.1
+      ]
+    },
+    {
+      "name": "L3",
+      "timbre": "reed",
+      "pitch_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "rhythm_role": "sustained_drone",
+      "amplitude": 0.55,
+      "spatial_position": [
+        -0.49999999999999994,
+        0.1
+      ]
+    },
+    {
+      "name": "L4",
+      "timbre": "vocal_female_high",
+      "pitch_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "rhythm_role": "sustained_drone",
+      "amplitude": 0.55,
+      "spatial_position": [
+        -0.3999999999999999,
+        0.1
+      ]
+    },
+    {
+      "name": "R1",
+      "timbre": "vocal_male_low",
+      "pitch_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "rhythm_role": "sustained_drone",
+      "amplitude": 0.55,
+      "spatial_position": [
+        0.7,
+        0.1
+      ]
+    },
+    {
+      "name": "R2",
+      "timbre": "vocal_male_low",
+      "pitch_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "rhythm_role": "sustained_drone",
+      "amplitude": 0.55,
+      "spatial_position": [
+        0.6,
+        0.1
+      ]
+    },
+    {
+      "name": "R3",
+      "timbre": "reed",
+      "pitch_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "rhythm_role": "sustained_drone",
+      "amplitude": 0.55,
+      "spatial_position": [
+        0.49999999999999994,
+        0.1
+      ]
+    },
+    {
+      "name": "R4",
+      "timbre": "vocal_female_high",
+      "pitch_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "rhythm_role": "sustained_drone",
+      "amplitude": 0.55,
+      "spatial_position": [
+        0.3999999999999999,
+        0.1
+      ]
+    },
+    {
+      "name": "bell",
+      "timbre": "chimes",
+      "pitch_indices": [
+        7,
+        14
+      ],
+      "rhythm_role": "ritual_punctuation",
+      "amplitude": 0.6,
+      "spatial_position": [
+        0.0,
+        0.4
+      ]
+    }
+  ],
+  "form": {
+    "arc_type": "through_composed",
+    "sections": [
+      {
+        "name": "I_opening",
+        "start_seconds": 0,
+        "duration_seconds": 15,
+        "character": "L first, silence, R answers, silence",
+        "chord_tones": [
+          0,
+          2,
+          4,
+          7
+        ]
+      },
+      {
+        "name": "II_rising",
+        "start_seconds": 15,
+        "duration_seconds": 20,
+        "character": "faster alternation, chord motion",
+        "chord_tones": [
+          2,
+          4,
+          5,
+          7
+        ]
+      },
+      {
+        "name": "III_encounter",
+        "start_seconds": 35,
+        "duration_seconds": 20,
+        "character": "choirs overlap briefly, then separate",
+        "chord_tones": [
+          4,
+          6,
+          7,
+          9
+        ]
+      },
+      {
+        "name": "IV_resolution",
+        "start_seconds": 55,
+        "duration_seconds": 20,
+        "character": "choirs begin sharing chord material",
+        "chord_tones": [
+          0,
+          2,
+          4,
+          7
+        ]
+      },
+      {
+        "name": "V_united",
+        "start_seconds": 75,
+        "duration_seconds": 18,
+        "character": "both choirs on home chord",
+        "chord_tones": [
+          0,
+          2,
+          4
+        ]
+      }
+    ]
+  },
+  "ornamentation": {
+    "density": 0.15,
+    "rule": "Obligatory structural ornament: every phrase ends with a bell-strike (struck_metal on upper-octave home) plus a collective downward slide of the choir (45 cents). Non-optional \u2014 a phrase without the bell is incomplete."
+  },
+  "auto_pedal": false,
+  "events": [
+    {
+      "t": 1.0,
+      "voice": "L1",
+      "pitch_index": 0,
+      "duration_seconds": 4.0,
+      "amplitude": 0.6
+    },
+    {
+      "t": 1.0,
+      "voice": "L2",
+      "pitch_index": 2,
+      "duration_seconds": 4.0,
+      "amplitude": 0.55
+    },
+    {
+      "t": 1.0,
+      "voice": "L3",
+      "pitch_index": 4,
+      "duration_seconds": 4.0,
+      "amplitude": 0.5
+    },
+    {
+      "t": 1.0,
+      "voice": "L4",
+      "pitch_index": 7,
+      "duration_seconds": 4.0,
+      "amplitude": 0.45
+    },
+    {
+      "t": 4.6,
+      "voice": "bell",
+      "pitch_index": 7,
+      "duration_seconds": 0.6,
+      "amplitude": 0.6
+    },
+    {
+      "t": 8.0,
+      "voice": "R1",
+      "pitch_index": 1,
+      "duration_seconds": 4.0,
+      "amplitude": 0.58
+    },
+    {
+      "t": 8.0,
+      "voice": "R2",
+      "pitch_index": 3,
+      "duration_seconds": 4.0,
+      "amplitude": 0.52
+    },
+    {
+      "t": 8.0,
+      "voice": "R3",
+      "pitch_index": 5,
+      "duration_seconds": 4.0,
+      "amplitude": 0.48
+    },
+    {
+      "t": 8.0,
+      "voice": "R4",
+      "pitch_index": 8,
+      "duration_seconds": 4.0,
+      "amplitude": 0.42
+    },
+    {
+      "t": 11.6,
+      "voice": "bell",
+      "pitch_index": 7,
+      "duration_seconds": 0.6,
+      "amplitude": 0.6
+    },
+    {
+      "t": 16.0,
+      "voice": "L1",
+      "pitch_index": 2,
+      "duration_seconds": 3.0,
+      "amplitude": 0.6
+    },
+    {
+      "t": 16.0,
+      "voice": "L2",
+      "pitch_index": 4,
+      "duration_seconds": 3.0,
+      "amplitude": 0.55
+    },
+    {
+      "t": 16.0,
+      "voice": "L3",
+      "pitch_index": 5,
+      "duration_seconds": 3.0,
+      "amplitude": 0.5
+    },
+    {
+      "t": 16.0,
+      "voice": "L4",
+      "pitch_index": 7,
+      "duration_seconds": 3.0,
+      "amplitude": 0.45
+    },
+    {
+      "t": 18.6,
+      "voice": "bell",
+      "pitch_index": 7,
+      "duration_seconds": 0.5,
+      "amplitude": 0.55
+    },
+    {
+      "t": 20.5,
+      "voice": "R1",
+      "pitch_index": 0,
+      "duration_seconds": 3.0,
+      "amplitude": 0.6
+    },
+    {
+      "t": 20.5,
+      "voice": "R2",
+      "pitch_index": 3,
+      "duration_seconds": 3.0,
+      "amplitude": 0.55
+    },
+    {
+      "t": 20.5,
+      "voice": "R3",
+      "pitch_index": 5,
+      "duration_seconds": 3.0,
+      "amplitude": 0.5
+    },
+    {
+      "t": 20.5,
+      "voice": "R4",
+      "pitch_index": 6,
+      "duration_seconds": 3.0,
+      "amplitude": 0.45
+    },
+    {
+      "t": 23.1,
+      "voice": "bell",
+      "pitch_index": 7,
+      "duration_seconds": 0.5,
+      "amplitude": 0.55
+    },
+    {
+      "t": 25.0,
+      "voice": "L1",
+      "pitch_index": 3,
+      "duration_seconds": 3.0,
+      "amplitude": 0.6
+    },
+    {
+      "t": 25.0,
+      "voice": "L2",
+      "pitch_index": 5,
+      "duration_seconds": 3.0,
+      "amplitude": 0.55
+    },
+    {
+      "t": 25.0,
+      "voice": "L3",
+      "pitch_index": 6,
+      "duration_seconds": 3.0,
+      "amplitude": 0.5
+    },
+    {
+      "t": 25.0,
+      "voice": "L4",
+      "pitch_index": 8,
+      "duration_seconds": 3.0,
+      "amplitude": 0.45
+    },
+    {
+      "t": 27.6,
+      "voice": "bell",
+      "pitch_index": 7,
+      "duration_seconds": 0.5,
+      "amplitude": 0.55
+    },
+    {
+      "t": 29.5,
+      "voice": "R1",
+      "pitch_index": 1,
+      "duration_seconds": 3.2,
+      "amplitude": 0.62
+    },
+    {
+      "t": 29.5,
+      "voice": "R2",
+      "pitch_index": 4,
+      "duration_seconds": 3.2,
+      "amplitude": 0.56
+    },
+    {
+      "t": 29.5,
+      "voice": "R3",
+      "pitch_index": 6,
+      "duration_seconds": 3.2,
+      "amplitude": 0.5
+    },
+    {
+      "t": 29.5,
+      "voice": "R4",
+      "pitch_index": 7,
+      "duration_seconds": 3.2,
+      "amplitude": 0.45
+    },
+    {
+      "t": 32.3,
+      "voice": "bell",
+      "pitch_index": 7,
+      "duration_seconds": 0.5,
+      "amplitude": 0.58
+    },
+    {
+      "t": 36.0,
+      "voice": "L1",
+      "pitch_index": 4,
+      "duration_seconds": 4.5,
+      "amplitude": 0.62
+    },
+    {
+      "t": 36.0,
+      "voice": "L2",
+      "pitch_index": 6,
+      "duration_seconds": 4.5,
+      "amplitude": 0.58
+    },
+    {
+      "t": 36.0,
+      "voice": "L3",
+      "pitch_index": 7,
+      "duration_seconds": 4.5,
+      "amplitude": 0.52
+    },
+    {
+      "t": 36.0,
+      "voice": "L4",
+      "pitch_index": 9,
+      "duration_seconds": 4.5,
+      "amplitude": 0.46
+    },
+    {
+      "t": 38.5,
+      "voice": "R1",
+      "pitch_index": 2,
+      "duration_seconds": 4.0,
+      "amplitude": 0.62
+    },
+    {
+      "t": 38.5,
+      "voice": "R2",
+      "pitch_index": 5,
+      "duration_seconds": 4.0,
+      "amplitude": 0.58
+    },
+    {
+      "t": 38.5,
+      "voice": "R3",
+      "pitch_index": 7,
+      "duration_seconds": 4.0,
+      "amplitude": 0.52
+    },
+    {
+      "t": 38.5,
+      "voice": "R4",
+      "pitch_index": 10,
+      "duration_seconds": 4.0,
+      "amplitude": 0.46
+    },
+    {
+      "t": 42.3,
+      "voice": "bell",
+      "pitch_index": 7,
+      "duration_seconds": 0.6,
+      "amplitude": 0.6
+    },
+    {
+      "t": 44.0,
+      "voice": "L1",
+      "pitch_index": 5,
+      "duration_seconds": 4.0,
+      "amplitude": 0.64
+    },
+    {
+      "t": 44.0,
+      "voice": "L2",
+      "pitch_index": 7,
+      "duration_seconds": 4.0,
+      "amplitude": 0.58
+    },
+    {
+      "t": 44.0,
+      "voice": "L3",
+      "pitch_index": 8,
+      "duration_seconds": 4.0,
+      "amplitude": 0.52
+    },
+    {
+      "t": 44.0,
+      "voice": "L4",
+      "pitch_index": 10,
+      "duration_seconds": 4.0,
+      "amplitude": 0.46
+    },
+    {
+      "t": 47.0,
+      "voice": "R1",
+      "pitch_index": 3,
+      "duration_seconds": 4.0,
+      "amplitude": 0.64
+    },
+    {
+      "t": 47.0,
+      "voice": "R2",
+      "pitch_index": 6,
+      "duration_seconds": 4.0,
+      "amplitude": 0.58
+    },
+    {
+      "t": 47.0,
+      "voice": "R3",
+      "pitch_index": 8,
+      "duration_seconds": 4.0,
+      "amplitude": 0.52
+    },
+    {
+      "t": 47.0,
+      "voice": "R4",
+      "pitch_index": 11,
+      "duration_seconds": 4.0,
+      "amplitude": 0.46
+    },
+    {
+      "t": 51.0,
+      "voice": "bell",
+      "pitch_index": 7,
+      "duration_seconds": 0.6,
+      "amplitude": 0.6
+    },
+    {
+      "t": 56.0,
+      "voice": "L1",
+      "pitch_index": 0,
+      "duration_seconds": 4.0,
+      "amplitude": 0.6
+    },
+    {
+      "t": 56.0,
+      "voice": "L2",
+      "pitch_index": 2,
+      "duration_seconds": 4.0,
+      "amplitude": 0.55
+    },
+    {
+      "t": 56.0,
+      "voice": "L3",
+      "pitch_index": 4,
+      "duration_seconds": 4.0,
+      "amplitude": 0.5
+    },
+    {
+      "t": 56.0,
+      "voice": "L4",
+      "pitch_index": 7,
+      "duration_seconds": 4.0,
+      "amplitude": 0.45
+    },
+    {
+      "t": 56.0,
+      "voice": "R1",
+      "pitch_index": 0,
+      "duration_seconds": 4.0,
+      "amplitude": 0.55
+    },
+    {
+      "t": 56.0,
+      "voice": "R2",
+      "pitch_index": 2,
+      "duration_seconds": 4.0,
+      "amplitude": 0.5
+    },
+    {
+      "t": 56.0,
+      "voice": "R3",
+      "pitch_index": 4,
+      "duration_seconds": 4.0,
+      "amplitude": 0.45
+    },
+    {
+      "t": 56.0,
+      "voice": "R4",
+      "pitch_index": 7,
+      "duration_seconds": 4.0,
+      "amplitude": 0.4
+    },
+    {
+      "t": 60.1,
+      "voice": "bell",
+      "pitch_index": 7,
+      "duration_seconds": 0.7,
+      "amplitude": 0.55
+    },
+    {
+      "t": 62.5,
+      "voice": "L1",
+      "pitch_index": 1,
+      "duration_seconds": 4.0,
+      "amplitude": 0.58
+    },
+    {
+      "t": 62.5,
+      "voice": "L2",
+      "pitch_index": 3,
+      "duration_seconds": 4.0,
+      "amplitude": 0.53
+    },
+    {
+      "t": 62.5,
+      "voice": "L3",
+      "pitch_index": 5,
+      "duration_seconds": 4.0,
+      "amplitude": 0.48
+    },
+    {
+      "t": 62.5,
+      "voice": "L4",
+      "pitch_index": 8,
+      "duration_seconds": 4.0,
+      "amplitude": 0.43
+    },
+    {
+      "t": 62.5,
+      "voice": "R1",
+      "pitch_index": 1,
+      "duration_seconds": 4.0,
+      "amplitude": 0.55
+    },
+    {
+      "t": 62.5,
+      "voice": "R2",
+      "pitch_index": 3,
+      "duration_seconds": 4.0,
+      "amplitude": 0.5
+    },
+    {
+      "t": 62.5,
+      "voice": "R3",
+      "pitch_index": 5,
+      "duration_seconds": 4.0,
+      "amplitude": 0.45
+    },
+    {
+      "t": 62.5,
+      "voice": "R4",
+      "pitch_index": 8,
+      "duration_seconds": 4.0,
+      "amplitude": 0.4
+    },
+    {
+      "t": 66.6,
+      "voice": "bell",
+      "pitch_index": 7,
+      "duration_seconds": 0.7,
+      "amplitude": 0.55
+    },
+    {
+      "t": 69.0,
+      "voice": "L1",
+      "pitch_index": 0,
+      "duration_seconds": 4.5,
+      "amplitude": 0.6
+    },
+    {
+      "t": 69.0,
+      "voice": "L2",
+      "pitch_index": 3,
+      "duration_seconds": 4.5,
+      "amplitude": 0.55
+    },
+    {
+      "t": 69.0,
+      "voice": "L3",
+      "pitch_index": 5,
+      "duration_seconds": 4.5,
+      "amplitude": 0.5
+    },
+    {
+      "t": 69.0,
+      "voice": "L4",
+      "pitch_index": 7,
+      "duration_seconds": 4.5,
+      "amplitude": 0.45
+    },
+    {
+      "t": 69.0,
+      "voice": "R1",
+      "pitch_index": 0,
+      "duration_seconds": 4.5,
+      "amplitude": 0.55
+    },
+    {
+      "t": 69.0,
+      "voice": "R2",
+      "pitch_index": 3,
+      "duration_seconds": 4.5,
+      "amplitude": 0.5
+    },
+    {
+      "t": 69.0,
+      "voice": "R3",
+      "pitch_index": 5,
+      "duration_seconds": 4.5,
+      "amplitude": 0.45
+    },
+    {
+      "t": 69.0,
+      "voice": "R4",
+      "pitch_index": 7,
+      "duration_seconds": 4.5,
+      "amplitude": 0.4
+    },
+    {
+      "t": 73.6,
+      "voice": "bell",
+      "pitch_index": 7,
+      "duration_seconds": 0.7,
+      "amplitude": 0.55
+    },
+    {
+      "t": 77.0,
+      "voice": "L1",
+      "pitch_index": 0,
+      "duration_seconds": 5.5,
+      "amplitude": 0.55
+    },
+    {
+      "t": 77.0,
+      "voice": "L2",
+      "pitch_index": 2,
+      "duration_seconds": 5.5,
+      "amplitude": 0.5
+    },
+    {
+      "t": 77.0,
+      "voice": "L3",
+      "pitch_index": 4,
+      "duration_seconds": 5.5,
+      "amplitude": 0.45
+    },
+    {
+      "t": 77.0,
+      "voice": "L4",
+      "pitch_index": 7,
+      "duration_seconds": 5.5,
+      "amplitude": 0.42
+    },
+    {
+      "t": 77.0,
+      "voice": "R1",
+      "pitch_index": 0,
+      "duration_seconds": 5.5,
+      "amplitude": 0.52
+    },
+    {
+      "t": 77.0,
+      "voice": "R2",
+      "pitch_index": 2,
+      "duration_seconds": 5.5,
+      "amplitude": 0.48
+    },
+    {
+      "t": 77.0,
+      "voice": "R3",
+      "pitch_index": 4,
+      "duration_seconds": 5.5,
+      "amplitude": 0.43
+    },
+    {
+      "t": 77.0,
+      "voice": "R4",
+      "pitch_index": 7,
+      "duration_seconds": 5.5,
+      "amplitude": 0.4
+    },
+    {
+      "t": 82.7,
+      "voice": "bell",
+      "pitch_index": 7,
+      "duration_seconds": 0.9,
+      "amplitude": 0.65
+    },
+    {
+      "t": 84.5,
+      "voice": "L1",
+      "pitch_index": 0,
+      "duration_seconds": 5.5,
+      "amplitude": 0.5
+    },
+    {
+      "t": 84.5,
+      "voice": "L2",
+      "pitch_index": 2,
+      "duration_seconds": 5.5,
+      "amplitude": 0.45
+    },
+    {
+      "t": 84.5,
+      "voice": "L3",
+      "pitch_index": 4,
+      "duration_seconds": 5.5,
+      "amplitude": 0.4
+    },
+    {
+      "t": 84.5,
+      "voice": "L4",
+      "pitch_index": 0,
+      "duration_seconds": 5.5,
+      "amplitude": 0.55
+    },
+    {
+      "t": 84.5,
+      "voice": "R1",
+      "pitch_index": 0,
+      "duration_seconds": 5.5,
+      "amplitude": 0.48
+    },
+    {
+      "t": 84.5,
+      "voice": "R2",
+      "pitch_index": 2,
+      "duration_seconds": 5.5,
+      "amplitude": 0.43
+    },
+    {
+      "t": 84.5,
+      "voice": "R3",
+      "pitch_index": 4,
+      "duration_seconds": 5.5,
+      "amplitude": 0.4
+    },
+    {
+      "t": 84.5,
+      "voice": "R4",
+      "pitch_index": 0,
+      "duration_seconds": 5.5,
+      "amplitude": 0.5
+    },
+    {
+      "t": 90.1,
+      "voice": "bell",
+      "pitch_index": 7,
+      "duration_seconds": 1.2,
+      "amplitude": 0.68
+    }
+  ]
+}
+```
+
+### 10. Field note
+The bell is the only pitch heard in both choirs. Its ring is what makes them one piece instead of two.

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expedition 015 — Drone Song in Contrasting Sections · Musical Morphospace</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --bg-2: #121212;
+    --bg-3: #1a1a1a;
+    --border: #2a2a2a;
+    --text: #e8e8e8;
+    --text-dim: #888;
+    --text-faint: #555;
+    --gold: #c9a962;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Mono', 'SF Mono', Menlo, monospace;
+    font-size: 14px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+  .container { max-width: 780px; margin: 0 auto; padding: 48px 40px 128px; }
+
+  nav {
+    font-size: 11px;
+    color: var(--text-faint);
+    margin-bottom: 48px;
+    letter-spacing: 0.1em;
+  }
+  nav a { color: var(--text-dim); text-decoration: none; }
+  nav a:hover { color: var(--gold); }
+
+  .expedition-meta {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-size: 10px;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 20px;
+  }
+  .expedition-meta span b { color: var(--gold); font-weight: 500; }
+
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(36px, 6vw, 54px);
+    font-weight: 300;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    margin-bottom: 36px;
+  }
+
+  .audio-block {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    padding: 24px;
+    margin-bottom: 48px;
+  }
+  .audio-block .caption {
+    font-size: 10px;
+    color: var(--text-faint);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  audio { width: 100%; filter: invert(1) hue-rotate(180deg); }
+
+  .resources {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+  }
+  .resources a {
+    color: var(--text-dim);
+    text-decoration: none;
+    border-bottom: 1px solid var(--text-faint);
+    padding-bottom: 1px;
+  }
+  .resources a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+  #notes h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    margin: 48px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  #notes h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 19px;
+    color: var(--text);
+    margin: 36px 0 14px;
+    letter-spacing: -0.01em;
+  }
+  #notes p { margin-bottom: 20px; color: var(--text); }
+  #notes em { color: var(--gold); font-style: italic; }
+  #notes strong { color: var(--text); font-weight: 500; }
+  #notes code {
+    background: var(--bg-3);
+    color: var(--gold);
+    padding: 1px 6px;
+    font-size: 12px;
+    border: 1px solid var(--border);
+  }
+  #notes pre {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    padding: 20px;
+    overflow-x: auto;
+    margin: 20px 0;
+    font-size: 11px;
+    line-height: 1.55;
+  }
+  #notes pre code { background: none; border: none; padding: 0; color: var(--text); }
+
+  footer {
+    margin-top: 96px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    color: var(--text-faint);
+    font-size: 11px;
+    display: flex;
+    justify-content: space-between;
+  }
+  footer a { color: var(--text-dim); text-decoration: none; }
+  footer a:hover { color: var(--gold); }
+
+  .loading { color: var(--text-faint); font-style: italic; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<nav><a href="../../">← Musical Morphospace</a></nav>
+
+<div class="expedition-meta">
+  <span>Expedition <b>N° 015</b></span>
+  <span>Curiosity <b>0.58</b></span>
+  <span>Duration <b>75s</b></span>
+  <span>Rhythm <b>breath_based</b></span>
+  <span>Voices <b>4</b></span>
+</div>
+
+<h1>Drone Song in Contrasting Sections</h1>
+
+<div class="audio-block">
+  <div class="caption">Rendered specimen — 75 seconds, stereo</div>
+  <audio controls preload="metadata" src="audio.wav"></audio>
+  <div class="resources">
+    <a href="audio_spec.json">audio_spec.json</a>
+    <a href="field_notes.md">field_notes.md</a>
+    <a href="audio.wav" download>download WAV</a>
+  </div>
+</div>
+
+<div id="notes"><div class="loading">Loading field notes...</div></div>
+
+<footer>
+  <div><a href="../../">Musical Morphospace</a></div>
+  <div><a href="https://github.com/swoonjet/musical-morphospace">Source on GitHub</a></div>
+</footer>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+(async () => {
+  try {
+    const res = await fetch('field_notes.md');
+    if (!res.ok) throw new Error('field_notes.md not found');
+    let md = await res.text();
+    // strip the H1 since we already show it
+    md = md.replace(/^#\s+.+\n+/, '');
+    // strip the audio-spec placeholder
+    md = md.replace(/\*\[audio spec — see audio_spec\.json\]\*\s*/g, '');
+    const html = marked.parse(md);
+    document.getElementById('notes').innerHTML = html;
+  } catch (err) {
+    document.getElementById('notes').innerHTML =
+      '<p style="color: var(--text-faint)">Could not load field notes — see <a href="field_notes.md" style="color: var(--gold)">field_notes.md</a>.</p>';
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+{
+  "expedition_number": 14,
+  "iso_date": "2026-04-22T19:49:28",
+  "curiosity_score": 0.5089127592707571,
+  "continuous": {
+    "pitch_density": 0.85,
+    "microtonality_degree": 0.133,
+    "octave_equivalence": 0.507,
+    "interval_hierarchy": 0.652,
+    "pitch_flexibility": 0.664,
+    "metric_periodicity": 0.82,
+    "rhythmic_density": 0.362,
+    "polyrhythmic_complexity": 0.007,
+    "cycle_length": 0.963,
+    "tempo_stability": 0.406,
+    "piece_duration": 0.785,
+    "formal_repetition": 0.155,
+    "development_arc": 0.838,
+    "voice_count": 0.826,
+    "voice_independence": 0.994,
+    "drone_presence": 0.043,
+    "improvisation_degree": 0.923,
+    "ornament_density": 0.859
+  },
+  "categorical": {
+    "tuning_basis": "overtone_series",
+    "scale_topology": "single_cycle_no_repeat",
+    "rhythmic_structure": "additive_metric",
+    "formal_type": "nested_hierarchical",
+    "texture_type": "homophonic",
+    "ornament_grammar": "microtonal_inflection_core",
+    "transmission_mode": "notated_skeletal",
+    "ensemble_topology": "spatially_distributed",
+    "social_function": "environmental_dialogue",
+    "listener_role": "passive_audience",
+    "silence_treatment": "decorative_pause",
+    "temporal_framing": "clock_time_bounded"
+  },
+  "warnings": [
+    "large-ensemble improvisation \u2014 rare (New Orleans, some free jazz, Aka polyphony)"
+  ],
+  "neighbors": [
+    {
+      "name": "Bulgarian Women's Choir (Koutev / Myst\u00e8re des voix bulgares)",
+      "id": "bulgarian_koutev_womens_choir",
+      "distance": 0.5089127592707571
+    },
+    {
+      "name": "Tuvan Khoomei (throat singing \u2014 sygyt style)",
+      "id": "tuvan_khoomei",
+      "distance": 0.5155581019132721
+    },
+    {
+      "name": "Turkish Classical Makam",
+      "id": "turkish_classical_makam",
+      "distance": 0.5210701698556366
+    }
+  ]
+}
