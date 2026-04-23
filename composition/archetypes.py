@@ -327,6 +327,66 @@ def ground_bass_loop(*, start_t: float, bass_motif: Motif, n_statements: int,
 
 
 # ============================================================
+# Groove / rhythm-section helpers
+# ============================================================
+
+def drum_bar(*, bar_start_t: float, pattern: List[int], voice: str,
+              unit_s: float, pitch_idx: int = 0, amp: float = 0.65,
+              dur_s: float = 0.10, ghost_prob: float = 0.0,
+              ghost_amp: float = 0.4, rng: Optional[random.Random] = None) -> List[dict]:
+    """Emit one bar of drum hits at integer unit positions in `pattern`."""
+    evs = []
+    for u in pattern:
+        t = bar_start_t + u * unit_s
+        a = amp
+        if rng and ghost_prob and rng.random() < ghost_prob:
+            a *= ghost_amp
+        evs.append({"t": round(t, 3), "voice": voice, "pitch_index": pitch_idx,
+                    "duration_seconds": dur_s, "amplitude": round(a, 3)})
+    return evs
+
+
+def groove(*, start_t: float, n_bars: int, bar_units: int, unit_s: float,
+            drum_voices: Dict[str, Dict], rng: Optional[random.Random] = None) -> Tuple[List[dict], float]:
+    """Emit n_bars of a rhythm-section pattern.
+
+    drum_voices: dict mapping voice_name → {pattern: [int, ...], amp: float,
+                                              pitch_idx: int, dur_s: float,
+                                              ghost_prob: float (optional),
+                                              active_bars: set[int] (optional)}
+
+    Returns (events, end_time)."""
+    events = []
+    bar_s = bar_units * unit_s
+    for bar in range(n_bars):
+        bar_t = start_t + bar * bar_s
+        for vname, cfg in drum_voices.items():
+            if "active_bars" in cfg and bar not in cfg["active_bars"]:
+                continue
+            events += drum_bar(
+                bar_start_t=bar_t, pattern=cfg["pattern"], voice=vname,
+                unit_s=unit_s, pitch_idx=cfg.get("pitch_idx", 0),
+                amp=cfg.get("amp", 0.65), dur_s=cfg.get("dur_s", 0.10),
+                ghost_prob=cfg.get("ghost_prob", 0.0), rng=rng,
+            )
+    return events, start_t + n_bars * bar_s
+
+
+def stereo_double(*, events: List[dict], second_voice: str,
+                    delay_ms: float = 15.0, amp_ratio: float = 0.82) -> List[dict]:
+    """Given a list of events on one voice, produce a parallel list on
+    `second_voice` with a small time delay and reduced amplitude — creates
+    stereo width when the two voices are panned apart."""
+    out = []
+    delay_s = delay_ms / 1000.0
+    for e in events:
+        out.append({**e, "voice": second_voice,
+                     "t": round(e["t"] + delay_s, 3),
+                     "amplitude": round(e["amplitude"] * amp_ratio, 3)})
+    return out
+
+
+# ============================================================
 # Archetype 10: CANONIC IMITATION — same motif at staggered entries
 # ============================================================
 

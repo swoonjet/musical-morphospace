@@ -1,0 +1,60 @@
+{
+  "expedition_number": 27,
+  "iso_date": "2026-04-23T11:12:16",
+  "curiosity_score": 0.45336377010140977,
+  "continuous": {
+    "pitch_density": 0.482,
+    "microtonality_degree": 0.879,
+    "octave_equivalence": 0.658,
+    "interval_hierarchy": 0.749,
+    "pitch_flexibility": 0.274,
+    "metric_periodicity": 0.801,
+    "rhythmic_density": 0.823,
+    "polyrhythmic_complexity": 0.789,
+    "cycle_length": 0.671,
+    "tempo_stability": 0.865,
+    "piece_duration": 0.95,
+    "formal_repetition": 0.188,
+    "development_arc": 0.736,
+    "voice_count": 0.894,
+    "voice_independence": 0.99,
+    "drone_presence": 0.09,
+    "improvisation_degree": 0.38,
+    "ornament_density": 0.872
+  },
+  "categorical": {
+    "tuning_basis": "indeterminate",
+    "scale_topology": "octave_repeating",
+    "rhythmic_structure": "additive_metric",
+    "formal_type": "sectional_contrasting",
+    "texture_type": "layered_ostinato",
+    "ornament_grammar": "obligatory_structural",
+    "transmission_mode": "hybrid",
+    "ensemble_topology": "heterophonic_group",
+    "social_function": "didactic_pedagogical",
+    "listener_role": "passive_audience",
+    "silence_treatment": "equal_to_sound",
+    "temporal_framing": "indeterminate_open"
+  },
+  "warnings": [
+    "ensemble microtonal coordination \u2014 rare (Arabic takht, Turkish classical)"
+  ],
+  "energy_level": "very_high",
+  "neighbors": [
+    {
+      "name": "Arabic Maqam (Egyptian takht ensemble)",
+      "id": "arabic_maqam_takht",
+      "distance": 0.46764741201308035
+    },
+    {
+      "name": "Peking Opera (jingju)",
+      "id": "peking_opera",
+      "distance": 0.47566824560807086
+    },
+    {
+      "name": "Turkish Classical Makam",
+      "id": "turkish_classical_makam",
+      "distance": 0.4791511602185492
+    }
+  ]
+}

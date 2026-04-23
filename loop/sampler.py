@@ -45,6 +45,38 @@ def sample_random_point(schema: dict, rng: random.Random) -> Tuple[Dict[str, flo
     return cont, cat
 
 
+def is_energetic(cont: Dict[str, float], cat: Dict[str, str],
+                   level: str = "high") -> bool:
+    """Filter grammars that can support energy/groove (kick/snare/hat layer,
+    syncopated melody, driving pulse). Level thresholds:
+      'low'       rhythmic_density ≥ 0.25, any periodicity
+      'mid'       rhythmic_density ≥ 0.45, metric_periodicity ≥ 0.55
+      'high'      rhythmic_density ≥ 0.60, metric_periodicity ≥ 0.65, drone ≤ 0.55
+      'very_high' rhythmic_density ≥ 0.75, metric_periodicity ≥ 0.75, drone ≤ 0.40,
+                  tempo_stability ≥ 0.60
+
+    In all cases rejects grammars structurally hostile to groove:
+    static_contemplation form, spectral_cloud texture, non-metric rhythm,
+    foundational_ground silence treatment.
+    """
+    thresholds = {
+        "low":       dict(rhy=0.25, met=0.30, drone=1.00, tempo=0.00),
+        "mid":       dict(rhy=0.45, met=0.55, drone=0.75, tempo=0.45),
+        "high":      dict(rhy=0.60, met=0.65, drone=0.55, tempo=0.55),
+        "very_high": dict(rhy=0.75, met=0.75, drone=0.40, tempo=0.60),
+    }
+    th = thresholds.get(level, thresholds["high"])
+    if cont["rhythmic_density"] < th["rhy"]: return False
+    if cont["metric_periodicity"] < th["met"]: return False
+    if cont["drone_presence"] > th["drone"]: return False
+    if cont["tempo_stability"] < th["tempo"]: return False
+    if cat["rhythmic_structure"] not in ("metric", "additive_metric"): return False
+    if cat["silence_treatment"] == "foundational_ground": return False
+    if cat["formal_type"] in ("static_contemplation", "generative_algorithmic", "spectral_static"): return False
+    if cat["texture_type"] == "spectral_cloud": return False
+    return True
+
+
 def is_compositional(cont: Dict[str, float], cat: Dict[str, str]) -> bool:
     """Filter candidates that can support real composition (melody/harmony/rhythm).
 
@@ -85,12 +117,15 @@ def sample_expedition(
     min_curiosity: float = 0.35,
     seed: int | None = None,
     compositional: bool = False,
+    energy_level: str | None = None,
 ) -> Tuple[Dict[str, float], Dict[str, str], float, List[str]]:
     """Sample one viable expedition point.
 
     Returns (continuous, categorical, curiosity_score, warnings).
     Raises RuntimeError if no viable point is found after n_candidates attempts.
     If compositional=True, only candidates passing is_compositional() are kept.
+    If energy_level in {'low','mid','high','very_high'}, only candidates passing
+    is_energetic(level=energy_level) are kept.
     """
     rng = random.Random(seed)
     best: Tuple[Dict[str, float], Dict[str, str], float, List[str]] | None = None
@@ -98,6 +133,7 @@ def sample_expedition(
     attempts = 0
     rejects_coherence = 0
     rejects_not_compositional = 0
+    rejects_not_energetic = 0
     rejects_low_curiosity = 0
 
     while attempts < n_candidates:
@@ -109,6 +145,9 @@ def sample_expedition(
             continue
         if compositional and not is_compositional(cont, cat):
             rejects_not_compositional += 1
+            continue
+        if energy_level and not is_energetic(cont, cat, level=energy_level):
+            rejects_not_energetic += 1
             continue
         score = curiosity_score(cont, cat, corpus)
         if score < min_curiosity:
@@ -122,12 +161,14 @@ def sample_expedition(
             f"No viable point after {n_candidates} attempts "
             f"(coherence rejects: {rejects_coherence}, "
             f"non-compositional rejects: {rejects_not_compositional}, "
+            f"non-energetic rejects: {rejects_not_energetic}, "
             f"low-curiosity rejects: {rejects_low_curiosity}). "
             f"Try lowering min_curiosity or increasing n_candidates."
         )
 
     print(f"Sampled {attempts} candidates: {rejects_coherence} incoherent, "
           f"{rejects_not_compositional} non-compositional, "
+          f"{rejects_not_energetic} non-energetic, "
           f"{rejects_low_curiosity} too-close-to-corpus, "
           f"accepted 1 with curiosity={best[2]:.3f}", file=sys.stderr)
     return best

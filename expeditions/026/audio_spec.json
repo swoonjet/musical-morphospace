@@ -1,0 +1,3608 @@
+{
+  "duration_seconds": 36.9,
+  "pitch_system": {
+    "encoding": "ratio",
+    "reference_hz": 82,
+    "pitches": [
+      1.0,
+      2.0,
+      3.0,
+      4.0,
+      5.0,
+      6.0,
+      7.0,
+      8.0,
+      9.0,
+      10.0,
+      2.0,
+      4.0,
+      6.0,
+      8.0,
+      10.0,
+      12.0,
+      14.0,
+      16.0,
+      18.0,
+      20.0
+    ],
+    "octave_repeats": true
+  },
+  "rhythm_system": {
+    "type": "additive",
+    "groupings": [
+      4,
+      4,
+      4
+    ],
+    "base_unit_ms": 170
+  },
+  "voices": [
+    {
+      "name": "bass",
+      "timbre": "distorted_bass",
+      "pitch_indices": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "rhythm_role": "ostinato",
+      "amplitude": 0.6,
+      "spatial_position": [
+        0.0,
+        -0.3
+      ]
+    },
+    {
+      "name": "harp",
+      "timbre": "strummed_harp",
+      "pitch_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "rhythm_role": "melodic_lead",
+      "amplitude": 0.5,
+      "spatial_position": [
+        -0.4,
+        0.15
+      ]
+    },
+    {
+      "name": "voice",
+      "timbre": "vocal_male_low",
+      "pitch_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "rhythm_role": "melodic_lead",
+      "amplitude": 0.68,
+      "spatial_position": [
+        0.0,
+        0.25
+      ]
+    },
+    {
+      "name": "thumb",
+      "timbre": "thumb_piano",
+      "pitch_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "rhythm_role": "ornamental",
+      "amplitude": 0.5,
+      "spatial_position": [
+        0.4,
+        0.2
+      ]
+    },
+    {
+      "name": "pot",
+      "timbre": "clay_pot",
+      "pitch_indices": [
+        0,
+        2
+      ],
+      "rhythm_role": "percussive",
+      "amplitude": 0.48,
+      "spatial_position": [
+        -0.2,
+        -0.1
+      ]
+    },
+    {
+      "name": "snare",
+      "timbre": "snare_synth",
+      "pitch_indices": [
+        2
+      ],
+      "rhythm_role": "percussive",
+      "amplitude": 0.45,
+      "spatial_position": [
+        0.15,
+        0.05
+      ]
+    },
+    {
+      "name": "shaker",
+      "timbre": "shaker",
+      "pitch_indices": [
+        0
+      ],
+      "rhythm_role": "percussive",
+      "amplitude": 0.25,
+      "spatial_position": [
+        0.6,
+        0.0
+      ]
+    }
+  ],
+  "form": {
+    "arc_type": "modular",
+    "sections": [
+      {
+        "name": "intro_harp",
+        "start_seconds": 0,
+        "duration_seconds": 1.9,
+        "character": "harp alone",
+        "chord_tones": [
+          0,
+          2,
+          4
+        ]
+      },
+      {
+        "name": "verse_1",
+        "start_seconds": 1.9,
+        "duration_seconds": 3.3,
+        "character": "voice + harp + pot",
+        "chord_tones": [
+          0,
+          2,
+          4
+        ]
+      },
+      {
+        "name": "chorus_1",
+        "start_seconds": 5.2,
+        "duration_seconds": 3.3,
+        "character": "full bed enters \u2014 bass + snare + shaker",
+        "chord_tones": [
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "name": "verse_2",
+        "start_seconds": 8.5,
+        "duration_seconds": 3.3,
+        "character": "thumb piano counter-melody",
+        "chord_tones": [
+          0,
+          2,
+          4
+        ]
+      },
+      {
+        "name": "chorus_2",
+        "start_seconds": 11.8,
+        "duration_seconds": 3.3,
+        "character": "louder chorus",
+        "chord_tones": [
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "name": "bridge",
+        "start_seconds": 15.1,
+        "duration_seconds": 3.3,
+        "character": "higher register, thumb piano foregrounded",
+        "chord_tones": [
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      {
+        "name": "final_chorus",
+        "start_seconds": 18.4,
+        "duration_seconds": 3.3,
+        "character": "densest chorus",
+        "chord_tones": [
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "name": "outro",
+        "start_seconds": 21.7,
+        "duration_seconds": 6.0,
+        "character": "voice and harp land on home",
+        "chord_tones": [
+          0
+        ]
+      }
+    ]
+  },
+  "ornamentation": {
+    "density": 0.4,
+    "rule": "Improvisational: voice may bend pitch; thumb piano ornaments rhythmically with off-beat passing notes."
+  },
+  "auto_pedal": false,
+  "mix": {
+    "reverb_wet": 0.18,
+    "reverb_length": 1.2,
+    "reverb_decay": 4.5,
+    "hpf_hz": 40,
+    "lpf_hz": 8800,
+    "hf_shelf_gain_db": 0.5,
+    "hf_shelf_freq": 4000,
+    "master_punch": {
+      "comp_threshold": 0.55,
+      "comp_ratio": 2.8,
+      "comp_makeup_db": 1.5,
+      "sat_drive": 1.1
+    }
+  },
+  "events": [
+    {
+      "t": 0.3,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 0.47,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 0.64,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 0.81,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 0.98,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 1.15,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 1.32,
+      "voice": "harp",
+      "pitch_index": 3,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 1.49,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 1.66,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 1.83,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 2.0,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 2.17,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 2.34,
+      "voice": "voice",
+      "pitch_index": 7,
+      "duration_seconds": 0.469,
+      "amplitude": 0.62
+    },
+    {
+      "t": 2.85,
+      "voice": "voice",
+      "pitch_index": 9,
+      "duration_seconds": 0.469,
+      "amplitude": 0.62
+    },
+    {
+      "t": 3.36,
+      "voice": "voice",
+      "pitch_index": 7,
+      "duration_seconds": 0.313,
+      "amplitude": 0.62
+    },
+    {
+      "t": 3.7,
+      "voice": "voice",
+      "pitch_index": 8,
+      "duration_seconds": 0.313,
+      "amplitude": 0.62
+    },
+    {
+      "t": 4.04,
+      "voice": "voice",
+      "pitch_index": 10,
+      "duration_seconds": 0.313,
+      "amplitude": 0.62
+    },
+    {
+      "t": 2.34,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 2.51,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 2.68,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 2.85,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 3.02,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 3.19,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 3.36,
+      "voice": "harp",
+      "pitch_index": 3,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 3.53,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 3.7,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 3.87,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 4.04,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 4.21,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 2.34,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.45
+    },
+    {
+      "t": 3.02,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.45
+    },
+    {
+      "t": 3.7,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.45
+    },
+    {
+      "t": 4.38,
+      "voice": "voice",
+      "pitch_index": 9,
+      "duration_seconds": 0.469,
+      "amplitude": 0.62
+    },
+    {
+      "t": 4.89,
+      "voice": "voice",
+      "pitch_index": 7,
+      "duration_seconds": 0.469,
+      "amplitude": 0.62
+    },
+    {
+      "t": 5.4,
+      "voice": "voice",
+      "pitch_index": 6,
+      "duration_seconds": 0.313,
+      "amplitude": 0.62
+    },
+    {
+      "t": 5.74,
+      "voice": "voice",
+      "pitch_index": 7,
+      "duration_seconds": 0.313,
+      "amplitude": 0.62
+    },
+    {
+      "t": 6.08,
+      "voice": "voice",
+      "pitch_index": 5,
+      "duration_seconds": 0.313,
+      "amplitude": 0.62
+    },
+    {
+      "t": 4.38,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 4.55,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 4.72,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 4.89,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 5.06,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 5.23,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 5.4,
+      "voice": "harp",
+      "pitch_index": 3,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 5.57,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 5.74,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 5.91,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 6.08,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 6.25,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 4.38,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.45
+    },
+    {
+      "t": 5.06,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.45
+    },
+    {
+      "t": 5.74,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.45
+    },
+    {
+      "t": 6.42,
+      "voice": "voice",
+      "pitch_index": 9,
+      "duration_seconds": 0.313,
+      "amplitude": 0.65
+    },
+    {
+      "t": 6.76,
+      "voice": "voice",
+      "pitch_index": 10,
+      "duration_seconds": 0.313,
+      "amplitude": 0.65
+    },
+    {
+      "t": 7.1,
+      "voice": "voice",
+      "pitch_index": 11,
+      "duration_seconds": 0.313,
+      "amplitude": 0.65
+    },
+    {
+      "t": 7.44,
+      "voice": "voice",
+      "pitch_index": 10,
+      "duration_seconds": 0.313,
+      "amplitude": 0.65
+    },
+    {
+      "t": 7.78,
+      "voice": "voice",
+      "pitch_index": 9,
+      "duration_seconds": 0.313,
+      "amplitude": 0.65
+    },
+    {
+      "t": 8.12,
+      "voice": "voice",
+      "pitch_index": 7,
+      "duration_seconds": 0.313,
+      "amplitude": 0.65
+    },
+    {
+      "t": 6.42,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 6.59,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 6.76,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 6.93,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 7.1,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 7.27,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 7.44,
+      "voice": "harp",
+      "pitch_index": 3,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 7.61,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 7.78,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 7.95,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 8.12,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 8.29,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 6.42,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.48
+    },
+    {
+      "t": 7.1,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.48
+    },
+    {
+      "t": 7.78,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.48
+    },
+    {
+      "t": 7.1,
+      "voice": "snare",
+      "pitch_index": 0,
+      "duration_seconds": 0.12,
+      "amplitude": 0.42
+    },
+    {
+      "t": 8.12,
+      "voice": "snare",
+      "pitch_index": 0,
+      "duration_seconds": 0.12,
+      "amplitude": 0.42
+    },
+    {
+      "t": 6.42,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.22
+    },
+    {
+      "t": 6.59,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.22
+    },
+    {
+      "t": 6.76,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.22
+    },
+    {
+      "t": 6.93,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.22
+    },
+    {
+      "t": 7.1,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.22
+    },
+    {
+      "t": 7.27,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.22
+    },
+    {
+      "t": 7.44,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.22
+    },
+    {
+      "t": 7.61,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.22
+    },
+    {
+      "t": 7.78,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.22
+    },
+    {
+      "t": 7.95,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.22
+    },
+    {
+      "t": 8.12,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.22
+    },
+    {
+      "t": 8.29,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.22
+    },
+    {
+      "t": 6.42,
+      "voice": "bass",
+      "pitch_index": 0,
+      "duration_seconds": 0.646,
+      "amplitude": 0.55
+    },
+    {
+      "t": 7.1,
+      "voice": "bass",
+      "pitch_index": 2,
+      "duration_seconds": 0.646,
+      "amplitude": 0.55
+    },
+    {
+      "t": 7.78,
+      "voice": "bass",
+      "pitch_index": 4,
+      "duration_seconds": 0.646,
+      "amplitude": 0.55
+    },
+    {
+      "t": 8.46,
+      "voice": "voice",
+      "pitch_index": 8,
+      "duration_seconds": 0.469,
+      "amplitude": 0.65
+    },
+    {
+      "t": 8.97,
+      "voice": "voice",
+      "pitch_index": 7,
+      "duration_seconds": 0.469,
+      "amplitude": 0.65
+    },
+    {
+      "t": 9.48,
+      "voice": "voice",
+      "pitch_index": 6,
+      "duration_seconds": 0.469,
+      "amplitude": 0.65
+    },
+    {
+      "t": 9.99,
+      "voice": "voice",
+      "pitch_index": 5,
+      "duration_seconds": 0.469,
+      "amplitude": 0.65
+    },
+    {
+      "t": 8.46,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 8.63,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 8.8,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 8.97,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 9.14,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 9.31,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 9.48,
+      "voice": "harp",
+      "pitch_index": 3,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 9.65,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 9.82,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 9.99,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 10.16,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 10.33,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 8.46,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.48
+    },
+    {
+      "t": 9.14,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.48
+    },
+    {
+      "t": 9.82,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.48
+    },
+    {
+      "t": 9.14,
+      "voice": "snare",
+      "pitch_index": 0,
+      "duration_seconds": 0.12,
+      "amplitude": 0.42
+    },
+    {
+      "t": 10.16,
+      "voice": "snare",
+      "pitch_index": 0,
+      "duration_seconds": 0.12,
+      "amplitude": 0.42
+    },
+    {
+      "t": 8.46,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.22
+    },
+    {
+      "t": 8.63,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.22
+    },
+    {
+      "t": 8.8,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.22
+    },
+    {
+      "t": 8.97,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.22
+    },
+    {
+      "t": 9.14,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.22
+    },
+    {
+      "t": 9.31,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.22
+    },
+    {
+      "t": 9.48,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.22
+    },
+    {
+      "t": 9.65,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.22
+    },
+    {
+      "t": 9.82,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.22
+    },
+    {
+      "t": 9.99,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.22
+    },
+    {
+      "t": 10.16,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.22
+    },
+    {
+      "t": 10.33,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.22
+    },
+    {
+      "t": 8.46,
+      "voice": "bass",
+      "pitch_index": 2,
+      "duration_seconds": 0.646,
+      "amplitude": 0.55
+    },
+    {
+      "t": 9.14,
+      "voice": "bass",
+      "pitch_index": 1,
+      "duration_seconds": 0.646,
+      "amplitude": 0.55
+    },
+    {
+      "t": 9.82,
+      "voice": "bass",
+      "pitch_index": 0,
+      "duration_seconds": 0.646,
+      "amplitude": 0.55
+    },
+    {
+      "t": 10.5,
+      "voice": "voice",
+      "pitch_index": 7,
+      "duration_seconds": 0.469,
+      "amplitude": 0.65
+    },
+    {
+      "t": 11.01,
+      "voice": "voice",
+      "pitch_index": 9,
+      "duration_seconds": 0.469,
+      "amplitude": 0.65
+    },
+    {
+      "t": 11.52,
+      "voice": "voice",
+      "pitch_index": 7,
+      "duration_seconds": 0.313,
+      "amplitude": 0.65
+    },
+    {
+      "t": 11.86,
+      "voice": "voice",
+      "pitch_index": 8,
+      "duration_seconds": 0.313,
+      "amplitude": 0.65
+    },
+    {
+      "t": 12.2,
+      "voice": "voice",
+      "pitch_index": 10,
+      "duration_seconds": 0.313,
+      "amplitude": 0.65
+    },
+    {
+      "t": 10.5,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 10.67,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 10.84,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 11.01,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 11.18,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 11.35,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 11.52,
+      "voice": "harp",
+      "pitch_index": 3,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 11.69,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 11.86,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 12.03,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 12.2,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 12.37,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 10.5,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.48
+    },
+    {
+      "t": 11.18,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.48
+    },
+    {
+      "t": 11.86,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.48
+    },
+    {
+      "t": 11.18,
+      "voice": "snare",
+      "pitch_index": 0,
+      "duration_seconds": 0.12,
+      "amplitude": 0.45
+    },
+    {
+      "t": 12.2,
+      "voice": "snare",
+      "pitch_index": 0,
+      "duration_seconds": 0.12,
+      "amplitude": 0.45
+    },
+    {
+      "t": 10.5,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.25
+    },
+    {
+      "t": 10.67,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.25
+    },
+    {
+      "t": 10.84,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.25
+    },
+    {
+      "t": 11.01,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.25
+    },
+    {
+      "t": 11.18,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.25
+    },
+    {
+      "t": 11.35,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.25
+    },
+    {
+      "t": 11.52,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.25
+    },
+    {
+      "t": 11.69,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.25
+    },
+    {
+      "t": 11.86,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.25
+    },
+    {
+      "t": 12.03,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.25
+    },
+    {
+      "t": 12.2,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.25
+    },
+    {
+      "t": 12.37,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.25
+    },
+    {
+      "t": 10.5,
+      "voice": "bass",
+      "pitch_index": 0,
+      "duration_seconds": 0.646,
+      "amplitude": 0.55
+    },
+    {
+      "t": 11.18,
+      "voice": "bass",
+      "pitch_index": 2,
+      "duration_seconds": 0.646,
+      "amplitude": 0.55
+    },
+    {
+      "t": 11.86,
+      "voice": "bass",
+      "pitch_index": 4,
+      "duration_seconds": 0.646,
+      "amplitude": 0.55
+    },
+    {
+      "t": 10.67,
+      "voice": "thumb",
+      "pitch_index": 10,
+      "duration_seconds": 0.306,
+      "amplitude": 0.42
+    },
+    {
+      "t": 11.01,
+      "voice": "thumb",
+      "pitch_index": 11,
+      "duration_seconds": 0.306,
+      "amplitude": 0.42
+    },
+    {
+      "t": 11.35,
+      "voice": "thumb",
+      "pitch_index": 9,
+      "duration_seconds": 0.612,
+      "amplitude": 0.42
+    },
+    {
+      "t": 12.03,
+      "voice": "thumb",
+      "pitch_index": 8,
+      "duration_seconds": 0.612,
+      "amplitude": 0.42
+    },
+    {
+      "t": 12.54,
+      "voice": "voice",
+      "pitch_index": 9,
+      "duration_seconds": 0.469,
+      "amplitude": 0.65
+    },
+    {
+      "t": 13.05,
+      "voice": "voice",
+      "pitch_index": 7,
+      "duration_seconds": 0.469,
+      "amplitude": 0.65
+    },
+    {
+      "t": 13.56,
+      "voice": "voice",
+      "pitch_index": 6,
+      "duration_seconds": 0.313,
+      "amplitude": 0.65
+    },
+    {
+      "t": 13.9,
+      "voice": "voice",
+      "pitch_index": 7,
+      "duration_seconds": 0.313,
+      "amplitude": 0.65
+    },
+    {
+      "t": 14.24,
+      "voice": "voice",
+      "pitch_index": 5,
+      "duration_seconds": 0.313,
+      "amplitude": 0.65
+    },
+    {
+      "t": 12.54,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 12.71,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 12.88,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 13.05,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 13.22,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 13.39,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 13.56,
+      "voice": "harp",
+      "pitch_index": 3,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 13.73,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 13.9,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 14.07,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 14.24,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 14.41,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 12.54,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.48
+    },
+    {
+      "t": 13.22,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.48
+    },
+    {
+      "t": 13.9,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.48
+    },
+    {
+      "t": 13.22,
+      "voice": "snare",
+      "pitch_index": 0,
+      "duration_seconds": 0.12,
+      "amplitude": 0.45
+    },
+    {
+      "t": 14.24,
+      "voice": "snare",
+      "pitch_index": 0,
+      "duration_seconds": 0.12,
+      "amplitude": 0.45
+    },
+    {
+      "t": 12.54,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.25
+    },
+    {
+      "t": 12.71,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.25
+    },
+    {
+      "t": 12.88,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.25
+    },
+    {
+      "t": 13.05,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.25
+    },
+    {
+      "t": 13.22,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.25
+    },
+    {
+      "t": 13.39,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.25
+    },
+    {
+      "t": 13.56,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.25
+    },
+    {
+      "t": 13.73,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.25
+    },
+    {
+      "t": 13.9,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.25
+    },
+    {
+      "t": 14.07,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.25
+    },
+    {
+      "t": 14.24,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.25
+    },
+    {
+      "t": 14.41,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.25
+    },
+    {
+      "t": 12.54,
+      "voice": "bass",
+      "pitch_index": 2,
+      "duration_seconds": 0.646,
+      "amplitude": 0.55
+    },
+    {
+      "t": 13.22,
+      "voice": "bass",
+      "pitch_index": 1,
+      "duration_seconds": 0.646,
+      "amplitude": 0.55
+    },
+    {
+      "t": 13.9,
+      "voice": "bass",
+      "pitch_index": 0,
+      "duration_seconds": 0.646,
+      "amplitude": 0.55
+    },
+    {
+      "t": 12.71,
+      "voice": "thumb",
+      "pitch_index": 11,
+      "duration_seconds": 0.306,
+      "amplitude": 0.42
+    },
+    {
+      "t": 13.05,
+      "voice": "thumb",
+      "pitch_index": 9,
+      "duration_seconds": 0.459,
+      "amplitude": 0.42
+    },
+    {
+      "t": 13.56,
+      "voice": "thumb",
+      "pitch_index": 10,
+      "duration_seconds": 0.459,
+      "amplitude": 0.42
+    },
+    {
+      "t": 14.07,
+      "voice": "thumb",
+      "pitch_index": 8,
+      "duration_seconds": 0.612,
+      "amplitude": 0.42
+    },
+    {
+      "t": 14.58,
+      "voice": "voice",
+      "pitch_index": 9,
+      "duration_seconds": 0.313,
+      "amplitude": 0.7
+    },
+    {
+      "t": 14.92,
+      "voice": "voice",
+      "pitch_index": 10,
+      "duration_seconds": 0.313,
+      "amplitude": 0.7
+    },
+    {
+      "t": 15.26,
+      "voice": "voice",
+      "pitch_index": 11,
+      "duration_seconds": 0.313,
+      "amplitude": 0.7
+    },
+    {
+      "t": 15.6,
+      "voice": "voice",
+      "pitch_index": 10,
+      "duration_seconds": 0.313,
+      "amplitude": 0.7
+    },
+    {
+      "t": 15.94,
+      "voice": "voice",
+      "pitch_index": 9,
+      "duration_seconds": 0.313,
+      "amplitude": 0.7
+    },
+    {
+      "t": 16.28,
+      "voice": "voice",
+      "pitch_index": 7,
+      "duration_seconds": 0.313,
+      "amplitude": 0.7
+    },
+    {
+      "t": 14.58,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 14.75,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 14.92,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 15.09,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 15.26,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 15.43,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 15.6,
+      "voice": "harp",
+      "pitch_index": 3,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 15.77,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 15.94,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 16.11,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 16.28,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 16.45,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 14.58,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.5
+    },
+    {
+      "t": 15.26,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.5
+    },
+    {
+      "t": 15.94,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.5
+    },
+    {
+      "t": 15.26,
+      "voice": "snare",
+      "pitch_index": 0,
+      "duration_seconds": 0.12,
+      "amplitude": 0.5
+    },
+    {
+      "t": 16.28,
+      "voice": "snare",
+      "pitch_index": 0,
+      "duration_seconds": 0.12,
+      "amplitude": 0.5
+    },
+    {
+      "t": 14.58,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.28
+    },
+    {
+      "t": 14.75,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.28
+    },
+    {
+      "t": 14.92,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.28
+    },
+    {
+      "t": 15.09,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.28
+    },
+    {
+      "t": 15.26,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.28
+    },
+    {
+      "t": 15.43,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.28
+    },
+    {
+      "t": 15.6,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.28
+    },
+    {
+      "t": 15.77,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.28
+    },
+    {
+      "t": 15.94,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.28
+    },
+    {
+      "t": 16.11,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.28
+    },
+    {
+      "t": 16.28,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.28
+    },
+    {
+      "t": 16.45,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.28
+    },
+    {
+      "t": 14.58,
+      "voice": "bass",
+      "pitch_index": 0,
+      "duration_seconds": 0.646,
+      "amplitude": 0.6
+    },
+    {
+      "t": 15.26,
+      "voice": "bass",
+      "pitch_index": 2,
+      "duration_seconds": 0.646,
+      "amplitude": 0.6
+    },
+    {
+      "t": 15.94,
+      "voice": "bass",
+      "pitch_index": 4,
+      "duration_seconds": 0.646,
+      "amplitude": 0.6
+    },
+    {
+      "t": 16.62,
+      "voice": "voice",
+      "pitch_index": 8,
+      "duration_seconds": 0.469,
+      "amplitude": 0.7
+    },
+    {
+      "t": 17.13,
+      "voice": "voice",
+      "pitch_index": 7,
+      "duration_seconds": 0.469,
+      "amplitude": 0.7
+    },
+    {
+      "t": 17.64,
+      "voice": "voice",
+      "pitch_index": 6,
+      "duration_seconds": 0.469,
+      "amplitude": 0.7
+    },
+    {
+      "t": 18.15,
+      "voice": "voice",
+      "pitch_index": 5,
+      "duration_seconds": 0.469,
+      "amplitude": 0.7
+    },
+    {
+      "t": 16.62,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 16.79,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 16.96,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 17.13,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 17.3,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 17.47,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 17.64,
+      "voice": "harp",
+      "pitch_index": 3,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 17.81,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 17.98,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 18.15,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 18.32,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 18.49,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 16.62,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.5
+    },
+    {
+      "t": 17.3,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.5
+    },
+    {
+      "t": 17.98,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.5
+    },
+    {
+      "t": 17.3,
+      "voice": "snare",
+      "pitch_index": 0,
+      "duration_seconds": 0.12,
+      "amplitude": 0.5
+    },
+    {
+      "t": 18.32,
+      "voice": "snare",
+      "pitch_index": 0,
+      "duration_seconds": 0.12,
+      "amplitude": 0.5
+    },
+    {
+      "t": 16.62,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.28
+    },
+    {
+      "t": 16.79,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.28
+    },
+    {
+      "t": 16.96,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.28
+    },
+    {
+      "t": 17.13,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.28
+    },
+    {
+      "t": 17.3,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.28
+    },
+    {
+      "t": 17.47,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.28
+    },
+    {
+      "t": 17.64,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.28
+    },
+    {
+      "t": 17.81,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.28
+    },
+    {
+      "t": 17.98,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.28
+    },
+    {
+      "t": 18.15,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.28
+    },
+    {
+      "t": 18.32,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.28
+    },
+    {
+      "t": 18.49,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.28
+    },
+    {
+      "t": 16.62,
+      "voice": "bass",
+      "pitch_index": 2,
+      "duration_seconds": 0.646,
+      "amplitude": 0.6
+    },
+    {
+      "t": 17.3,
+      "voice": "bass",
+      "pitch_index": 1,
+      "duration_seconds": 0.646,
+      "amplitude": 0.6
+    },
+    {
+      "t": 17.98,
+      "voice": "bass",
+      "pitch_index": 0,
+      "duration_seconds": 0.646,
+      "amplitude": 0.6
+    },
+    {
+      "t": 18.66,
+      "voice": "voice",
+      "pitch_index": 11,
+      "duration_seconds": 0.313,
+      "amplitude": 0.65
+    },
+    {
+      "t": 19.0,
+      "voice": "voice",
+      "pitch_index": 12,
+      "duration_seconds": 0.313,
+      "amplitude": 0.65
+    },
+    {
+      "t": 19.34,
+      "voice": "voice",
+      "pitch_index": 11,
+      "duration_seconds": 0.313,
+      "amplitude": 0.65
+    },
+    {
+      "t": 19.68,
+      "voice": "voice",
+      "pitch_index": 10,
+      "duration_seconds": 0.313,
+      "amplitude": 0.65
+    },
+    {
+      "t": 20.02,
+      "voice": "voice",
+      "pitch_index": 12,
+      "duration_seconds": 0.313,
+      "amplitude": 0.65
+    },
+    {
+      "t": 20.36,
+      "voice": "voice",
+      "pitch_index": 9,
+      "duration_seconds": 0.313,
+      "amplitude": 0.65
+    },
+    {
+      "t": 18.66,
+      "voice": "thumb",
+      "pitch_index": 8,
+      "duration_seconds": 0.306,
+      "amplitude": 0.55
+    },
+    {
+      "t": 19.0,
+      "voice": "thumb",
+      "pitch_index": 9,
+      "duration_seconds": 0.306,
+      "amplitude": 0.55
+    },
+    {
+      "t": 19.34,
+      "voice": "thumb",
+      "pitch_index": 8,
+      "duration_seconds": 0.306,
+      "amplitude": 0.55
+    },
+    {
+      "t": 19.68,
+      "voice": "thumb",
+      "pitch_index": 7,
+      "duration_seconds": 0.306,
+      "amplitude": 0.55
+    },
+    {
+      "t": 20.02,
+      "voice": "thumb",
+      "pitch_index": 9,
+      "duration_seconds": 0.306,
+      "amplitude": 0.55
+    },
+    {
+      "t": 20.36,
+      "voice": "thumb",
+      "pitch_index": 6,
+      "duration_seconds": 0.306,
+      "amplitude": 0.55
+    },
+    {
+      "t": 18.66,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.42
+    },
+    {
+      "t": 19.34,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.42
+    },
+    {
+      "t": 20.02,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.42
+    },
+    {
+      "t": 18.66,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.2
+    },
+    {
+      "t": 19.0,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.2
+    },
+    {
+      "t": 19.34,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.2
+    },
+    {
+      "t": 19.68,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.2
+    },
+    {
+      "t": 20.02,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.2
+    },
+    {
+      "t": 20.36,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.2
+    },
+    {
+      "t": 20.7,
+      "voice": "voice",
+      "pitch_index": 10,
+      "duration_seconds": 0.469,
+      "amplitude": 0.65
+    },
+    {
+      "t": 21.21,
+      "voice": "voice",
+      "pitch_index": 8,
+      "duration_seconds": 0.469,
+      "amplitude": 0.65
+    },
+    {
+      "t": 21.72,
+      "voice": "voice",
+      "pitch_index": 7,
+      "duration_seconds": 0.469,
+      "amplitude": 0.65
+    },
+    {
+      "t": 22.23,
+      "voice": "voice",
+      "pitch_index": 5,
+      "duration_seconds": 0.469,
+      "amplitude": 0.65
+    },
+    {
+      "t": 20.7,
+      "voice": "thumb",
+      "pitch_index": 7,
+      "duration_seconds": 0.459,
+      "amplitude": 0.55
+    },
+    {
+      "t": 21.21,
+      "voice": "thumb",
+      "pitch_index": 5,
+      "duration_seconds": 0.459,
+      "amplitude": 0.55
+    },
+    {
+      "t": 21.72,
+      "voice": "thumb",
+      "pitch_index": 4,
+      "duration_seconds": 0.459,
+      "amplitude": 0.55
+    },
+    {
+      "t": 22.23,
+      "voice": "thumb",
+      "pitch_index": 2,
+      "duration_seconds": 0.459,
+      "amplitude": 0.55
+    },
+    {
+      "t": 20.7,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.42
+    },
+    {
+      "t": 21.38,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.42
+    },
+    {
+      "t": 22.06,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.42
+    },
+    {
+      "t": 20.7,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.2
+    },
+    {
+      "t": 21.04,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.2
+    },
+    {
+      "t": 21.38,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.2
+    },
+    {
+      "t": 21.72,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.2
+    },
+    {
+      "t": 22.06,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.2
+    },
+    {
+      "t": 22.4,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.2
+    },
+    {
+      "t": 22.74,
+      "voice": "voice",
+      "pitch_index": 7,
+      "duration_seconds": 0.469,
+      "amplitude": 0.68
+    },
+    {
+      "t": 23.25,
+      "voice": "voice",
+      "pitch_index": 9,
+      "duration_seconds": 0.469,
+      "amplitude": 0.68
+    },
+    {
+      "t": 23.76,
+      "voice": "voice",
+      "pitch_index": 7,
+      "duration_seconds": 0.313,
+      "amplitude": 0.68
+    },
+    {
+      "t": 24.1,
+      "voice": "voice",
+      "pitch_index": 8,
+      "duration_seconds": 0.313,
+      "amplitude": 0.68
+    },
+    {
+      "t": 24.44,
+      "voice": "voice",
+      "pitch_index": 10,
+      "duration_seconds": 0.313,
+      "amplitude": 0.68
+    },
+    {
+      "t": 22.74,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 22.91,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 23.08,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 23.25,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 23.42,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 23.59,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 23.76,
+      "voice": "harp",
+      "pitch_index": 3,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 23.93,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 24.1,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 24.27,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 24.44,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 24.61,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 22.74,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.5
+    },
+    {
+      "t": 23.42,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.5
+    },
+    {
+      "t": 24.1,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.5
+    },
+    {
+      "t": 23.42,
+      "voice": "snare",
+      "pitch_index": 0,
+      "duration_seconds": 0.12,
+      "amplitude": 0.48
+    },
+    {
+      "t": 24.44,
+      "voice": "snare",
+      "pitch_index": 0,
+      "duration_seconds": 0.12,
+      "amplitude": 0.48
+    },
+    {
+      "t": 22.74,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.27
+    },
+    {
+      "t": 22.91,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.27
+    },
+    {
+      "t": 23.08,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.27
+    },
+    {
+      "t": 23.25,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.27
+    },
+    {
+      "t": 23.42,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.27
+    },
+    {
+      "t": 23.59,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.27
+    },
+    {
+      "t": 23.76,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.27
+    },
+    {
+      "t": 23.93,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.27
+    },
+    {
+      "t": 24.1,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.27
+    },
+    {
+      "t": 24.27,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.27
+    },
+    {
+      "t": 24.44,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.27
+    },
+    {
+      "t": 24.61,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.27
+    },
+    {
+      "t": 22.74,
+      "voice": "bass",
+      "pitch_index": 0,
+      "duration_seconds": 0.646,
+      "amplitude": 0.6
+    },
+    {
+      "t": 23.42,
+      "voice": "bass",
+      "pitch_index": 2,
+      "duration_seconds": 0.646,
+      "amplitude": 0.6
+    },
+    {
+      "t": 24.1,
+      "voice": "bass",
+      "pitch_index": 4,
+      "duration_seconds": 0.646,
+      "amplitude": 0.6
+    },
+    {
+      "t": 24.78,
+      "voice": "voice",
+      "pitch_index": 9,
+      "duration_seconds": 0.469,
+      "amplitude": 0.68
+    },
+    {
+      "t": 25.29,
+      "voice": "voice",
+      "pitch_index": 7,
+      "duration_seconds": 0.469,
+      "amplitude": 0.68
+    },
+    {
+      "t": 25.8,
+      "voice": "voice",
+      "pitch_index": 6,
+      "duration_seconds": 0.313,
+      "amplitude": 0.68
+    },
+    {
+      "t": 26.14,
+      "voice": "voice",
+      "pitch_index": 7,
+      "duration_seconds": 0.313,
+      "amplitude": 0.68
+    },
+    {
+      "t": 26.48,
+      "voice": "voice",
+      "pitch_index": 5,
+      "duration_seconds": 0.313,
+      "amplitude": 0.68
+    },
+    {
+      "t": 24.78,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 24.95,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 25.12,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 25.29,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 25.46,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 25.63,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 25.8,
+      "voice": "harp",
+      "pitch_index": 3,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 25.97,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 26.14,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 26.31,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 26.48,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 26.65,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 24.78,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.5
+    },
+    {
+      "t": 25.46,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.5
+    },
+    {
+      "t": 26.14,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.5
+    },
+    {
+      "t": 25.46,
+      "voice": "snare",
+      "pitch_index": 0,
+      "duration_seconds": 0.12,
+      "amplitude": 0.48
+    },
+    {
+      "t": 26.48,
+      "voice": "snare",
+      "pitch_index": 0,
+      "duration_seconds": 0.12,
+      "amplitude": 0.48
+    },
+    {
+      "t": 24.78,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.27
+    },
+    {
+      "t": 24.95,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.27
+    },
+    {
+      "t": 25.12,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.27
+    },
+    {
+      "t": 25.29,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.27
+    },
+    {
+      "t": 25.46,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.27
+    },
+    {
+      "t": 25.63,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.27
+    },
+    {
+      "t": 25.8,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.27
+    },
+    {
+      "t": 25.97,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.27
+    },
+    {
+      "t": 26.14,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.27
+    },
+    {
+      "t": 26.31,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.27
+    },
+    {
+      "t": 26.48,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.27
+    },
+    {
+      "t": 26.65,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.27
+    },
+    {
+      "t": 24.78,
+      "voice": "bass",
+      "pitch_index": 2,
+      "duration_seconds": 0.646,
+      "amplitude": 0.6
+    },
+    {
+      "t": 25.46,
+      "voice": "bass",
+      "pitch_index": 1,
+      "duration_seconds": 0.646,
+      "amplitude": 0.6
+    },
+    {
+      "t": 26.14,
+      "voice": "bass",
+      "pitch_index": 0,
+      "duration_seconds": 0.646,
+      "amplitude": 0.6
+    },
+    {
+      "t": 26.82,
+      "voice": "voice",
+      "pitch_index": 9,
+      "duration_seconds": 0.313,
+      "amplitude": 0.72
+    },
+    {
+      "t": 27.16,
+      "voice": "voice",
+      "pitch_index": 10,
+      "duration_seconds": 0.313,
+      "amplitude": 0.72
+    },
+    {
+      "t": 27.5,
+      "voice": "voice",
+      "pitch_index": 11,
+      "duration_seconds": 0.313,
+      "amplitude": 0.72
+    },
+    {
+      "t": 27.84,
+      "voice": "voice",
+      "pitch_index": 10,
+      "duration_seconds": 0.313,
+      "amplitude": 0.72
+    },
+    {
+      "t": 28.18,
+      "voice": "voice",
+      "pitch_index": 9,
+      "duration_seconds": 0.313,
+      "amplitude": 0.72
+    },
+    {
+      "t": 28.52,
+      "voice": "voice",
+      "pitch_index": 7,
+      "duration_seconds": 0.313,
+      "amplitude": 0.72
+    },
+    {
+      "t": 26.82,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 26.99,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 27.16,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 27.33,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 27.5,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 27.67,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 27.84,
+      "voice": "harp",
+      "pitch_index": 3,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 28.01,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 28.18,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 28.35,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 28.52,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 28.69,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 26.82,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.52
+    },
+    {
+      "t": 27.5,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.52
+    },
+    {
+      "t": 28.18,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.52
+    },
+    {
+      "t": 27.5,
+      "voice": "snare",
+      "pitch_index": 0,
+      "duration_seconds": 0.12,
+      "amplitude": 0.55
+    },
+    {
+      "t": 28.52,
+      "voice": "snare",
+      "pitch_index": 0,
+      "duration_seconds": 0.12,
+      "amplitude": 0.55
+    },
+    {
+      "t": 26.82,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.3
+    },
+    {
+      "t": 26.99,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.3
+    },
+    {
+      "t": 27.16,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.3
+    },
+    {
+      "t": 27.33,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.3
+    },
+    {
+      "t": 27.5,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.3
+    },
+    {
+      "t": 27.67,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.3
+    },
+    {
+      "t": 27.84,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.3
+    },
+    {
+      "t": 28.01,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.3
+    },
+    {
+      "t": 28.18,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.3
+    },
+    {
+      "t": 28.35,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.3
+    },
+    {
+      "t": 28.52,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.3
+    },
+    {
+      "t": 28.69,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.3
+    },
+    {
+      "t": 26.82,
+      "voice": "bass",
+      "pitch_index": 0,
+      "duration_seconds": 0.646,
+      "amplitude": 0.65
+    },
+    {
+      "t": 27.5,
+      "voice": "bass",
+      "pitch_index": 2,
+      "duration_seconds": 0.646,
+      "amplitude": 0.65
+    },
+    {
+      "t": 28.18,
+      "voice": "bass",
+      "pitch_index": 4,
+      "duration_seconds": 0.646,
+      "amplitude": 0.65
+    },
+    {
+      "t": 28.86,
+      "voice": "voice",
+      "pitch_index": 8,
+      "duration_seconds": 0.469,
+      "amplitude": 0.72
+    },
+    {
+      "t": 29.37,
+      "voice": "voice",
+      "pitch_index": 7,
+      "duration_seconds": 0.469,
+      "amplitude": 0.72
+    },
+    {
+      "t": 29.88,
+      "voice": "voice",
+      "pitch_index": 6,
+      "duration_seconds": 0.469,
+      "amplitude": 0.72
+    },
+    {
+      "t": 30.39,
+      "voice": "voice",
+      "pitch_index": 5,
+      "duration_seconds": 0.469,
+      "amplitude": 0.72
+    },
+    {
+      "t": 28.86,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 29.03,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 29.2,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 29.37,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 29.54,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 29.71,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 29.88,
+      "voice": "harp",
+      "pitch_index": 3,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 30.05,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 30.22,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 30.39,
+      "voice": "harp",
+      "pitch_index": 2,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 30.56,
+      "voice": "harp",
+      "pitch_index": 4,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 30.73,
+      "voice": "harp",
+      "pitch_index": 5,
+      "duration_seconds": 0.156,
+      "amplitude": 0.5
+    },
+    {
+      "t": 28.86,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.52
+    },
+    {
+      "t": 29.54,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.52
+    },
+    {
+      "t": 30.22,
+      "voice": "pot",
+      "pitch_index": 0,
+      "duration_seconds": 0.3,
+      "amplitude": 0.52
+    },
+    {
+      "t": 29.54,
+      "voice": "snare",
+      "pitch_index": 0,
+      "duration_seconds": 0.12,
+      "amplitude": 0.55
+    },
+    {
+      "t": 30.56,
+      "voice": "snare",
+      "pitch_index": 0,
+      "duration_seconds": 0.12,
+      "amplitude": 0.55
+    },
+    {
+      "t": 28.86,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.3
+    },
+    {
+      "t": 29.03,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.3
+    },
+    {
+      "t": 29.2,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.3
+    },
+    {
+      "t": 29.37,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.3
+    },
+    {
+      "t": 29.54,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.3
+    },
+    {
+      "t": 29.71,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.3
+    },
+    {
+      "t": 29.88,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.3
+    },
+    {
+      "t": 30.05,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.3
+    },
+    {
+      "t": 30.22,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.3
+    },
+    {
+      "t": 30.39,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.3
+    },
+    {
+      "t": 30.56,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.3
+    },
+    {
+      "t": 30.73,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.08,
+      "amplitude": 0.3
+    },
+    {
+      "t": 28.86,
+      "voice": "bass",
+      "pitch_index": 2,
+      "duration_seconds": 0.646,
+      "amplitude": 0.65
+    },
+    {
+      "t": 29.54,
+      "voice": "bass",
+      "pitch_index": 1,
+      "duration_seconds": 0.646,
+      "amplitude": 0.65
+    },
+    {
+      "t": 30.22,
+      "voice": "bass",
+      "pitch_index": 0,
+      "duration_seconds": 0.646,
+      "amplitude": 0.65
+    },
+    {
+      "t": 30.9,
+      "voice": "voice",
+      "pitch_index": 5,
+      "duration_seconds": 3.5,
+      "amplitude": 0.6
+    },
+    {
+      "t": 30.9,
+      "voice": "harp",
+      "pitch_index": 0,
+      "duration_seconds": 5.5,
+      "amplitude": 0.5
+    },
+    {
+      "t": 30.9,
+      "voice": "bass",
+      "pitch_index": 0,
+      "duration_seconds": 5.5,
+      "amplitude": 0.55
+    }
+  ]
+}

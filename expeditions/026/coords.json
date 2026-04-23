@@ -1,0 +1,58 @@
+{
+  "expedition_number": 26,
+  "iso_date": "2026-04-23T11:12:16",
+  "curiosity_score": 0.4701465919664367,
+  "continuous": {
+    "pitch_density": 0.063,
+    "microtonality_degree": 0.78,
+    "octave_equivalence": 0.905,
+    "interval_hierarchy": 0.568,
+    "pitch_flexibility": 0.205,
+    "metric_periodicity": 0.653,
+    "rhythmic_density": 0.483,
+    "polyrhythmic_complexity": 0.737,
+    "cycle_length": 0.499,
+    "tempo_stability": 0.791,
+    "piece_duration": 0.949,
+    "formal_repetition": 0.13,
+    "development_arc": 0.41,
+    "voice_count": 0.405,
+    "voice_independence": 0.218,
+    "drone_presence": 0.571,
+    "improvisation_degree": 0.854,
+    "ornament_density": 0.105
+  },
+  "categorical": {
+    "tuning_basis": "overtone_series",
+    "scale_topology": "octave_repeating",
+    "rhythmic_structure": "additive_metric",
+    "formal_type": "modular_combinatorial",
+    "texture_type": "homophonic",
+    "ornament_grammar": "improvisatory_expansive",
+    "transmission_mode": "hybrid",
+    "ensemble_topology": "solo",
+    "social_function": "narrative_storytelling",
+    "listener_role": "environmental_coexistent",
+    "silence_treatment": "decorative_pause",
+    "temporal_framing": "natural_cycle_aligned"
+  },
+  "warnings": [],
+  "energy_level": "mid",
+  "neighbors": [
+    {
+      "name": "Manding Kora Tradition (jeli)",
+      "id": "manding_kora",
+      "distance": 0.4701465919664367
+    },
+    {
+      "name": "Bulgarian Women's Choir (Koutev / Myst\u00e8re des voix bulgares)",
+      "id": "bulgarian_koutev_womens_choir",
+      "distance": 0.4712200290521146
+    },
+    {
+      "name": "Delta Blues (solo voice + guitar)",
+      "id": "delta_blues_solo",
+      "distance": 0.5073541819224439
+    }
+  ]
+}

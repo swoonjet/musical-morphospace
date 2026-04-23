@@ -135,11 +135,14 @@ def make_index_html(expedition_num: int, system_name: str, curiosity: float, dur
 # Orchestrator
 # ----------------------------------------------------------------------------
 
-def run_expedition(backend_name: str, seed: int | None, min_curiosity: float, n_candidates: int, compositional: bool = False) -> Path:
+def run_expedition(backend_name: str, seed: int | None, min_curiosity: float,
+                    n_candidates: int, compositional: bool = False,
+                    energy_level: str | None = None) -> Path:
     schema = load_schema()
     corpus = load_corpus()
 
-    print(f"Sampling coordinate (min_curiosity={min_curiosity}, n_candidates={n_candidates}, compositional={compositional})...")
+    print(f"Sampling coordinate (min_curiosity={min_curiosity}, n_candidates={n_candidates}, "
+          f"compositional={compositional}, energy_level={energy_level})...")
     cont, cat, curiosity, warnings = sample_expedition(
         schema=schema,
         corpus=corpus,
@@ -147,6 +150,7 @@ def run_expedition(backend_name: str, seed: int | None, min_curiosity: float, n_
         min_curiosity=min_curiosity,
         seed=seed,
         compositional=compositional,
+        energy_level=energy_level,
     )
     neighbors = nearest_neighbors(cont, cat, corpus, k=3)
     print(f"  curiosity: {curiosity:.3f}")
@@ -232,6 +236,8 @@ def main():
     ap.add_argument("--n-candidates", type=int, default=500)
     ap.add_argument("--compositional", action="store_true",
                     help="Restrict sampling to grammars that can support melody/harmony/rhythm")
+    ap.add_argument("--energy-level", choices=["low", "mid", "high", "very_high"], default=None,
+                    help="Restrict sampling to grammars at this energy band (see is_energetic)")
     args = ap.parse_args()
 
     run_expedition(
@@ -240,6 +246,7 @@ def main():
         min_curiosity=args.min_curiosity,
         n_candidates=args.n_candidates,
         compositional=args.compositional,
+        energy_level=args.energy_level,
     )
 
 

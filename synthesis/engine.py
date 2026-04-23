@@ -707,6 +707,143 @@ def timbre_bass_drone(freq, duration, inflect=None, seed=0):
     return signal * 0.95
 
 
+def timbre_kick_synth(freq, duration, inflect=None, seed=0):
+    """Sub-bass kick: pitched sine with sharp downward envelope + click transient.
+    freq is the ideal tonal pitch (~50-80 Hz); tail decays fast into sub."""
+    n = int(SR * duration)
+    t = np.arange(n) / SR
+    rng = np.random.default_rng(seed)
+    # Pitch envelope — start 2 octaves up, drop to freq in first 25ms
+    pitch_env_n = min(int(SR * 0.025), n)
+    pitch_mult = np.ones(n)
+    pitch_mult[:pitch_env_n] = np.linspace(4.0, 1.0, pitch_env_n)
+    # Generate with swept pitch via phase integration
+    phase = 2 * np.pi * np.cumsum(freq * pitch_mult) / SR
+    s = np.sin(phase)
+    # Volume envelope — fast attack, exponential decay
+    env = np.exp(-t * 7.5)
+    # Click transient
+    click_n = min(int(SR * 0.003), n)
+    click = rng.normal(0, 1, click_n) * np.exp(-np.linspace(0, 80, click_n))
+    out = s * env
+    out[:click_n] += click * 0.4
+    return out * 1.4
+
+
+def timbre_snare_synth(freq, duration, inflect=None, seed=0):
+    """Snare: tonal body + noise burst with bandpass. freq tunes body (~180-220 Hz)."""
+    n = int(SR * duration)
+    t = np.arange(n) / SR
+    rng = np.random.default_rng(seed)
+    # Tonal body
+    body = np.sin(2 * np.pi * freq * t) * np.exp(-t * 25)
+    # Noise burst, bandpassed 1-5 kHz
+    noise = rng.normal(0, 1, n)
+    hp = noise - lowpass(noise, 1200)
+    bp = hp - (hp - lowpass(hp, 5500))
+    noise_env = np.exp(-t * 18) + 0.1 * np.exp(-t * 4)
+    return (body * 0.5 + bp * noise_env * 1.1) * 0.95
+
+
+def timbre_hat_closed(freq, duration, inflect=None, seed=0):
+    """Closed hi-hat: very short bandpassed noise burst, bright."""
+    n = int(SR * duration)
+    t = np.arange(n) / SR
+    rng = np.random.default_rng(seed)
+    noise = rng.normal(0, 1, n)
+    # High bandpass 6-12 kHz
+    hp = noise - lowpass(noise, 6000)
+    bp = hp - (hp - lowpass(hp, 12000))
+    env = np.exp(-t * 75) + 0.05 * np.exp(-t * 15)
+    return bp * env * 0.55
+
+
+def timbre_hat_open(freq, duration, inflect=None, seed=0):
+    """Open hi-hat: longer bandpassed noise with slower decay and shimmer."""
+    n = int(SR * duration)
+    t = np.arange(n) / SR
+    rng = np.random.default_rng(seed)
+    noise = rng.normal(0, 1, n)
+    hp = noise - lowpass(noise, 5000)
+    bp = hp - (hp - lowpass(hp, 11000))
+    env = np.exp(-t * 6) + 0.15 * np.exp(-t * 2)
+    return bp * env * 0.45
+
+
+def timbre_clap(freq, duration, inflect=None, seed=0):
+    """Handclap: four quick noise bursts filtered in clap-register."""
+    n = int(SR * duration)
+    t = np.arange(n) / SR
+    rng = np.random.default_rng(seed)
+    noise = rng.normal(0, 1, n)
+    # Bandpass 1.5-4 kHz
+    hp = noise - lowpass(noise, 1500)
+    bp = hp - (hp - lowpass(hp, 4500))
+    # Four staggered bursts
+    env = np.zeros(n)
+    for delay_s, amp in [(0.0, 1.0), (0.012, 0.85), (0.021, 0.7), (0.032, 0.55)]:
+        start = int(delay_s * SR)
+        if start < n:
+            burst_env = np.exp(-(t - delay_s) * 50) * (t >= delay_s)
+            env += burst_env * amp
+    return bp * env * 0.65
+
+
+def timbre_rhodes_electric(freq, duration, inflect=None, seed=0):
+    """Electric piano (Rhodes-ish): tine with soft attack, amplitude envelope,
+    gentle chorus from two detuned voices."""
+    n = int(SR * duration)
+    t = np.arange(n) / SR
+    rng = np.random.default_rng(seed)
+    signal = np.zeros(n)
+    for det in [0.0, 0.0025]:
+        # FM-ish: fundamental + octave partial modulated
+        phase = _phase(freq * (1 + det), n, inflect)
+        # Tine: strong fundamental + weak 2nd + tiny 4th
+        voice = (1.0 * np.sin(phase) + 0.35 * np.sin(2 * phase)
+                 + 0.10 * np.sin(4 * phase))
+        signal = signal + voice
+    signal = signal / 2
+    # Soft attack, moderate decay
+    attack_n = min(int(SR * 0.012), n // 4)
+    env = np.exp(-t * 1.8) + 0.2 * np.exp(-t * 0.4)
+    env[:attack_n] *= np.linspace(0, 1, attack_n)
+    # Light chorus wobble via pitch drift
+    chorus = 0.004 * np.sin(2 * np.pi * 1.8 * t + rng.uniform(0, 2 * np.pi))
+    signal = signal * (1 + chorus)
+    # Warmer LPF
+    signal = lowpass(signal, 3200)
+    return signal * env * 0.9
+
+
+def timbre_distorted_bass(freq, duration, inflect=None, seed=0):
+    """Distorted/overdriven bass: sawtooth with tanh saturation and body resonance.
+    Heavy harmonic content. Use for energy-forward basslines."""
+    n = int(SR * duration)
+    t = np.arange(n) / SR
+    rng = np.random.default_rng(seed)
+    # Sawtooth (via summed harmonics)
+    phase = _phase(freq, n, inflect)
+    s = np.zeros(n)
+    for k in range(1, 14):
+        s += ((-1) ** (k + 1) / k) * np.sin(k * phase)
+    s *= 2 / np.pi
+    # Saturate
+    s = np.tanh(s * 2.5) * 0.6
+    # Body resonance boost around 2x freq
+    from synthesis.dsp import biquad_peak_coefs
+    import scipy.signal as ss
+    b, a = biquad_peak_coefs(max(100, freq * 2.2), 3.5, 4.0)
+    s = ss.lfilter(b, a, s)
+    # LPF to keep under control
+    s = lowpass(s, max(2500, freq * 6))
+    # Amplitude envelope — slight pluck feel
+    attack_n = min(int(SR * 0.004), n // 4)
+    env = np.ones(n)
+    env[:attack_n] = np.linspace(0, 1, attack_n)
+    return s * env * 1.05
+
+
 def timbre_shaker(freq, duration, inflect=None, seed=0):
     """Shaker: bandpassed noise with a brief attack. Pitch-ambiguous (freq ignored mostly)."""
     n = int(SR * duration)
@@ -750,6 +887,14 @@ TIMBRES: Dict[str, Callable] = {
     "glass_rim": timbre_glass_rim,
     "bass_drone": timbre_bass_drone,
     "shaker": timbre_shaker,
+    # Energy layer — 2026-04-23
+    "kick_synth": timbre_kick_synth,
+    "snare_synth": timbre_snare_synth,
+    "hat_closed": timbre_hat_closed,
+    "hat_open": timbre_hat_open,
+    "clap": timbre_clap,
+    "rhodes_electric": timbre_rhodes_electric,
+    "distorted_bass": timbre_distorted_bass,
 }
 
 
@@ -1380,6 +1525,21 @@ def render_spec(spec: dict, seed: int = 42,
             hf_shelf_gain_db=mix.get("hf_shelf_gain_db", 0.0),
             hf_shelf_freq=mix.get("hf_shelf_freq", 4000),
         )
+
+    # Optional punch stage — compression + soft saturation for energy-forward pieces
+    if mix.get("master_punch"):
+        from synthesis.dsp import compress, soft_saturate
+        punch = mix.get("master_punch")
+        # Allow dict override or bool default
+        if punch is True:
+            punch = {}
+        stereo = compress(stereo,
+                           threshold=punch.get("comp_threshold", 0.55),
+                           ratio=punch.get("comp_ratio", 3.5),
+                           attack_ms=punch.get("comp_attack_ms", 5.0),
+                           release_ms=punch.get("comp_release_ms", 80.0),
+                           makeup_db=punch.get("comp_makeup_db", 2.0))
+        stereo = soft_saturate(stereo, drive=punch.get("sat_drive", 1.3))
 
     # Normalize to standard mastered level (-1 dBFS ≈ 0.89).
     # Nothing above 0dBFS, no saturation, so laptop speakers see a clean signal.

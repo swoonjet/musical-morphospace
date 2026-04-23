@@ -1,0 +1,61 @@
+{
+  "expedition_number": 25,
+  "iso_date": "2026-04-23T11:12:16",
+  "curiosity_score": 0.47750892072592904,
+  "continuous": {
+    "pitch_density": 0.109,
+    "microtonality_degree": 0.768,
+    "octave_equivalence": 0.271,
+    "interval_hierarchy": 0.642,
+    "pitch_flexibility": 0.734,
+    "metric_periodicity": 0.618,
+    "rhythmic_density": 0.691,
+    "polyrhythmic_complexity": 0.024,
+    "cycle_length": 0.744,
+    "tempo_stability": 0.745,
+    "piece_duration": 0.585,
+    "formal_repetition": 0.018,
+    "development_arc": 0.986,
+    "voice_count": 0.753,
+    "voice_independence": 0.134,
+    "drone_presence": 0.302,
+    "improvisation_degree": 0.828,
+    "ornament_density": 0.221
+  },
+  "categorical": {
+    "tuning_basis": "irrational_ratio",
+    "scale_topology": "spiral_non_closing",
+    "rhythmic_structure": "additive_metric",
+    "formal_type": "cyclical_return",
+    "texture_type": "layered_ostinato",
+    "ornament_grammar": "improvisatory_expansive",
+    "transmission_mode": "gestural_conducted",
+    "ensemble_topology": "heterophonic_group",
+    "social_function": "life_cycle_event",
+    "listener_role": "passive_audience",
+    "silence_treatment": "equal_to_sound",
+    "temporal_framing": "ritual_duration"
+  },
+  "warnings": [
+    "large-ensemble improvisation \u2014 rare (New Orleans, some free jazz, Aka polyphony)",
+    "ensemble microtonal coordination \u2014 rare (Arabic takht, Turkish classical)"
+  ],
+  "energy_level": "low",
+  "neighbors": [
+    {
+      "name": "Ewe Agbekor (West African drum ensemble)",
+      "id": "ewe_agbekor",
+      "distance": 0.5125424664217766
+    },
+    {
+      "name": "Arabic Maqam (Egyptian takht ensemble)",
+      "id": "arabic_maqam_takht",
+      "distance": 0.5302499146564916
+    },
+    {
+      "name": "Turkish Classical Makam",
+      "id": "turkish_classical_makam",
+      "distance": 0.5412730842228639
+    }
+  ]
+}

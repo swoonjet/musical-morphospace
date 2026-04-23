@@ -1,0 +1,57 @@
+{
+  "expedition_number": 24,
+  "iso_date": "2026-04-23T11:00:25",
+  "curiosity_score": 0.4668286510692999,
+  "continuous": {
+    "pitch_density": 0.965,
+    "microtonality_degree": 0.032,
+    "octave_equivalence": 0.475,
+    "interval_hierarchy": 0.605,
+    "pitch_flexibility": 0.406,
+    "metric_periodicity": 0.642,
+    "rhythmic_density": 0.721,
+    "polyrhythmic_complexity": 0.851,
+    "cycle_length": 0.291,
+    "tempo_stability": 0.886,
+    "piece_duration": 0.874,
+    "formal_repetition": 0.675,
+    "development_arc": 0.306,
+    "voice_count": 0.376,
+    "voice_independence": 0.743,
+    "drone_presence": 0.42,
+    "improvisation_degree": 0.266,
+    "ornament_density": 0.295
+  },
+  "categorical": {
+    "tuning_basis": "overtone_series",
+    "scale_topology": "single_cycle_no_repeat",
+    "rhythmic_structure": "additive_metric",
+    "formal_type": "cyclical_return",
+    "texture_type": "layered_ostinato",
+    "ornament_grammar": "rhythmic_only",
+    "transmission_mode": "gestural_conducted",
+    "ensemble_topology": "solo",
+    "social_function": "cosmological_representation",
+    "listener_role": "evaluator_connoisseur",
+    "silence_treatment": "equal_to_sound",
+    "temporal_framing": "event_duration"
+  },
+  "warnings": [],
+  "neighbors": [
+    {
+      "name": "Korean Samulnori (four-drum ensemble)",
+      "id": "korean_samulnori",
+      "distance": 0.4668286510692999
+    },
+    {
+      "name": "Aboriginal Australian Didgeridoo Solo",
+      "id": "didgeridoo_solo",
+      "distance": 0.48671034414911557
+    },
+    {
+      "name": "Ewe Agbekor (West African drum ensemble)",
+      "id": "ewe_agbekor",
+      "distance": 0.4891962473200777
+    }
+  ]
+}
