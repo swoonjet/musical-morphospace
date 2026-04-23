@@ -1,0 +1,57 @@
+{
+  "expedition_number": 22,
+  "iso_date": "2026-04-23T09:19:05",
+  "curiosity_score": 0.49713064710862087,
+  "continuous": {
+    "pitch_density": 0.713,
+    "microtonality_degree": 0.593,
+    "octave_equivalence": 0.364,
+    "interval_hierarchy": 0.69,
+    "pitch_flexibility": 0.33,
+    "metric_periodicity": 0.966,
+    "rhythmic_density": 0.476,
+    "polyrhythmic_complexity": 0.028,
+    "cycle_length": 0.96,
+    "tempo_stability": 0.002,
+    "piece_duration": 0.347,
+    "formal_repetition": 0.831,
+    "development_arc": 0.173,
+    "voice_count": 0.681,
+    "voice_independence": 0.971,
+    "drone_presence": 0.98,
+    "improvisation_degree": 0.244,
+    "ornament_density": 0.505
+  },
+  "categorical": {
+    "tuning_basis": "irrational_ratio",
+    "scale_topology": "spiral_non_closing",
+    "rhythmic_structure": "additive_metric",
+    "formal_type": "modular_combinatorial",
+    "texture_type": "layered_ostinato",
+    "ornament_grammar": "microtonal_inflection_core",
+    "transmission_mode": "oral_only",
+    "ensemble_topology": "antiphonal_choirs",
+    "social_function": "life_cycle_event",
+    "listener_role": "evaluator_connoisseur",
+    "silence_treatment": "foundational_ground",
+    "temporal_framing": "ritual_duration"
+  },
+  "warnings": [],
+  "neighbors": [
+    {
+      "name": "Javanese Gamelan (Central Javanese court)",
+      "id": "javanese_gamelan",
+      "distance": 0.5016430910160043
+    },
+    {
+      "name": "Gy\u00fct\u00f6 Tantric Throat Chant",
+      "id": "gyuto_tantric_chant",
+      "distance": 0.517411867201402
+    },
+    {
+      "name": "Balinese Gamelan Gong Kebyar",
+      "id": "balinese_gong_kebyar",
+      "distance": 0.5564744041810021
+    }
+  ]
+}

@@ -1,0 +1,1588 @@
+# Expedition 020
+
+### 1. System name
+Passacaglia in Just Intonation
+
+### 2. Pitch organization
+Just intonation, non-octave-repeating. Thirteen pitches from stacked pure ratios — 1, 9/8, 6/5, 4/3, 3/2, 5/3, 7/4, 15/8, 9/4, 5/2, 3, 7/2, 15/4 — reference 98 Hz. The scale ascends through successive just intervals without folding at an octave; the 9/4 is *not* heard as an octave transposition of the 9/8, but as its own structural pitch (because there is no equivalence class). Microtonal inflection ±15 cents applies to every note.
+
+### 3. Rhythmic organization
+Additive 4+5+3 at 190 ms unit (cycle 12 units = 2.28 s). This cycle is the *bass pattern's length* — the passacaglia's ground bass is exactly one cycle long, so every bass statement anchors the meter.
+
+### 4. Formal structure
+Passacaglia — six statements of an 8-note bass line in felt piano, each overlaid with a distinct upper-voice variation:
+- **I** sparse thumb piano
+- **II** thumb more active, hang-drum joins on bass downbeats
+- **III** improvised 16th-note-feel thumb runs with shaker pulse
+- **IV** climax: all voices dense, full register
+- **V** receding: thumb retreats, hang drops out
+- **VI** final: thumb holds single high pitch over bass
+
+Modular-combinatorial: in the living tradition the six variations are independent and re-orderable; canonical performance ascends to climax and resolves.
+
+### 5. Texture and voicing
+Polyphonic independent — soloist (thumb piano) with accompaniment (felt piano bass + hang drum + shaker). Each voice has its own rhythmic role and register.
+
+### 6. Ornament and inflection
+Microtonal inflection is core (every note ±15 cents). Improvisational ornament in the thumb piano's variations — note choice and rhythmic displacement are free within the declared chord_tones.
+
+### 7. Performance context
+Chamber / intimate — the mix is deliberately dry (reverb 0.15, 1.0s length) to keep the felt piano close and tactile. Solo with accompaniment.
+
+### 8. Relationship to neighboring systems
+Shares with Tabla solo the improvised ornamentation over fixed meter, and with La Monte Young's Well-Tuned Piano the just-intonation non-octave scheme. Shares with Bulgarian choir the microtonal inflection on every note. Unique: *passacaglia form (European bass-variation technique) transplanted into just-intonation non-octave tuning with microtonal ornament on every note*.
+
+### 9. Audio specification
+
+```json
+{
+  "duration_seconds": 38.3,
+  "pitch_system": {
+    "encoding": "ratio",
+    "reference_hz": 98,
+    "pitches": [
+      1.0,
+      1.125,
+      1.2,
+      1.3333,
+      1.5,
+      1.6667,
+      1.75,
+      1.875,
+      2.25,
+      2.5,
+      3.0,
+      3.5,
+      3.75
+    ],
+    "octave_repeats": false,
+    "inflection_rules": [
+      {
+        "pitch_index": 0,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 1,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 2,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 3,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 4,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 5,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 6,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 7,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 8,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 9,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 10,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 11,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      },
+      {
+        "pitch_index": 12,
+        "inflection_cents_range": [
+          -15,
+          15
+        ],
+        "direction": "both"
+      }
+    ]
+  },
+  "rhythm_system": {
+    "type": "additive",
+    "groupings": [
+      4,
+      5,
+      3,
+      4
+    ],
+    "base_unit_ms": 280
+  },
+  "voices": [
+    {
+      "name": "bass_felt",
+      "timbre": "felt_piano",
+      "pitch_indices": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "rhythm_role": "ostinato",
+      "amplitude": 0.62,
+      "spatial_position": [
+        -0.2,
+        -0.25
+      ]
+    },
+    {
+      "name": "thumb",
+      "timbre": "thumb_piano",
+      "pitch_indices": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "rhythm_role": "melodic_lead",
+      "amplitude": 0.65,
+      "spatial_position": [
+        0.25,
+        0.2
+      ]
+    },
+    {
+      "name": "hang",
+      "timbre": "hang_drum",
+      "pitch_indices": [
+        0,
+        2,
+        4
+      ],
+      "rhythm_role": "percussive",
+      "amplitude": 0.55,
+      "spatial_position": [
+        -0.45,
+        0.1
+      ]
+    },
+    {
+      "name": "shaker",
+      "timbre": "shaker",
+      "pitch_indices": [
+        0
+      ],
+      "rhythm_role": "percussive",
+      "amplitude": 0.4,
+      "spatial_position": [
+        0.5,
+        -0.1
+      ]
+    }
+  ],
+  "form": {
+    "arc_type": "modular",
+    "sections": [
+      {
+        "name": "statement_1",
+        "start_seconds": 0.5,
+        "duration_seconds": 4.48,
+        "character": "sparse thumb",
+        "chord_tones": [
+          0,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "statement_2",
+        "start_seconds": 4.98,
+        "duration_seconds": 4.48,
+        "character": "hang joins",
+        "chord_tones": [
+          0,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "statement_3",
+        "start_seconds": 9.46,
+        "duration_seconds": 4.48,
+        "character": "improvised thumb runs + shaker",
+        "chord_tones": [
+          0,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "name": "statement_4",
+        "start_seconds": 13.94,
+        "duration_seconds": 4.48,
+        "character": "first climax: all voices dense",
+        "chord_tones": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      {
+        "name": "statement_5",
+        "start_seconds": 18.42,
+        "duration_seconds": 4.48,
+        "character": "interlude on higher pitches",
+        "chord_tones": [
+          0,
+          7
+        ]
+      },
+      {
+        "name": "statement_6",
+        "start_seconds": 22.9,
+        "duration_seconds": 4.48,
+        "character": "second climax: upper register runs",
+        "chord_tones": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      {
+        "name": "statement_7",
+        "start_seconds": 27.38,
+        "duration_seconds": 4.48,
+        "character": "receding",
+        "chord_tones": [
+          0,
+          2,
+          4
+        ]
+      },
+      {
+        "name": "statement_8",
+        "start_seconds": 31.86,
+        "duration_seconds": 4.48,
+        "character": "final single tone",
+        "chord_tones": [
+          0,
+          7
+        ]
+      }
+    ]
+  },
+  "ornamentation": {
+    "density": 0.65,
+    "rule": "Microtonal inflection is core: every note bends \u00b115 cents at onset. Bass line is ornamented-free; upper voices improvise note choice and rhythmic displacement within chord_tones."
+  },
+  "auto_pedal": false,
+  "mix": {
+    "reverb_wet": 0.15,
+    "reverb_length": 1.0,
+    "reverb_decay": 5.5,
+    "hf_shelf_gain_db": -1.5,
+    "hf_shelf_freq": 4500,
+    "lpf_hz": 7500
+  },
+  "events": [
+    {
+      "t": 0.5,
+      "voice": "bass_felt",
+      "pitch_index": 0,
+      "duration_seconds": 0.798,
+      "amplitude": 0.62
+    },
+    {
+      "t": 1.34,
+      "voice": "bass_felt",
+      "pitch_index": 3,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 1.9,
+      "voice": "bass_felt",
+      "pitch_index": 2,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 2.46,
+      "voice": "bass_felt",
+      "pitch_index": 4,
+      "duration_seconds": 0.798,
+      "amplitude": 0.62
+    },
+    {
+      "t": 3.3,
+      "voice": "bass_felt",
+      "pitch_index": 1,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 3.86,
+      "voice": "bass_felt",
+      "pitch_index": 3,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 4.42,
+      "voice": "bass_felt",
+      "pitch_index": 0,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 0.7,
+      "voice": "thumb",
+      "pitch_index": 5,
+      "duration_seconds": 0.532,
+      "amplitude": 0.6
+    },
+    {
+      "t": 1.26,
+      "voice": "thumb",
+      "pitch_index": 4,
+      "duration_seconds": 0.532,
+      "amplitude": 0.6
+    },
+    {
+      "t": 1.82,
+      "voice": "thumb",
+      "pitch_index": 3,
+      "duration_seconds": 0.532,
+      "amplitude": 0.6
+    },
+    {
+      "t": 2.38,
+      "voice": "thumb",
+      "pitch_index": 2,
+      "duration_seconds": 0.266,
+      "amplitude": 0.6
+    },
+    {
+      "t": 4.98,
+      "voice": "bass_felt",
+      "pitch_index": 0,
+      "duration_seconds": 0.798,
+      "amplitude": 0.62
+    },
+    {
+      "t": 5.82,
+      "voice": "bass_felt",
+      "pitch_index": 3,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 6.38,
+      "voice": "bass_felt",
+      "pitch_index": 2,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 6.94,
+      "voice": "bass_felt",
+      "pitch_index": 4,
+      "duration_seconds": 0.798,
+      "amplitude": 0.62
+    },
+    {
+      "t": 7.78,
+      "voice": "bass_felt",
+      "pitch_index": 1,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 8.34,
+      "voice": "bass_felt",
+      "pitch_index": 3,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 8.9,
+      "voice": "bass_felt",
+      "pitch_index": 0,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 5.08,
+      "voice": "thumb",
+      "pitch_index": 4,
+      "duration_seconds": 0.266,
+      "amplitude": 0.65
+    },
+    {
+      "t": 5.36,
+      "voice": "thumb",
+      "pitch_index": 5,
+      "duration_seconds": 0.266,
+      "amplitude": 0.65
+    },
+    {
+      "t": 5.64,
+      "voice": "thumb",
+      "pitch_index": 6,
+      "duration_seconds": 0.532,
+      "amplitude": 0.65
+    },
+    {
+      "t": 6.2,
+      "voice": "thumb",
+      "pitch_index": 5,
+      "duration_seconds": 0.266,
+      "amplitude": 0.65
+    },
+    {
+      "t": 6.48,
+      "voice": "thumb",
+      "pitch_index": 4,
+      "duration_seconds": 0.266,
+      "amplitude": 0.65
+    },
+    {
+      "t": 6.76,
+      "voice": "thumb",
+      "pitch_index": 3,
+      "duration_seconds": 0.532,
+      "amplitude": 0.65
+    },
+    {
+      "t": 7.32,
+      "voice": "thumb",
+      "pitch_index": 5,
+      "duration_seconds": 0.532,
+      "amplitude": 0.65
+    },
+    {
+      "t": 7.88,
+      "voice": "thumb",
+      "pitch_index": 4,
+      "duration_seconds": 0.266,
+      "amplitude": 0.65
+    },
+    {
+      "t": 4.98,
+      "voice": "hang",
+      "pitch_index": 2,
+      "duration_seconds": 0.5,
+      "amplitude": 0.55
+    },
+    {
+      "t": 6.1,
+      "voice": "hang",
+      "pitch_index": 2,
+      "duration_seconds": 0.5,
+      "amplitude": 0.55
+    },
+    {
+      "t": 7.5,
+      "voice": "hang",
+      "pitch_index": 2,
+      "duration_seconds": 0.5,
+      "amplitude": 0.55
+    },
+    {
+      "t": 9.46,
+      "voice": "bass_felt",
+      "pitch_index": 0,
+      "duration_seconds": 0.798,
+      "amplitude": 0.62
+    },
+    {
+      "t": 10.3,
+      "voice": "bass_felt",
+      "pitch_index": 3,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 10.86,
+      "voice": "bass_felt",
+      "pitch_index": 2,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 11.42,
+      "voice": "bass_felt",
+      "pitch_index": 4,
+      "duration_seconds": 0.798,
+      "amplitude": 0.62
+    },
+    {
+      "t": 12.26,
+      "voice": "bass_felt",
+      "pitch_index": 1,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 12.82,
+      "voice": "bass_felt",
+      "pitch_index": 3,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 13.38,
+      "voice": "bass_felt",
+      "pitch_index": 0,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 9.46,
+      "voice": "thumb",
+      "pitch_index": 3,
+      "duration_seconds": 0.515,
+      "amplitude": 0.528
+    },
+    {
+      "t": 10.02,
+      "voice": "thumb",
+      "pitch_index": 5,
+      "duration_seconds": 0.258,
+      "amplitude": 0.552
+    },
+    {
+      "t": 10.3,
+      "voice": "thumb",
+      "pitch_index": 7,
+      "duration_seconds": 0.258,
+      "amplitude": 0.522
+    },
+    {
+      "t": 10.58,
+      "voice": "thumb",
+      "pitch_index": 3,
+      "duration_seconds": 0.258,
+      "amplitude": 0.627
+    },
+    {
+      "t": 10.86,
+      "voice": "thumb",
+      "pitch_index": 4,
+      "duration_seconds": 0.515,
+      "amplitude": 0.517
+    },
+    {
+      "t": 11.42,
+      "voice": "thumb",
+      "pitch_index": 4,
+      "duration_seconds": 0.515,
+      "amplitude": 0.573
+    },
+    {
+      "t": 11.98,
+      "voice": "thumb",
+      "pitch_index": 7,
+      "duration_seconds": 0.258,
+      "amplitude": 0.559
+    },
+    {
+      "t": 12.26,
+      "voice": "thumb",
+      "pitch_index": 7,
+      "duration_seconds": 0.258,
+      "amplitude": 0.604
+    },
+    {
+      "t": 12.54,
+      "voice": "thumb",
+      "pitch_index": 3,
+      "duration_seconds": 0.258,
+      "amplitude": 0.594
+    },
+    {
+      "t": 12.82,
+      "voice": "thumb",
+      "pitch_index": 6,
+      "duration_seconds": 0.258,
+      "amplitude": 0.475
+    },
+    {
+      "t": 13.1,
+      "voice": "thumb",
+      "pitch_index": 4,
+      "duration_seconds": 0.258,
+      "amplitude": 0.531
+    },
+    {
+      "t": 13.38,
+      "voice": "thumb",
+      "pitch_index": 5,
+      "duration_seconds": 0.258,
+      "amplitude": 0.536
+    },
+    {
+      "t": 13.66,
+      "voice": "thumb",
+      "pitch_index": 6,
+      "duration_seconds": 0.258,
+      "amplitude": 0.626
+    },
+    {
+      "t": 9.46,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.35
+    },
+    {
+      "t": 9.74,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.35
+    },
+    {
+      "t": 10.02,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.35
+    },
+    {
+      "t": 10.3,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.35
+    },
+    {
+      "t": 10.58,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.35
+    },
+    {
+      "t": 10.86,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.35
+    },
+    {
+      "t": 11.14,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.35
+    },
+    {
+      "t": 11.42,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.35
+    },
+    {
+      "t": 11.7,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.35
+    },
+    {
+      "t": 11.98,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.35
+    },
+    {
+      "t": 12.26,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.35
+    },
+    {
+      "t": 12.54,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.35
+    },
+    {
+      "t": 12.82,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.35
+    },
+    {
+      "t": 13.1,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.35
+    },
+    {
+      "t": 13.38,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.35
+    },
+    {
+      "t": 13.66,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.35
+    },
+    {
+      "t": 13.94,
+      "voice": "bass_felt",
+      "pitch_index": 0,
+      "duration_seconds": 0.798,
+      "amplitude": 0.62
+    },
+    {
+      "t": 14.78,
+      "voice": "bass_felt",
+      "pitch_index": 3,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 15.34,
+      "voice": "bass_felt",
+      "pitch_index": 2,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 15.9,
+      "voice": "bass_felt",
+      "pitch_index": 4,
+      "duration_seconds": 0.798,
+      "amplitude": 0.62
+    },
+    {
+      "t": 16.74,
+      "voice": "bass_felt",
+      "pitch_index": 1,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 17.3,
+      "voice": "bass_felt",
+      "pitch_index": 3,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 17.86,
+      "voice": "bass_felt",
+      "pitch_index": 0,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 13.94,
+      "voice": "thumb",
+      "pitch_index": 8,
+      "duration_seconds": 0.258,
+      "amplitude": 0.741
+    },
+    {
+      "t": 14.22,
+      "voice": "thumb",
+      "pitch_index": 7,
+      "duration_seconds": 0.258,
+      "amplitude": 0.704
+    },
+    {
+      "t": 14.5,
+      "voice": "thumb",
+      "pitch_index": 8,
+      "duration_seconds": 0.258,
+      "amplitude": 0.73
+    },
+    {
+      "t": 14.78,
+      "voice": "thumb",
+      "pitch_index": 10,
+      "duration_seconds": 0.515,
+      "amplitude": 0.753
+    },
+    {
+      "t": 15.34,
+      "voice": "thumb",
+      "pitch_index": 7,
+      "duration_seconds": 0.515,
+      "amplitude": 0.637
+    },
+    {
+      "t": 15.9,
+      "voice": "thumb",
+      "pitch_index": 8,
+      "duration_seconds": 0.258,
+      "amplitude": 0.641
+    },
+    {
+      "t": 16.18,
+      "voice": "thumb",
+      "pitch_index": 6,
+      "duration_seconds": 0.515,
+      "amplitude": 0.691
+    },
+    {
+      "t": 16.74,
+      "voice": "thumb",
+      "pitch_index": 6,
+      "duration_seconds": 0.515,
+      "amplitude": 0.67
+    },
+    {
+      "t": 17.3,
+      "voice": "thumb",
+      "pitch_index": 8,
+      "duration_seconds": 0.258,
+      "amplitude": 0.67
+    },
+    {
+      "t": 17.58,
+      "voice": "thumb",
+      "pitch_index": 10,
+      "duration_seconds": 0.258,
+      "amplitude": 0.639
+    },
+    {
+      "t": 17.86,
+      "voice": "thumb",
+      "pitch_index": 9,
+      "duration_seconds": 0.258,
+      "amplitude": 0.725
+    },
+    {
+      "t": 18.14,
+      "voice": "thumb",
+      "pitch_index": 6,
+      "duration_seconds": 0.258,
+      "amplitude": 0.647
+    },
+    {
+      "t": 13.94,
+      "voice": "hang",
+      "pitch_index": 2,
+      "duration_seconds": 0.4,
+      "amplitude": 0.6
+    },
+    {
+      "t": 14.5,
+      "voice": "hang",
+      "pitch_index": 4,
+      "duration_seconds": 0.4,
+      "amplitude": 0.6
+    },
+    {
+      "t": 15.06,
+      "voice": "hang",
+      "pitch_index": 2,
+      "duration_seconds": 0.4,
+      "amplitude": 0.6
+    },
+    {
+      "t": 15.62,
+      "voice": "hang",
+      "pitch_index": 2,
+      "duration_seconds": 0.4,
+      "amplitude": 0.6
+    },
+    {
+      "t": 16.18,
+      "voice": "hang",
+      "pitch_index": 2,
+      "duration_seconds": 0.4,
+      "amplitude": 0.6
+    },
+    {
+      "t": 16.74,
+      "voice": "hang",
+      "pitch_index": 4,
+      "duration_seconds": 0.4,
+      "amplitude": 0.6
+    },
+    {
+      "t": 17.3,
+      "voice": "hang",
+      "pitch_index": 4,
+      "duration_seconds": 0.4,
+      "amplitude": 0.6
+    },
+    {
+      "t": 17.86,
+      "voice": "hang",
+      "pitch_index": 4,
+      "duration_seconds": 0.4,
+      "amplitude": 0.6
+    },
+    {
+      "t": 13.94,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.45
+    },
+    {
+      "t": 14.22,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.45
+    },
+    {
+      "t": 14.5,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.45
+    },
+    {
+      "t": 14.78,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.45
+    },
+    {
+      "t": 15.06,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.45
+    },
+    {
+      "t": 15.34,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.45
+    },
+    {
+      "t": 15.62,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.45
+    },
+    {
+      "t": 15.9,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.45
+    },
+    {
+      "t": 16.18,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.45
+    },
+    {
+      "t": 16.46,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.45
+    },
+    {
+      "t": 16.74,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.45
+    },
+    {
+      "t": 17.02,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.45
+    },
+    {
+      "t": 17.3,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.45
+    },
+    {
+      "t": 17.58,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.45
+    },
+    {
+      "t": 17.86,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.45
+    },
+    {
+      "t": 18.14,
+      "voice": "shaker",
+      "pitch_index": 0,
+      "duration_seconds": 0.224,
+      "amplitude": 0.45
+    },
+    {
+      "t": 18.42,
+      "voice": "bass_felt",
+      "pitch_index": 0,
+      "duration_seconds": 0.798,
+      "amplitude": 0.62
+    },
+    {
+      "t": 19.26,
+      "voice": "bass_felt",
+      "pitch_index": 3,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 19.82,
+      "voice": "bass_felt",
+      "pitch_index": 2,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 20.38,
+      "voice": "bass_felt",
+      "pitch_index": 4,
+      "duration_seconds": 0.798,
+      "amplitude": 0.62
+    },
+    {
+      "t": 21.22,
+      "voice": "bass_felt",
+      "pitch_index": 1,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 21.78,
+      "voice": "bass_felt",
+      "pitch_index": 3,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 22.34,
+      "voice": "bass_felt",
+      "pitch_index": 0,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 18.62,
+      "voice": "thumb",
+      "pitch_index": 6,
+      "duration_seconds": 0.532,
+      "amplitude": 0.6
+    },
+    {
+      "t": 19.18,
+      "voice": "thumb",
+      "pitch_index": 5,
+      "duration_seconds": 0.532,
+      "amplitude": 0.6
+    },
+    {
+      "t": 19.74,
+      "voice": "thumb",
+      "pitch_index": 4,
+      "duration_seconds": 0.266,
+      "amplitude": 0.6
+    },
+    {
+      "t": 20.02,
+      "voice": "thumb",
+      "pitch_index": 3,
+      "duration_seconds": 0.532,
+      "amplitude": 0.6
+    },
+    {
+      "t": 20.58,
+      "voice": "thumb",
+      "pitch_index": 4,
+      "duration_seconds": 0.532,
+      "amplitude": 0.6
+    },
+    {
+      "t": 21.14,
+      "voice": "thumb",
+      "pitch_index": 5,
+      "duration_seconds": 0.532,
+      "amplitude": 0.6
+    },
+    {
+      "t": 21.7,
+      "voice": "thumb",
+      "pitch_index": 6,
+      "duration_seconds": 0.798,
+      "amplitude": 0.6
+    },
+    {
+      "t": 22.54,
+      "voice": "thumb",
+      "pitch_index": 5,
+      "duration_seconds": 0.532,
+      "amplitude": 0.6
+    },
+    {
+      "t": 22.9,
+      "voice": "bass_felt",
+      "pitch_index": 0,
+      "duration_seconds": 0.798,
+      "amplitude": 0.62
+    },
+    {
+      "t": 23.74,
+      "voice": "bass_felt",
+      "pitch_index": 3,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 24.3,
+      "voice": "bass_felt",
+      "pitch_index": 2,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 24.86,
+      "voice": "bass_felt",
+      "pitch_index": 4,
+      "duration_seconds": 0.798,
+      "amplitude": 0.62
+    },
+    {
+      "t": 25.7,
+      "voice": "bass_felt",
+      "pitch_index": 1,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 26.26,
+      "voice": "bass_felt",
+      "pitch_index": 3,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 26.82,
+      "voice": "bass_felt",
+      "pitch_index": 0,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 22.9,
+      "voice": "thumb",
+      "pitch_index": 8,
+      "duration_seconds": 0.515,
+      "amplitude": 0.671
+    },
+    {
+      "t": 23.46,
+      "voice": "thumb",
+      "pitch_index": 8,
+      "duration_seconds": 0.258,
+      "amplitude": 0.697
+    },
+    {
+      "t": 23.74,
+      "voice": "thumb",
+      "pitch_index": 11,
+      "duration_seconds": 0.515,
+      "amplitude": 0.653
+    },
+    {
+      "t": 24.3,
+      "voice": "thumb",
+      "pitch_index": 9,
+      "duration_seconds": 0.515,
+      "amplitude": 0.664
+    },
+    {
+      "t": 24.86,
+      "voice": "thumb",
+      "pitch_index": 11,
+      "duration_seconds": 0.515,
+      "amplitude": 0.669
+    },
+    {
+      "t": 25.42,
+      "voice": "thumb",
+      "pitch_index": 7,
+      "duration_seconds": 0.515,
+      "amplitude": 0.653
+    },
+    {
+      "t": 25.98,
+      "voice": "thumb",
+      "pitch_index": 7,
+      "duration_seconds": 0.258,
+      "amplitude": 0.719
+    },
+    {
+      "t": 26.26,
+      "voice": "thumb",
+      "pitch_index": 11,
+      "duration_seconds": 0.515,
+      "amplitude": 0.72
+    },
+    {
+      "t": 26.82,
+      "voice": "thumb",
+      "pitch_index": 9,
+      "duration_seconds": 0.515,
+      "amplitude": 0.725
+    },
+    {
+      "t": 22.9,
+      "voice": "hang",
+      "pitch_index": 0,
+      "duration_seconds": 0.4,
+      "amplitude": 0.65
+    },
+    {
+      "t": 23.18,
+      "voice": "hang",
+      "pitch_index": 0,
+      "duration_seconds": 0.4,
+      "amplitude": 0.65
+    },
+    {
+      "t": 23.46,
+      "voice": "hang",
+      "pitch_index": 4,
+      "duration_seconds": 0.4,
+      "amplitude": 0.65
+    },
+    {
+      "t": 23.74,
+      "voice": "hang",
+      "pitch_index": 2,
+      "duration_seconds": 0.4,
+      "amplitude": 0.65
+    },
+    {
+      "t": 24.02,
+      "voice": "hang",
+      "pitch_index": 4,
+      "duration_seconds": 0.4,
+      "amplitude": 0.65
+    },
+    {
+      "t": 24.3,
+      "voice": "hang",
+      "pitch_index": 0,
+      "duration_seconds": 0.4,
+      "amplitude": 0.65
+    },
+    {
+      "t": 24.58,
+      "voice": "hang",
+      "pitch_index": 2,
+      "duration_seconds": 0.4,
+      "amplitude": 0.65
+    },
+    {
+      "t": 24.86,
+      "voice": "hang",
+      "pitch_index": 4,
+      "duration_seconds": 0.4,
+      "amplitude": 0.65
+    },
+    {
+      "t": 25.14,
+      "voice": "hang",
+      "pitch_index": 2,
+      "duration_seconds": 0.4,
+      "amplitude": 0.65
+    },
+    {
+      "t": 25.42,
+      "voice": "hang",
+      "pitch_index": 4,
+      "duration_seconds": 0.4,
+      "amplitude": 0.65
+    },
+    {
+      "t": 25.7,
+      "voice": "hang",
+      "pitch_index": 2,
+      "duration_seconds": 0.4,
+      "amplitude": 0.65
+    },
+    {
+      "t": 25.98,
+      "voice": "hang",
+      "pitch_index": 4,
+      "duration_seconds": 0.4,
+      "amplitude": 0.65
+    },
+    {
+      "t": 26.26,
+      "voice": "hang",
+      "pitch_index": 0,
+      "duration_seconds": 0.4,
+      "amplitude": 0.65
+    },
+    {
+      "t": 26.54,
+      "voice": "hang",
+      "pitch_index": 4,
+      "duration_seconds": 0.4,
+      "amplitude": 0.65
+    },
+    {
+      "t": 26.82,
+      "voice": "hang",
+      "pitch_index": 0,
+      "duration_seconds": 0.4,
+      "amplitude": 0.65
+    },
+    {
+      "t": 27.1,
+      "voice": "hang",
+      "pitch_index": 4,
+      "duration_seconds": 0.4,
+      "amplitude": 0.65
+    },
+    {
+      "t": 27.38,
+      "voice": "bass_felt",
+      "pitch_index": 0,
+      "duration_seconds": 0.798,
+      "amplitude": 0.62
+    },
+    {
+      "t": 28.22,
+      "voice": "bass_felt",
+      "pitch_index": 3,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 28.78,
+      "voice": "bass_felt",
+      "pitch_index": 2,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 29.34,
+      "voice": "bass_felt",
+      "pitch_index": 4,
+      "duration_seconds": 0.798,
+      "amplitude": 0.62
+    },
+    {
+      "t": 30.18,
+      "voice": "bass_felt",
+      "pitch_index": 1,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 30.74,
+      "voice": "bass_felt",
+      "pitch_index": 3,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 31.3,
+      "voice": "bass_felt",
+      "pitch_index": 0,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 27.68,
+      "voice": "thumb",
+      "pitch_index": 5,
+      "duration_seconds": 0.532,
+      "amplitude": 0.5
+    },
+    {
+      "t": 28.24,
+      "voice": "thumb",
+      "pitch_index": 3,
+      "duration_seconds": 0.532,
+      "amplitude": 0.5
+    },
+    {
+      "t": 28.8,
+      "voice": "thumb",
+      "pitch_index": 4,
+      "duration_seconds": 0.532,
+      "amplitude": 0.5
+    },
+    {
+      "t": 29.36,
+      "voice": "thumb",
+      "pitch_index": 2,
+      "duration_seconds": 0.798,
+      "amplitude": 0.5
+    },
+    {
+      "t": 30.2,
+      "voice": "thumb",
+      "pitch_index": 0,
+      "duration_seconds": 0.798,
+      "amplitude": 0.5
+    },
+    {
+      "t": 31.86,
+      "voice": "bass_felt",
+      "pitch_index": 0,
+      "duration_seconds": 0.798,
+      "amplitude": 0.62
+    },
+    {
+      "t": 32.7,
+      "voice": "bass_felt",
+      "pitch_index": 3,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 33.26,
+      "voice": "bass_felt",
+      "pitch_index": 2,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 33.82,
+      "voice": "bass_felt",
+      "pitch_index": 4,
+      "duration_seconds": 0.798,
+      "amplitude": 0.62
+    },
+    {
+      "t": 34.66,
+      "voice": "bass_felt",
+      "pitch_index": 1,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 35.22,
+      "voice": "bass_felt",
+      "pitch_index": 3,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 35.78,
+      "voice": "bass_felt",
+      "pitch_index": 0,
+      "duration_seconds": 0.532,
+      "amplitude": 0.62
+    },
+    {
+      "t": 32.36,
+      "voice": "thumb",
+      "pitch_index": 7,
+      "duration_seconds": 4.032000000000001,
+      "amplitude": 0.55
+    }
+  ]
+}
+```
+
+### 10. Field note
+The bass never changes and the tuning never closes. The variations change; the ear's sense of *where* home is drifts.

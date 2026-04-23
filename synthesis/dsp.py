@@ -186,15 +186,20 @@ def notch(signal_in: np.ndarray, freq: float, q: float = 4.0, sr: int = SR):
 
 
 def master_bus(stereo: np.ndarray, reverb_wet: float = 0.25,
-               reverb_length: float = 2.0, sr: int = SR) -> np.ndarray:
-    """Standard mix-down master. HPF → reverb → gentle HF rolloff. Nothing
-    else. The caller normalizes to a target peak afterwards — no saturation,
-    no compression, no limiter. Distortion on playback comes from harmonic
-    stages (saturation, compression pumping), not from normal mix levels,
-    so remove them.
-    """
-    out = highpass(stereo, 40)
+               reverb_length: float = 2.0, reverb_decay: float = 3.8,
+               hpf_hz: float = 40, lpf_hz: float = 8000,
+               hf_shelf_gain_db: float = 0.0, hf_shelf_freq: float = 4000,
+               sr: int = SR) -> np.ndarray:
+    """Standard mix-down master. HPF → reverb → gentle HF rolloff + optional
+    HF shelf boost/cut. Parameters exposed so each spec can override room and
+    tonal character (dry/wet, close/distant, bright/dark)."""
+    out = highpass(stereo, hpf_hz)
     out = apply_reverb(out, wet=reverb_wet, length_s=reverb_length,
-                       decay_rate=3.8, sr=sr)
-    out = lowpass(out, 8000, order=2)
+                       decay_rate=reverb_decay, sr=sr)
+    out = lowpass(out, lpf_hz, order=2)
+    if abs(hf_shelf_gain_db) > 0.1:
+        # Peaking EQ at hf_shelf_freq — Q=0.8 for broad shelf-like action
+        from scipy import signal as sig
+        b, a = biquad_peak_coefs(hf_shelf_freq, 0.8, hf_shelf_gain_db, sr)
+        out = sig.lfilter(b, a, out, axis=0)
     return out

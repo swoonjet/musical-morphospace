@@ -1,0 +1,59 @@
+{
+  "expedition_number": 23,
+  "iso_date": "2026-04-23T09:19:05",
+  "curiosity_score": 0.512623266123772,
+  "continuous": {
+    "pitch_density": 0.143,
+    "microtonality_degree": 0.973,
+    "octave_equivalence": 0.187,
+    "interval_hierarchy": 0.634,
+    "pitch_flexibility": 0.482,
+    "metric_periodicity": 0.811,
+    "rhythmic_density": 0.716,
+    "polyrhythmic_complexity": 0.905,
+    "cycle_length": 0.773,
+    "tempo_stability": 0.075,
+    "piece_duration": 0.029,
+    "formal_repetition": 0.953,
+    "development_arc": 0.032,
+    "voice_count": 0.724,
+    "voice_independence": 0.917,
+    "drone_presence": 0.84,
+    "improvisation_degree": 0.081,
+    "ornament_density": 0.555
+  },
+  "categorical": {
+    "tuning_basis": "stretched",
+    "scale_topology": "non_octave_repeating",
+    "rhythmic_structure": "additive_metric",
+    "formal_type": "static_contemplation",
+    "texture_type": "call_response",
+    "ornament_grammar": "rhythmic_only",
+    "transmission_mode": "oral_only",
+    "ensemble_topology": "call_response",
+    "social_function": "cosmological_representation",
+    "listener_role": "ritual_participant",
+    "silence_treatment": "equal_to_sound",
+    "temporal_framing": "geographic_mapped"
+  },
+  "warnings": [
+    "ensemble microtonal coordination \u2014 rare (Arabic takht, Turkish classical)"
+  ],
+  "neighbors": [
+    {
+      "name": "Aboriginal Australian Didgeridoo Solo",
+      "id": "didgeridoo_solo",
+      "distance": 0.5180022018237431
+    },
+    {
+      "name": "Inuit Katajjaq (throat-singing game)",
+      "id": "inuit_katajjaq",
+      "distance": 0.5427966360651367
+    },
+    {
+      "name": "Gy\u00fct\u00f6 Tantric Throat Chant",
+      "id": "gyuto_tantric_chant",
+      "distance": 0.5471966019183921
+    }
+  ]
+}

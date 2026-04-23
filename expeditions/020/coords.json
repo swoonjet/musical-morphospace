@@ -1,0 +1,57 @@
+{
+  "expedition_number": 20,
+  "iso_date": "2026-04-23T09:19:05",
+  "curiosity_score": 0.49837262916037595,
+  "continuous": {
+    "pitch_density": 0.179,
+    "microtonality_degree": 0.316,
+    "octave_equivalence": 0.149,
+    "interval_hierarchy": 0.572,
+    "pitch_flexibility": 0.298,
+    "metric_periodicity": 0.783,
+    "rhythmic_density": 0.851,
+    "polyrhythmic_complexity": 0.154,
+    "cycle_length": 0.608,
+    "tempo_stability": 0.218,
+    "piece_duration": 0.884,
+    "formal_repetition": 0.92,
+    "development_arc": 0.081,
+    "voice_count": 0.443,
+    "voice_independence": 0.419,
+    "drone_presence": 0.055,
+    "improvisation_degree": 0.903,
+    "ornament_density": 0.652
+  },
+  "categorical": {
+    "tuning_basis": "just_intonation",
+    "scale_topology": "non_octave_repeating",
+    "rhythmic_structure": "additive_metric",
+    "formal_type": "modular_combinatorial",
+    "texture_type": "polyphonic_independent",
+    "ornament_grammar": "microtonal_inflection_core",
+    "transmission_mode": "hybrid",
+    "ensemble_topology": "soloist_with_accompaniment",
+    "social_function": "didactic_pedagogical",
+    "listener_role": "passive_audience",
+    "silence_treatment": "foundational_ground",
+    "temporal_framing": "indeterminate_open"
+  },
+  "warnings": [],
+  "neighbors": [
+    {
+      "name": "Tabla Solo (North Indian percussion)",
+      "id": "tabla_solo",
+      "distance": 0.49837262916037595
+    },
+    {
+      "name": "Bulgarian Women's Choir (Koutev / Myst\u00e8re des voix bulgares)",
+      "id": "bulgarian_koutev_womens_choir",
+      "distance": 0.5110346269233255
+    },
+    {
+      "name": "La Monte Young Drone (Well-Tuned Piano)",
+      "id": "la_monte_young_drone",
+      "distance": 0.5155192649458076
+    }
+  ]
+}

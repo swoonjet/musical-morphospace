@@ -447,6 +447,279 @@ def timbre_percussive(freq, duration, inflect=None, seed=0):
     return (noise * 0.7 + pitched) * decay
 
 
+def timbre_hang_drum(freq, duration, inflect=None, seed=0):
+    """Hang drum / tongue drum: bright-but-warm struck metal with specific
+    inharmonic partials at 2.61, 4.10, 5.43. Long singing decay."""
+    n = int(SR * duration)
+    t = np.arange(n) / SR
+    rng = np.random.default_rng(seed)
+    # Hang partials: roughly 1, 2.61, 4.10, 5.43, 7.2 (measured from actual hangs)
+    partials = [(1.0, 1.0, 1.4), (2.61, 0.45, 1.8), (4.10, 0.22, 2.5),
+                (5.43, 0.12, 3.5), (7.2, 0.05, 5.0)]
+    s = np.zeros(n)
+    for ratio, amp, rate in partials:
+        drift = rng.uniform(-0.001, 0.001)
+        decay = np.exp(-t * rate)
+        s += amp * decay * np.sin(2 * np.pi * freq * ratio * (1 + drift) * t
+                                   + rng.uniform(0, 2 * np.pi))
+    # Sharp but short metallic strike burst
+    burst_n = min(int(SR * 0.004), n)
+    burst = rng.normal(0, 1, burst_n) * np.exp(-np.linspace(0, 60, burst_n))
+    s[:burst_n] += burst * 0.28
+    s = lowpass(s, max(4500, freq * 7))
+    return s * 0.9
+
+
+def timbre_thumb_piano(freq, duration, inflect=None, seed=0):
+    """Mbira / kalimba / thumb piano: plucked metal tine. Bright onset, mid-decay,
+    distinctive slight detune-beat from two tines per note."""
+    n = int(SR * duration)
+    t = np.arange(n) / SR
+    rng = np.random.default_rng(seed)
+    # Two slightly detuned tines for beating
+    detune = 0.004
+    partials = [(1.0, 1.0, 3.5), (2.0, 0.55, 5.5), (3.1, 0.20, 8.0), (5.3, 0.07, 12)]
+    s = np.zeros(n)
+    for det in [0, detune]:
+        for ratio, amp, rate in partials:
+            decay = np.exp(-t * rate)
+            s += amp * 0.5 * decay * np.sin(2 * np.pi * freq * ratio * (1 + det) * t
+                                             + rng.uniform(0, 2 * np.pi))
+    # Short pluck burst
+    burst_n = min(int(SR * 0.003), n)
+    burst = rng.normal(0, 1, burst_n) * np.exp(-np.linspace(0, 80, burst_n))
+    s[:burst_n] += burst * 0.4
+    s = lowpass(s, max(3500, freq * 5))
+    return s * 1.0
+
+
+def timbre_bowed_crotales(freq, duration, inflect=None, seed=0):
+    """Bowed crotales / singing bowl: slow swell, pure sine-ish partials with
+    shimmer. Very slow attack, very long sustain."""
+    n = int(SR * duration)
+    t = np.arange(n) / SR
+    rng = np.random.default_rng(seed)
+    # Near-harmonic but slightly detuned partials
+    partials = [(1.0, 1.0), (2.005, 0.6), (3.02, 0.25), (4.03, 0.12)]
+    s = np.zeros(n)
+    for ratio, amp in partials:
+        phase_drift = 0.008 * np.sin(2 * np.pi * rng.uniform(0.3, 0.6) * t + rng.uniform(0, 2 * np.pi))
+
+        def combined_inflect(tt, ratio=ratio, pd=phase_drift):
+            base = inflect(tt) if inflect else 0.0
+            return base + np.interp(tt, t, pd)
+
+        phase = _phase(freq * ratio, n, combined_inflect)
+        s += amp * np.sin(phase)
+    # Slow bowed swell envelope
+    swell = 1 - np.exp(-t * 2.5)
+    s = s * swell
+    return s * 0.5
+
+
+def timbre_clay_pot(freq, duration, inflect=None, seed=0):
+    """Tuned clay pot / udu: short resonant thump with body. Low inharmonic
+    partials, rapid decay, almost no high end."""
+    n = int(SR * duration)
+    t = np.arange(n) / SR
+    rng = np.random.default_rng(seed)
+    s = (1.0 * np.exp(-t * 11) * np.sin(2 * np.pi * freq * t)
+         + 0.45 * np.exp(-t * 18) * np.sin(2 * np.pi * freq * 1.8 * t + rng.uniform(0, 2 * np.pi))
+         + 0.20 * np.exp(-t * 25) * np.sin(2 * np.pi * freq * 3.3 * t + rng.uniform(0, 2 * np.pi)))
+    # Attack thud
+    thud_n = min(int(SR * 0.02), n)
+    thud = rng.normal(0, 1, thud_n) * np.exp(-np.linspace(0, 18, thud_n))
+    s[:thud_n] += thud * 0.45
+    s = lowpass(s, 1400)
+    return s * 0.95
+
+
+def timbre_blown_bottle(freq, duration, inflect=None, seed=0):
+    """Vessel/bottle flute: nearly pure tone with breath noise, slight
+    vibrato, body resonance. Softer than bamboo flute; earthier."""
+    n = int(SR * duration)
+    t = np.arange(n) / SR
+    rng = np.random.default_rng(seed)
+    vib = 0.004 * np.sin(2 * np.pi * rng.uniform(3.5, 4.8) * t + rng.uniform(0, 2 * np.pi))
+
+    def combined(tt):
+        base = inflect(tt) if inflect else 0.0
+        return base + np.interp(tt, t, vib)
+
+    phase = _phase(freq, n, combined)
+    s = (1.0 * np.sin(phase) + 0.12 * np.sin(2 * phase) + 0.03 * np.sin(3 * phase))
+    # Breath noise, mostly low
+    noise = rng.normal(0, 1, n)
+    noise = lowpass(noise, min(freq * 2.5, 1800))
+    noise = noise - lowpass(noise, 150)
+    s = s + noise * 0.28
+    # Body resonance peak around 2*freq (bottle body mode)
+    from synthesis.dsp import biquad_peak_coefs
+    import scipy.signal as ss
+    b, a = biquad_peak_coefs(max(200, freq * 1.8), 4.0, 3.0)
+    s = ss.lfilter(b, a, s)
+    s = lowpass(s, max(2000, freq * 3))
+    return s * 0.75
+
+
+def timbre_felt_piano(freq, duration, inflect=None, seed=0):
+    """Felt-hammered piano: soft mellow struck string with body resonance,
+    long decay. Dulcimer-warm, no hard attack transient."""
+    n = int(SR * duration)
+    delay = max(2, int(SR / freq))
+    rng = np.random.default_rng(seed)
+    buf = rng.uniform(-1, 1, delay).astype(np.float64)
+    # Heavy pre-filter of excitation — "felt" softening
+    for _ in range(4):
+        buf[1:] = 0.5 * buf[1:] + 0.5 * buf[:-1]
+    out = np.zeros(n)
+    idx = 0
+    decay_coef = 0.9975
+    for i in range(n):
+        out[i] = buf[idx]
+        prev = buf[(idx - 1) % delay]
+        buf[idx] = decay_coef * 0.5 * (out[i] + prev)
+        idx = (idx + 1) % delay
+    # Piano-like body resonance
+    from synthesis.dsp import biquad_peak_coefs
+    import scipy.signal as ss
+    for body_f, body_q, body_gain in [(80, 3.5, 5), (160, 4.0, 3.5), (320, 5.0, 2.0), (680, 6.0, 1.2)]:
+        b, a = biquad_peak_coefs(body_f, body_q, body_gain)
+        out = ss.lfilter(b, a, out)
+    # Strong LPF for felt softness
+    out = lowpass(out, 2200)
+    return out * 0.75
+
+
+def timbre_strummed_harp(freq, duration, inflect=None, seed=0):
+    """Harp: bright clear pluck with long ringing decay, many clean partials."""
+    n = int(SR * duration)
+    delay = max(2, int(SR / freq))
+    rng = np.random.default_rng(seed)
+    buf = rng.uniform(-1, 1, delay).astype(np.float64)
+    # Brighter pluck
+    buf[1:] = 0.7 * buf[1:] + 0.3 * buf[:-1]
+    out = np.zeros(n)
+    idx = 0
+    decay_coef = 0.998
+    for i in range(n):
+        out[i] = buf[idx]
+        prev = buf[(idx - 1) % delay]
+        buf[idx] = decay_coef * 0.5 * (out[i] + prev)
+        idx = (idx + 1) % delay
+    # Harp body — wood resonances, bright-ish
+    from synthesis.dsp import biquad_peak_coefs
+    import scipy.signal as ss
+    for body_f, body_q, body_gain in [(145, 3.0, 3.5), (285, 4.0, 2.2), (600, 5.0, 1.3)]:
+        b, a = biquad_peak_coefs(body_f, body_q, body_gain)
+        out = ss.lfilter(b, a, out)
+    return out * 0.85
+
+
+def timbre_close_whisper(freq, duration, inflect=None, seed=0):
+    """Close-miked whispered vowel: mostly breath noise with vowel formants,
+    very pitch-ambiguous. Faint pitched center with strong formant character."""
+    n = int(SR * duration)
+    t = np.arange(n) / SR
+    rng = np.random.default_rng(seed)
+    # Very faint sine at pitch with heavy noise above
+    phase = _phase(freq, n, inflect)
+    s = 0.15 * np.sin(phase)
+    noise = rng.normal(0, 1, n)
+    s = s + noise * 0.8
+    # /ə/ schwa-ish vowel formants
+    from synthesis.dsp import apply_formants
+    s = apply_formants(s, formants_hz=[520, 1250, 2400], q_list=[6, 5, 4],
+                        amp_list=[1.0, 0.7, 0.3])
+    s = lowpass(s, 3800)
+    return s * 0.65
+
+
+def timbre_wood_marimba(freq, duration, inflect=None, seed=0):
+    """Marimba: wooden bar with resonator tube. Bright-wooden tone, moderate decay.
+    Partials: 1, 3.9 (marimba-characteristic 4th partial), 9.2."""
+    n = int(SR * duration)
+    t = np.arange(n) / SR
+    rng = np.random.default_rng(seed)
+    partials = [(1.0, 1.0, 3.0), (3.9, 0.40, 5.5), (9.2, 0.15, 10.0)]
+    s = np.zeros(n)
+    for ratio, amp, rate in partials:
+        decay = np.exp(-t * rate)
+        s += amp * decay * np.sin(2 * np.pi * freq * ratio * t + rng.uniform(0, 2 * np.pi))
+    # Short wooden mallet strike
+    burst_n = min(int(SR * 0.006), n)
+    burst = rng.normal(0, 1, burst_n) * np.exp(-np.linspace(0, 50, burst_n))
+    s[:burst_n] += burst * 0.35
+    # Resonator tube boost at fundamental
+    from synthesis.dsp import biquad_peak_coefs
+    import scipy.signal as ss
+    b, a = biquad_peak_coefs(freq, 5.0, 3.0)
+    s = ss.lfilter(b, a, s)
+    s = lowpass(s, max(3500, freq * 6))
+    return s * 0.85
+
+
+def timbre_glass_rim(freq, duration, inflect=None, seed=0):
+    """Wet finger on wineglass rim: near-pure sine with slow pitch drift,
+    very slow attack, very slow release, shimmer from subtle pitch wobble."""
+    n = int(SR * duration)
+    t = np.arange(n) / SR
+    rng = np.random.default_rng(seed)
+    # Multiple very-close detuned sines for shimmer
+    signal = np.zeros(n)
+    for det in [0.0, 0.003, -0.0025, 0.0015]:
+        wob = 0.005 * np.sin(2 * np.pi * rng.uniform(0.7, 1.2) * t + rng.uniform(0, 2 * np.pi))
+
+        def combined(tt, det=det, wob=wob):
+            base = inflect(tt) if inflect else 0.0
+            return base + det + np.interp(tt, t, wob)
+
+        phase = _phase(freq, n, combined)
+        signal += np.sin(phase) + 0.10 * np.sin(2 * phase)
+    signal = signal / 4
+    # Slow attack — approx 300ms ramp up
+    attack_n = min(int(SR * 0.3), n // 3)
+    env = np.ones(n)
+    env[:attack_n] = np.linspace(0, 1, attack_n)
+    return signal * env * 0.6
+
+
+def timbre_bass_drone(freq, duration, inflect=None, seed=0):
+    """Deep bass drone: subharmonic-rich, organ-pipe-like. Use for contrabass drones."""
+    n = int(SR * duration)
+    t = np.arange(n) / SR
+    rng = np.random.default_rng(seed)
+    # Strong fundamental + even harmonics, slow beating between two voices
+    signal = np.zeros(n)
+    for det in [0.0, 0.006]:
+        drift = 0.002 * np.sin(2 * np.pi * rng.uniform(0.12, 0.28) * t)
+
+        def combined(tt, det=det, drift=drift):
+            base = inflect(tt) if inflect else 0.0
+            return base + det + np.interp(tt, t, drift)
+
+        phase = _phase(freq, n, combined)
+        voice = (1.0 * np.sin(phase) + 0.6 * np.sin(2 * phase)
+                 + 0.25 * np.sin(3 * phase) + 0.08 * np.sin(4 * phase))
+        signal += voice
+    signal = signal / 2 * 0.8
+    signal = lowpass(signal, 900)
+    return signal * 0.95
+
+
+def timbre_shaker(freq, duration, inflect=None, seed=0):
+    """Shaker: bandpassed noise with a brief attack. Pitch-ambiguous (freq ignored mostly)."""
+    n = int(SR * duration)
+    t = np.arange(n) / SR
+    rng = np.random.default_rng(seed)
+    noise = rng.normal(0, 1, n)
+    # Bandpass 2-6 kHz for shaker sibilance
+    hp = noise - lowpass(noise, 2500)
+    bp = hp - (hp - lowpass(hp, 6500))
+    env = np.exp(-t * 15) + 0.2 * np.exp(-t * 3)
+    return bp * env * 0.6
+
+
 TIMBRES: Dict[str, Callable] = {
     "sine": timbre_sine,
     "vocal_male_low": timbre_vocal_male_low,
@@ -464,6 +737,19 @@ TIMBRES: Dict[str, Callable] = {
     "breath_noise": timbre_breath_noise,
     "reed": timbre_reed,
     "percussive": timbre_percussive,
+    # New — 11 additions 2026-04-23
+    "hang_drum": timbre_hang_drum,
+    "thumb_piano": timbre_thumb_piano,
+    "bowed_crotales": timbre_bowed_crotales,
+    "clay_pot": timbre_clay_pot,
+    "blown_bottle": timbre_blown_bottle,
+    "felt_piano": timbre_felt_piano,
+    "strummed_harp": timbre_strummed_harp,
+    "close_whisper": timbre_close_whisper,
+    "wood_marimba": timbre_wood_marimba,
+    "glass_rim": timbre_glass_rim,
+    "bass_drone": timbre_bass_drone,
+    "shaker": timbre_shaker,
 }
 
 
@@ -1078,9 +1364,22 @@ def render_spec(spec: dict, seed: int = 42,
     if pre_peak > 0.6:
         stereo *= (0.6 / pre_peak)
 
-    # Master bus — HPF + reverb + gentle HF rolloff. No saturation, no comp.
+    # Master bus — per-spec mix overrides allow each piece to have its own
+    # room character: dry close ritual vs wet cathedral vs bright hall, etc.
+    mix = spec.get("mix", {}) or {}
+    if mix.get("master_bus") is False:
+        apply_master = False
     if apply_master:
-        stereo = master_bus(stereo, reverb_wet=reverb_wet)
+        stereo = master_bus(
+            stereo,
+            reverb_wet=mix.get("reverb_wet", reverb_wet),
+            reverb_length=mix.get("reverb_length", 2.0),
+            reverb_decay=mix.get("reverb_decay", 3.8),
+            hpf_hz=mix.get("hpf_hz", 40),
+            lpf_hz=mix.get("lpf_hz", 8000),
+            hf_shelf_gain_db=mix.get("hf_shelf_gain_db", 0.0),
+            hf_shelf_freq=mix.get("hf_shelf_freq", 4000),
+        )
 
     # Normalize to standard mastered level (-1 dBFS ≈ 0.89).
     # Nothing above 0dBFS, no saturation, so laptop speakers see a clean signal.
