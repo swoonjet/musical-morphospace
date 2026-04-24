@@ -1,0 +1,70 @@
+{
+  "expedition_number": 28,
+  "iso_date": "2026-04-24T10:49:06",
+  "curiosity_score": 0.4719787187905008,
+  "continuous": {
+    "pitch_density": 0.545,
+    "microtonality_degree": 0.794,
+    "octave_equivalence": 0.011,
+    "interval_hierarchy": 0.985,
+    "pitch_flexibility": 0.436,
+    "metric_periodicity": 0.688,
+    "rhythmic_density": 0.404,
+    "polyrhythmic_complexity": 0.012,
+    "cycle_length": 0.092,
+    "tempo_stability": 0.617,
+    "piece_duration": 0.984,
+    "formal_repetition": 0.705,
+    "development_arc": 0.884,
+    "voice_count": 0.943,
+    "voice_independence": 0.984,
+    "drone_presence": 0.996,
+    "improvisation_degree": 0.287,
+    "ornament_density": 0.963
+  },
+  "categorical": {
+    "tuning_basis": "overtone_series",
+    "scale_topology": "single_cycle_no_repeat",
+    "rhythmic_structure": "additive_metric",
+    "formal_type": "sectional_contrasting",
+    "texture_type": "call_response",
+    "ornament_grammar": "microtonal_inflection_core",
+    "transmission_mode": "recorded_reference",
+    "ensemble_topology": "solo",
+    "social_function": "entertainment_display",
+    "listener_role": "ritual_participant",
+    "silence_treatment": "equal_to_sound",
+    "temporal_framing": "clock_time_bounded"
+  },
+  "warnings": [
+    "ensemble microtonal coordination \u2014 rare (Arabic takht, Turkish classical)"
+  ],
+  "is_complete_composition": true,
+  "neighbors": [
+    {
+      "name": "Tuvan Khoomei (throat singing \u2014 sygyt style)",
+      "id": "tuvan_khoomei",
+      "distance": 0.5219493635944921
+    },
+    {
+      "name": "Hyperpop",
+      "id": "hyperpop",
+      "distance": 0.5358863369541865
+    },
+    {
+      "name": "Arabic Maqam (Egyptian takht ensemble)",
+      "id": "arabic_maqam_takht",
+      "distance": 0.5501981614640683
+    },
+    {
+      "name": "\u00c9liane Radigue Electronic Drone",
+      "id": "radigue_electronic_drone",
+      "distance": 0.5521191495775708
+    },
+    {
+      "name": "Spectral Composition (French school)",
+      "id": "spectral_composition",
+      "distance": 0.566020935065785
+    }
+  ]
+}
